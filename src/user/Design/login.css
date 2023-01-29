@@ -1,0 +1,58 @@
+.login_ctr {
+  width: 80%;
+  margin: 15px auto;
+  margin-top: 3rem;
+}
+._l_txt {
+  background-color: var(--light-blue);
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  color: #fff;
+}
+.login_ctr > div {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.login_ctr > div > div:first-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-weight: bold;
+}
+.login_inputs_ctr {
+  flex: 2;
+}
+
+.login_form {
+  height: 90%;
+  width: 80%;
+  margin: 5% auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.lgin_btn_ctr {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+._tc {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .login_ctr {
+    width: 85%;
+    margin: 10px auto;
+  }
+  .lgin_btn_ctr {
+    width: 100%;
+  }
+}

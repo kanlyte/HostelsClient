@@ -1,0 +1,70 @@
+.bookingdetails {
+  width: 80%;
+  margin: 15px auto;
+  display: flex;
+  flex: 2;
+  justify-content: space-between;
+  align-items: center;
+}
+.message {
+  align-items: center;
+  text-align: center;
+}
+.message p {
+  padding: 10px;
+  font-size: 16px;
+}
+.bookingdetails1 {
+  flex: 1;
+}
+
+.bookingdetails2 {
+  flex: 2;
+  padding: 15px;
+}
+.bookingdetails2 > div:nth-child(1) {
+  text-align: center;
+  font-size: 25px;
+  padding-bottom: 10px;
+  font-family: var(--font-family);
+  color: #000000;
+}
+.tf {
+  padding: 15px;
+}
+
+.booking1 {
+  padding: 50px 0px !important;
+}
+.booking-inputs-ctr form {
+//   margin: 25px !important;
+}
+.bking-inputs-ctr-d {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+.booking-inputs-ctr {
+//   margin: 30px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.bking-inputs-ctr-hw {
+  padding: 10px 10px;
+}
+
+/*....media queries....*/
+@media screen and (max-width: 768px) {
+  .bookingdetails {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+  }
+  .booking-inputs-ctr {
+    margin: 3px !important;
+  }
+  .booking-inputs-ctr {
+    border: none;
+  }
+}

@@ -1,0 +1,37 @@
+.homeHeading {
+  text-align: center;
+  border-bottom: 1px solid rgba(21, 21, 21, 0.5);
+  width: 20vmax;
+  padding: 1vmax;
+  font-size: 1.4vmax;
+  margin: 5vmax auto;
+  color: rgb(0, 0, 0, 0.7);
+}
+
+
+.container{
+  display: grid;
+  padding: 15px 10px;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, minmax(20rem, 1fr)); */
+
+  row-gap: 1.5rem;
+  column-gap: 2rem;
+ 
+
+
+}
+
+ 
+ 
+ 
+    
+  @media screen and (max-width: 600px) {
+    .container{
+      
+      grid-template-columns: repeat(1, 1fr);
+
+    }
+    
+  }
+  
