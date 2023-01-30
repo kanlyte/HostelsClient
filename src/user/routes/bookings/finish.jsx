@@ -17,7 +17,7 @@ function finish() {
             <div className="_b_text">
               <strong style={{ fontSize: "20px" }}>
                 {" "}
-                {user ? user[0].full_name : ""}
+                {user ? user.full_name : ""}
               </strong>{" "}
               Thanks for booking with Us....
               <br />

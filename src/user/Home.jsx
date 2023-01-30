@@ -42,12 +42,25 @@ const Home = () => {
       <div className="main">
       <h2 className="homeHeading">Featured Hostels</h2>
       <div className="container" id="container">
-        {state.hostels &&
-          state.hostels.map((v, i) => (
-            <Link to={`/hostel/${v.id}`} key={i}>
-            <HostelCard  hostel={v}  />
-            </Link>
-          ))}
+        {state.hostels.length === 0 ? (
+           <div
+           className="_load_h"
+           style={{
+             textAlign: "center",
+             margin: "30px 0px",
+             width: "100%",
+             justifyContent: "center",
+             alignItems: "center",
+           }}
+         >
+           Loading Hostels...
+         </div>
+        ) :
+        (  state.hostels.map((v, i) => (
+          <Link to={`/hostel/${v.id}`} key={i}>
+          <HostelCard  hostel={v}  />
+          </Link>
+        )))}
       </div>
       </div>
     <Footer />

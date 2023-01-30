@@ -100,7 +100,7 @@ function BookingForm() {
         submit: true,
       });
       setTimeout(() => {
-        navigate("/hostels");
+        navigate("/bookings/finish");
       }, 2000);
     
     } else if(res.status === false) {
