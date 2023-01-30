@@ -29,7 +29,6 @@
   margin: 5% auto;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
@@ -43,8 +42,11 @@
 ._tc {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+}
+._img_l{
+  width: 35%;
+  height: 35%;
 }
 
 @media screen and (max-width: 768px) {

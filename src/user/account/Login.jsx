@@ -13,7 +13,8 @@ import FormsApi from "../../api/api";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import user from "..//../app.config";
-import "../Design/login.css";
+import "../Design/login.scss";
+import LogIn from "..//../assets/login.svg"
 function Login() {
   const nav = useNavigate();
   useEffect(() => {
@@ -66,6 +67,9 @@ function Login() {
         <div>
           <div className="_l_txt">Login in to Your account Here</div>
           <form onSubmit={form_submit} className="login_form">
+          <div className="_img_l">
+        <img src={LogIn} alt="" />
+          </div>
             <div className="login_inputs_ctr">
               <TextField
                 variant="outlined"
@@ -110,8 +114,7 @@ function Login() {
                   label="Remember Me"
                 />
               </FormGroup>
-            </div>
-            <div className="lgin_btn_ctr">
+              <div className="lgin_btn_ctr">
               <Button
                 color="primary"
                 type="submit"
@@ -143,6 +146,8 @@ function Login() {
                 </span>
               </Link>
             </div>
+            </div>
+         
           </form>
         </div>
       </div>

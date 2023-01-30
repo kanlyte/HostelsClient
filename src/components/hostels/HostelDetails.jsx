@@ -127,6 +127,12 @@ const HostelDetails = () => {
           </div>
         </div>
       </div>
+      <div className="_more_hostel_inf_ctr -s">
+        <div>
+          <h4 className="_line">More Hostel Description</h4>
+          <div>{state.hostel.hostel_description || " .... "}</div>
+        </div>
+      </div>
       <Footer />
     </>
     //   )}

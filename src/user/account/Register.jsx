@@ -25,7 +25,7 @@ export default function Register() {
     apiEmailUsed: false,
     open_loader: false,
     samePassword: true,
-    open_loader: true,
+    open_loader: false,
     mui: { snackBarPosition: { vertical: "top", horizontal: "right" } },
   });
 

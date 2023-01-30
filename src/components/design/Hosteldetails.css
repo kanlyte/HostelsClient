@@ -75,6 +75,15 @@
   display: flex;
   gap: 30px;
 }
+._more_hostel_inf_ctr{
+  width: 80%;
+  margin: 15px auto;
+}
+._line{
+  padding: 5px 0px 10px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgb(236, 233, 233);
+}
 @media screen and (max-width: 600px) {
   .desc {
     bottom: 60px;
