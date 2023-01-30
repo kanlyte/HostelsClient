@@ -7,12 +7,13 @@ import HostelCard from "../components/hostels/HostelCard";
 import FormsApi from "../api/api";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer/Footer";
+import user from "../app.config";
 const Home = () => {
   const [state, setState] = useState({
     pending_hostels: [],
     hostels: [],
   });
-
+// console.log(user);
   useEffect(() => {
     (async () => {
       const res = await new FormsApi().get("/allhostels");

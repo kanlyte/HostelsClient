@@ -22,20 +22,22 @@ function Login() {
       nav(-1);
     }
   });
+  //state
   const [rememberMe, setRememberMe] = useState(true);
   const [apiFeedBackError, setApiFeedBackError] = useState(false);
   const [submit, setSubmit] = useState(false);
+  const [networkError, setNetworkError] = useState(false);
 
   const form_submit = async (e) => {
     e.preventDefault();
     setSubmit(true);
     const fd = new FormData(e.target);
-    let _fc = {};
+    let _fcontent = {};
     fd.forEach((value, key) => {
-      _fc[key] = value;
+      _fcontent[key] = value;
     });
     let api = new FormsApi();
-    let res = await api.post("/login", _fc);
+    let res = await api.post("/login", _fcontent);
     if (res === "Error") {
       setApiFeedBackError(true);
       setSubmit(false);
@@ -45,7 +47,6 @@ function Login() {
       setApiFeedBackError(true);
       setSubmit(false);
     } else {
-      console.log(res.user);
       if (rememberMe) {
         const data = Base64.encode(JSON.stringify(res.user));
         localStorage.setItem("token", data);
@@ -55,11 +56,12 @@ function Login() {
         sessionStorage.setItem("token", data);
         setSubmit(false);
       }
-      nav(-1);
+      nav(0);
     }
-
-    if (user) return <Header />;
   };
+
+  if (user) return <Header />;
+
   return (
     <>
       <Header />

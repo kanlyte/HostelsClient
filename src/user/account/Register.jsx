@@ -18,74 +18,55 @@ import user from "..//../app.config";
 
 export default function Register() {
   const nav = useNavigate();
-  const [termsCheckBox, setTermsCheckBox] = useState(false);
-  const [state, setState] = useState({
-    submit: false,
-    apiFeedBackError: false,
-    apiEmailUsed: false,
-    open_loader: false,
-    samePassword: true,
-    open_loader: false,
-    mui: { snackBarPosition: { vertical: "top", horizontal: "right" } },
-  });
 
- const form_submit = async (e) => {
+  const [apiFeedBackError, setApiFeedBackError] = useState(false);
+  const [samePassword, setSamePassword] = useState(true);
+  const [apiEmailUsed, setApiEmailUsed] = useState(false);
+  const [termsCheckBox, setTermsCheckBox] = useState(false);
+  const [submit, setSubmit] = useState(false);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#fff";
+  }, []);
+
+  const form_submit = async (e) => {
     e.preventDefault();
-    setState({...state, submit: true,});
+    setSubmit(true);
     const fd = new FormData(e.target);
     let _fcontent = {};
     fd.forEach((value, key) => {
       _fcontent[key] = value;
     });
     if (_fcontent.repeat_password !== _fcontent.password) {
-      setState({...state,
-      apiFeedBackError: true,
-      submit: false,
-      samePassword: false,
-      });
+      setSamePassword(false);
+      setApiFeedBackError(true);
+      setSubmit(false);
       return;
     }
     let api = new FormsApi();
     let res = await api.post("/newuser", _fcontent);
     if (res === "Error") {
-      setState({...state,
-      apiFeedBackError: true,
-      submit: false,
-      });
+      setApiFeedBackError(true);
+      setSubmit(false);
       return;
     }
     if (res.status === false) {
       if (res.data === "Emailtaken") {
-        setState({...state,
-        apiFeedBackError: true,
-        submit: false,
-      });
+        setApiEmailUsed(true);
+        setSubmit(false);
         return;
       } else {
-        setState({...state,
-        apiFeedBackError: true,
-        submit: true,
-      });
+        setApiFeedBackError(true);
+        setSubmit(false);
         return;
       }
     } else {
       const data = Base64.encode(JSON.stringify({ ...res.result }));
       localStorage.setItem("token", data);
-      setState({...state,
-      submit: true,});    
+      setSubmit(false);
       nav("/user/profile");
     }
   };
-
-
-
-  const handleClose = () => {
-    setState({ ...state, open_loader: false });
-  };
-  const handleToggle = () => {
-    setState({ ...state, open_loader: true });
-  };
-
   useEffect(() => {
     if (user) {
       nav(-1);
@@ -123,7 +104,7 @@ export default function Register() {
               color="primary"
               style={{ width: "48%" }}
               helperText={
-                state.apiEmailUsed ? "Email already in use" : ""
+                apiEmailUsed ? "Email already in use" : ""
               }
             />
           </div>
@@ -135,6 +116,8 @@ export default function Register() {
               variant="outlined"
               color="primary"
               style={{ width: "48%" }}
+              helperText={samePassword ? "" : "Passwords Don't Match"}
+              error={!samePassword}
             />
             <TextField
               label="Repeat Password"
@@ -143,6 +126,12 @@ export default function Register() {
               variant="outlined"
               color="primary"
               style={{ width: "48%" }}
+              helperText={
+                samePassword
+                  ? "Making sure, you dont go wrong"
+                  : "Passwords Don't Match"
+              }
+              error={!samePassword}
             />
           </div>
           <div>
@@ -163,26 +152,28 @@ export default function Register() {
             </FormGroup>
           </div>
           <div>
-            <Button
-              variant="outlined"
-              type="submit"
-              style={{ width: "100%", margin: "15px 0px" }}
-              color={state.apiFeedBackError ? "secondary" : "primary"}
-            >
-              {state.submit
-                ? "Please Wait..."
-                : state.apiFeedBackError
-                ? "Something Went Wrong, Try again"
-                : "Submit"}
-            </Button>
+          <Button
+                    variant="outlined"
+                    type="submit"
+                    color={apiFeedBackError ? "secondary" : "primary"}
+                    style={{ width: "100%", margin: "15px 0px" }}
+                    disabled={!termsCheckBox}
+                  >
+                    <CircularProgress
+                      size={15}
+                      thickness={10}
+                      style={{
+                        display: submit ? "inline-block" : "none",
+                        marginRight: "20px",
+                      }}
+                    />
+                    {submit
+                      ? "Please Wait..."
+                      : apiFeedBackError
+                      ? "Something Went Wrong, Try again"
+                      : "Submit"}
+                  </Button>
           </div>
-          <Backdrop
-            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={state.open_loader}
-            onClick={handleClose}
-          >
-            <CircularProgress color="inherit" thickness={5} size={70} />
-          </Backdrop>
           <div style={{ width: "100%", marginBlock: "10px" }}>
             Already having an account?
             <Link to="/user/login">

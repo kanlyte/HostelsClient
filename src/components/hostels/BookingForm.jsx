@@ -227,7 +227,7 @@ function BookingForm() {
                   helperText={`Like: "Aggi peter"`}
                   color="primary"
                   style={{ width: "98%" }}
-                  value={user[0].full_name || " "}
+                  value={user.full_name || " "}
                 />
               </div>
               <div className="bking-inputs-ctr-d">
@@ -238,7 +238,7 @@ function BookingForm() {
                   helperText={`Eg: "0778089708"`}
                   color="primary"
                   style={{ width: "48%" }}
-                  value={user[0].phone_number || " "}
+                  value={user.phone_number || " "}
                 />
                 <TextField
                   label="Name of hostel booked"
@@ -282,7 +282,7 @@ function BookingForm() {
                   color="primary"
                   helperText={`gmail account`}
                   style={{ width: "48%" }}
-                  value={user[0].email || " "}
+                  value={user.email || " "}
                 />
                 <TextField
                   label="Level: (council / degree / depromer / masters"

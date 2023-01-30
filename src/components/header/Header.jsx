@@ -290,8 +290,8 @@ const Header = () => {
               }}
             >
               <User />
-              <span>Hi &nbsp; 
-               {user ? `${user[0].full_name.split(" ")[0]}` : "Account"}
+              <span>
+               {user ? `${user.full_name.split(" ")[0]}` : "Account"}
               </span>
               {state.userDropDownActive ? (
                 <ExpandUpIcon />
