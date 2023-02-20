@@ -1,0 +1,28 @@
+
+.___loader img{
+    width: 80px;
+    margin-left: 140%;
+  
+}
+.___container{
+    max-width: 1280px;
+    padding: 0 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.___flex{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/*__media querries ___*/
+@media screen and (max-width: 786px){
+    .___loader img{
+        width: 60px;
+        margin-left: 36% !important;
+      
+    }
+    
+}

@@ -62,7 +62,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="sd-item">
-              <Link to="/category/627b658f66349809adc1d7d4">
+              <Link to="/aboutus">
                 <span className="sd-item-name">
                   <i className="las la-phone ctg-icon"></i>
                   Contact Us
@@ -70,7 +70,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="sd-item">
-              <Link to="/category/627b65d866349809adc1d7ed">
+              <Link to="/privacypolicy">
                 <span className="sd-item-name">
                   <i className="las la-shield-alt ctg-icon"></i>
                   Privacy Policy

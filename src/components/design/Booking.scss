@@ -9,10 +9,17 @@
 .message {
   align-items: center;
   text-align: center;
+  background-color: #ebf3ff;
+  flex: 1;
+
+
 }
 .message p {
   padding: 10px;
   font-size: 16px;
+  color: #555;
+
+
 }
 .bookingdetails1 {
   flex: 1;

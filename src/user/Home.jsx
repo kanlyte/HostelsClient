@@ -8,6 +8,8 @@ import FormsApi from "../api/api";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import user from "../app.config";
+import HeaderSlider from "../components/slider/HeaderSlider";
+import Loader from "../components/Loader/Loader";
 const Home = () => {
   const [state, setState] = useState({
     pending_hostels: [],
@@ -40,21 +42,15 @@ const Home = () => {
     
       <Header />
       <div className="main">
-      <h2 className="homeHeading">Featured Hostels</h2>
+      <div className='slider-wrapper'>
+        <HeaderSlider />
+      </div>
+      <div className='__title-md'>
+      <h3>See our Featured Hostels</h3>
+      </div>
       <div className="container" id="container">
-        {state.hostels.length === 0 ? (
-           <div
-           className="_load_h"
-           style={{
-             textAlign: "center",
-             margin: "30px 0px",
-             width: "100%",
-             justifyContent: "center",
-             alignItems: "center",
-           }}
-         >
-           Loading Hostels...
-         </div>
+        {state.hostels.length === 0 ? ( 
+        <Loader />
         ) :
         (  state.hostels.map((v, i) => (
           <Link to={`/hostel/${v.id}`} key={i}>

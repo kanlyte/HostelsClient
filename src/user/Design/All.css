@@ -1,0 +1,253 @@
+
+
+/*
+
+styling for the helpdesk page starts here
+
+*/
+.email p,
+.contact p {
+  padding-top: 1.5rem !important;
+  color: white;
+  font-size: larger;
+}
+.helpcenter {
+  width: 50%;
+  margin: auto ;
+}
+.heading {
+  text-align: center;
+  background-color: white;
+  height: 2rem;
+}
+.heading h4 {
+  padding-top: 7px !important;
+}
+.body {
+  margin-top: 10px !important;
+  background-color: white;
+  padding: 20px !important;
+}
+.b-1 {
+  text-align: left;
+  padding: 10px 0px !important;
+}
+.b-2 {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(223, 222, 222);
+  padding: 10px !important;
+}
+.b-2-2-1,
+.b-2-2-2 {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.b-2-2-1,
+.b-2-2-2 {
+  padding: 10px 0px !important;
+}
+.b-3 {
+  padding: 20px 0px !important;
+  text-align: center;
+}
+.contact-cards p {
+  color: black !important;
+}
+.contact-cards {
+  display: flex;
+  justify-content: space-between;
+  flex: 3;
+  width: 75%;
+  margin: auto !important;
+}
+.email0,
+.call0,
+.location0 {
+  flex: 1;
+  text-align: center;
+  border: 2px solid #8dc8ff;
+  margin: 10px !important;
+  padding: 20px 5px !important;
+}
+.email0:hover,
+.call0:hover,
+.location0:hover {
+  border: 2px solid #1f93ff;
+}
+.email0 p,
+.call0 p,
+.location0 p {
+  margin: 20px 0px !important;
+}
+@media screen and (max-width: 380px) {
+  .banner {
+    height: 2rem;
+    width: 100% !important;
+  }
+  .email p,
+  .contact p {
+    padding-top: 0.5rem !important;
+    font-size: small;
+  }
+  .helpcenter {
+    width: 90%;
+  }
+  .b-2 {
+    display: grid;
+    grid-template-columns: 1;
+  }
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1;
+    width: 95%;
+  }
+  .help-container {
+    overflow-x: hidden;
+  }
+  @media screen and (max-width: 280px) {
+    .contact {
+      display: none;
+    }
+  }
+}
+
+/*
+Styling for the help desk page stops here
+*/
+
+/*
+
+
+
+Stlying for the booking manual page starts here
+*/
+
+.bookingmanual {
+  width: 80%;
+  margin: auto !important;
+  /* padding: 20px !important; */
+}
+.bookheading {
+  background-color: white;
+  padding: 20px 10px 20px 10px !important;
+}
+.bookheading p {
+  padding-top: 20px !important;
+}
+.bookdetails {
+  background-color: white;
+  padding: 0px 5px 20px 10px !important;
+}
+.bookdetails h4 {
+  margin-top: 10px !important;
+  padding: 10px 0px !important;
+}
+.bookdetails p {
+  padding: 10px 5px 10px 10px !important;
+}
+.payment {
+  margin-top: 10px !important;
+  background-color: white;
+  padding: 20px 10px !important;
+}
+.payment p {
+  padding: 10px !important;
+}
+.payment h5 {
+  color: #1f93ff;
+  /* padding-top: 10px !important; */
+}
+@media screen and (max-width: 380px) {
+  .bookingmanual {
+    width: 100%;
+  }
+}
+
+/*
+Stlying for the booking manual page stops here
+*/
+
+/* Styling for privacy policy starts here */
+.ppcontainer {
+  width: 80%;
+  margin: auto !important;
+}
+.sec1 {
+  background-color: white;
+  padding: 20px 10px 20px 10px !important;
+}
+.sec1 p {
+  padding-top: 20px !important;
+}
+.sec2 {
+  background-color: white;
+  padding: 0px 5px 20px 10px !important;
+}
+.sec2 h4 {
+  margin-top: 10px !important;
+  padding: 10px 0px !important;
+}
+.sec3 {
+  background-color: white;
+  padding: 0px 5px 20px 10px !important;
+}
+.sec3 h3 {
+  margin-top: 10px !important;
+  padding: 10px 0px !important;
+}
+.sec3 p,
+.sec3 h5 {
+  padding-top: 10px !important;
+}
+/* Styling for privacy policy starts here */
+
+/*styling for aboutus starts here*/
+
+.aboutus {
+  width: 90%;
+  margin: auto !important;
+  display: flex;
+  flex: 2 !important;
+  /* justify-content: space-between; */
+}
+.aboutusdescription {
+  flex: 1 !important;
+  padding: 20px !important;
+}
+.aboutusdescription h2 {
+  margin-bottom: 10px !important;
+}
+.aboutusdescription p {
+  font-size: large;
+}
+.aboutusimage {
+  flex: 1 !important;
+}
+.aboutus-image {
+  width: 100%;
+  height: 100%;
+}
+.ourteam {
+  width: 90%;
+  margin: auto !important;
+  text-align: center;
+}
+.ourteam-team {
+  display: flex;
+  flex: 5;
+  justify-content: space-around;
+}
+.team1,
+.team2,
+.team3,
+.team4,
+.team5 {
+  flex: 1;
+}
+.team-image {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+/*styling for aboutus stops here*/
