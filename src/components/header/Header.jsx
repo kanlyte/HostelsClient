@@ -6,9 +6,7 @@ import ExpandUpIcon from '@mui/icons-material/ExpandLessOutlined';
 import Help from '@mui/icons-material/HelpOutlineOutlined';
 import User from '@mui/icons-material/PersonOutlined';
 import Close from '@mui/icons-material/CloseOutlined';
-import CIcon from '@coreui/icons-react';
 import Policy from '@mui/icons-material/Shield';
-import * as icon from '@coreui/icons';
 import "./Header.css";
 import Logo from "..//../assets/logo.png"
 import user from "..//../app.config";
