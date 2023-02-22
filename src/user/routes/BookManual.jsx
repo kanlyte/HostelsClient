@@ -1,6 +1,6 @@
 import Banner from "./Banner";
-import "../Design/All,css";
-
+import "../Design/All.css";
+import Footer from "../../components/footer/Footer";
 
 export default () => {
   return (
@@ -68,6 +68,7 @@ export default () => {
             <h5>In the name of the beacon</h5>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
