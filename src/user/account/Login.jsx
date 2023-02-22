@@ -1,10 +1,13 @@
 import {
+  Alert as MuiAlert,
+  Slide,
   Button,
   Checkbox,
   CircularProgress,
   FormControlLabel,
   FormGroup,
   TextField,
+  Snackbar,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Base64 } from "js-base64";
@@ -14,7 +17,10 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import user from "..//../app.config";
 import "../Design/login.scss";
-import LogIn from "..//../assets/login.svg"
+import LogIn from "..//../assets/login.svg";
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 function Login() {
   const nav = useNavigate();
   useEffect(() => {
@@ -26,11 +32,25 @@ function Login() {
   const [rememberMe, setRememberMe] = useState(true);
   const [apiFeedBackError, setApiFeedBackError] = useState(false);
   const [submit, setSubmit] = useState(false);
-  const [networkError, setNetworkError] = useState(false);
+  const [state, setState] = useState({
+    mui: {
+      snackBarOpen: false,
+      snackBarMessage: "",
+      snackBarStatus: "info",
+      snackBarPosition: { vertical: "bottom", horizontal: "center" },
+    },
+  });
 
   const form_submit = async (e) => {
     e.preventDefault();
     setSubmit(true);
+    // setState({...state,
+    //   mui:{
+    //     ...state.mui,
+    //     snackBarMessage: "Login successfull",
+    //     snackBarStatus: "info",
+    //     snackBarOpen: true,
+    //   }})
     const fd = new FormData(e.target);
     let _fcontent = {};
     fd.forEach((value, key) => {
@@ -41,6 +61,7 @@ function Login() {
     if (res === "Error") {
       setApiFeedBackError(true);
       setSubmit(false);
+   
       return;
     }
     if (res.status === false) {
@@ -60,63 +81,82 @@ function Login() {
     }
   };
 
-  if (user) return <Header />;
+   //close mui
+   const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setState({
+      ...state,
+      mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
+    });
+  };
 
   return (
     <>
+        <Snackbar
+        open={state.mui.snackBarOpen}
+        anchorOrigin={state.mui.snackBarPosition}
+        autoHideDuration={9000}
+        onClose={handleClose}
+        message={state.mui.snackBarMessage}
+        TransitionComponent={(props) => <Slide {...props} direction="down" />}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={state.mui.snackBarStatus}
+          sx={{ width: "100%" }}
+        >
+          {state.mui.snackBarMessage}
+        </Alert>
+      </Snackbar>
       <Header />
       <div className="login_ctr">
-        <div>
-          <div className="_l_txt">Login in to Your account Here</div>
-          <form onSubmit={form_submit} className="login_form">
+        <form onSubmit={form_submit} className="login_form">
           <div className="_img_l">
-        <img src={LogIn} alt="" />
+            <img src={LogIn} alt="" />
           </div>
-            <div className="login_inputs_ctr">
-              <TextField
-                variant="outlined"
-                error={apiFeedBackError}
-                helperText={
-                  apiFeedBackError
-                    ? "Wrong Email or some network error"
-                    : ""
-                }
-                label="Email"
-                type="text"
-                name="email"
-                fullWidth
-                style={{ margin: "20px 0px" }}
-              />
-              <TextField
-                error={apiFeedBackError}
-                helperText={
-                  apiFeedBackError
-                    ? "Wrong Password or some network error"
-                    : ""
-                }
-                variant="outlined"
-                label="Password"
-                type="password"
-                name="password"
-                fullWidth
-                style={{ margin: "20px 0px" }}
-              />
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="primary"
-                      name="rem_me"
-                      checked={rememberMe}
-                      onChange={() => {
+          <div className="login_inputs_ctr">
+            <TextField
+              variant="outlined"
+              error={apiFeedBackError}
+              helperText={
+                apiFeedBackError ? "Wrong Email or some network error" : ""
+              }
+              label="Email"
+              type="text"
+              name="email"
+              fullWidth
+              style={{ margin: "20px 0px" }}
+            />
+            <TextField
+              error={apiFeedBackError}
+              helperText={
+                apiFeedBackError ? "Wrong Password or some network error" : ""
+              }
+              variant="outlined"
+              label="Password"
+              type="password"
+              name="password"
+              fullWidth
+              style={{ margin: "20px 0px" }}
+            />
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    color="primary"
+                    name="rem_me"
+                    checked={rememberMe}
+                    onChange={() => {
                       setRememberMe(!rememberMe);
-                      }}
-                    />
-                  }
-                  label="Remember Me"
-                />
-              </FormGroup>
-              <div className="lgin_btn_ctr">
+                    }}
+                  />
+                }
+                label="Remember Me"
+              />
+            </FormGroup>
+            <div className="lgin_btn_ctr">
               <Button
                 color="primary"
                 type="submit"
@@ -148,10 +188,8 @@ function Login() {
                 </span>
               </Link>
             </div>
-            </div>
-         
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
       <Footer />
     </>
