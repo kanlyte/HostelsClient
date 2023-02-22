@@ -18,13 +18,15 @@ p {
   text-align: center;
 }
 ._img {
-  align-items: center;
+  align-items: center  ;
   justify-content: center;
   text-align: center;
 }
 ._img img {
   height: 30%;
   width: 30%;
+  margin: 0px auto;
+
 }
 @media screen and (max-width: 768px) {
   ._img img {

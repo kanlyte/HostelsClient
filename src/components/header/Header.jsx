@@ -6,17 +6,7 @@ import ExpandUpIcon from "@mui/icons-material/ExpandLessOutlined";
 import Help from "@mui/icons-material/HelpOutlineOutlined";
 import User from "@mui/icons-material/PersonOutlined";
 import Close from "@mui/icons-material/CloseOutlined";
-import CIcon from "@coreui/icons-react";
-import * as icon from "@coreui/icons";
-import SearchIcon from '@mui/icons-material/Search';
-import ExpandDownIcon from '@mui/icons-material/ExpandMoreOutlined';
-import ExpandUpIcon from '@mui/icons-material/ExpandLessOutlined';
-import Help from '@mui/icons-material/HelpOutlineOutlined';
-import User from '@mui/icons-material/PersonOutlined';
-import Close from '@mui/icons-material/CloseOutlined';
-import CIcon from '@coreui/icons-react';
-import Policy from '@mui/icons-material/Shield';
-import * as icon from '@coreui/icons';
+import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo.png";
 import user from "..//../app.config";
@@ -175,7 +165,7 @@ const Header = () => {
       <header>
         <div className="hdr-banner-ctr">
           <div className="hdr-banner">
-            <p>beaconhostels@gmail.com</p>
+            <h4>beaconhostels@gmail.com</h4>
             <p>Call:0778089708/0706533720</p>
           </div>
         </div>
@@ -246,7 +236,7 @@ const Header = () => {
                       : { display: "none" }
                   }
                 >
-                  <Link to="/help/request">
+                  <Link to="/help">
                     <li className="-help">
                       <i className="lar la-user"></i>
                       Describe hostel
@@ -264,14 +254,68 @@ const Header = () => {
                       Make comments
                     </li>
                   </Link>
-                  <li className="-help">
-                    <Link to="/help">
+                  <Link to="/help">
+                    <li className="-help">
                       <button className="-a-btn -lg" style={{ width: "100%" }}>
                         <i className="las la-sign-out-alt"></i>
                         Help Center
                       </button>
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
+                </ul>
+              </div>
+              <div className="hdr-user-terms">
+                <button
+                  className="-dropdown"
+                  onFocus={() => {
+                    setState({
+                      ...state,
+                      termsDropDownActive: true,
+                    });
+                  }}
+                  onBlur={() => {
+                    setTimeout(() => {
+                      setState({
+                        ...state,
+                        termsDropDownActive: false,
+                      });
+                    }, 500);
+                  }}
+                >
+                  <Policy fontSize="small" />
+                  <span>Essentials</span>
+                  {state.termsDropDownActive ? (
+                    <ExpandUpIcon />
+                  ) : (
+                    <ExpandDownIcon />
+                  )}
+                </button>
+                <ul
+                  className="-help-list -acc-l"
+                  style={
+                    state.termsDropDownActive
+                      ? { display: "flex" }
+                      : { display: "none" }
+                  }
+                >
+                  <Link to="/tcs">
+                    <li className="-help">
+                      <i className="las la-file-alt"></i>
+                      Terms & Conditions
+                    </li>
+                  </Link>
+                  <Link to="/privacypolicy">
+                    <li className="-help">
+                      <i className="las la-shield-alt"></i>
+                      Privacy Policy
+                    </li>
+                  </Link>
+                  <Link to="/aboutus">
+                    <li className="-help">
+                      <i className="las la-phone"></i>
+                      About Us
+                    </li>
+                  </Link>
                 </ul>
               </div>
               <div className="hdr-user-account">
@@ -298,8 +342,7 @@ const Header = () => {
                 >
                   <User />
                   <span>
-                    {/* {user ? `${user.full_name.split(" ")[0]}` : "Account"} */}
-                    User
+                    {user ? `${user[0].full_name.split(" ")[0]}` : "Account"}
                   </span>
                   {state.userDropDownActive ? (
                     <ExpandUpIcon />
@@ -394,242 +437,7 @@ const Header = () => {
           </form>
         </div>
       </header>
-    
-        <div className="hdr-user">
-          <div className="hdr-user-help">
-            <button
-              className="-dropdown"
-              onFocus={() => {
-                setState({
-                  ...state,
-                  helpDropDownActive: true,
-                });
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setState({
-                    ...state,
-                    helpDropDownActive: false,
-                  });
-                }, 500);
-              }}
-            >
-              <Help fontSize="small" />
-              <span>Help</span>
-              {state.helpDropDownActive ? (
-                <ExpandUpIcon />
-              ) : (
-                <ExpandDownIcon />
-              )}
-            </button>
-            <ul
-              className="-help-list -acc-l"
-              style={
-                state.helpDropDownActive
-                  ? { display: "flex" }
-                  : { display: "none" }
-              }
-            >
-              <Link to="/help/request">
-                <li className="-help">
-                  <i className="lar la-user"></i>
-                  Describe hostel
-                </li>
-              </Link>
-              <Link to="/help">
-                <li className="-help">
-                  <i className="lar la-user"></i>
-                  How To Book
-                </li>
-              </Link>
-              <Link to="/help">
-                <li className="-help">
-                  <i className="las la-shopping-cart"></i>
-                  Make comments
-                </li>
-              </Link>
-              <li className="-help">
-                <button className="-a-btn -lg" style={{ width: "100%" }}>
-                  <i className="las la-sign-out-alt"></i>
-                   Help Center
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div className="hdr-user-terms">
-            <button
-              className="-dropdown"
-              onFocus={() => {
-                setState({
-                  ...state,
-                  termsDropDownActive: true,
-                });
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setState({
-                    ...state,
-                    termsDropDownActive: false,
-                  });
-                }, 500);
-              }}
-            >
-              <Policy fontSize="small" />
-              <span>Terms of Use</span>
-              {state.termsDropDownActive ? (
-                <ExpandUpIcon />
-              ) : (
-                <ExpandDownIcon />
-              )}
-            </button>
-            <ul
-              className="-help-list -acc-l"
-              style={
-                state.termsDropDownActive
-                  ? { display: "flex" }
-                  : { display: "none" }
-              }
-            >
-              <Link to="/terms">
-                <li className="-help">
-                  <i className="las la-file-alt"></i>
-                  Terms & Conditions
-                </li>
-              </Link>
-              <Link to="/terms">
-                <li className="-help">
-                  <i className="las la-shield-alt"></i>
-                  Privacy Policy
-                </li>
-              </Link>
-              <Link to="/terms">
-                <li className="-help">
-                  <i className="las la-phone"></i>
-                  About Us
-                </li>
-              </Link>
-            </ul>
-          </div>
-          <div className="hdr-user-account">
-            <button
-              className="-dropdown"
-              onFocus={() => {
-                if (user) {
-                  setState({
-                    ...state,
-                    userDropDownActive: true,
-                  });
-                } else {
-                  navigate("/user/login");
-                }
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setState({
-                    ...state,
-                    userDropDownActive: false,
-                  });
-                }, 500);
-              }}
-            >
-              <User />
-              <span>
-               {user ? `${user.full_name.split(" ")[0]}` : "Account"}
-              </span>
-              {state.userDropDownActive ? (
-                <ExpandUpIcon />
-              ) : (
-                <ExpandDownIcon />
-              )}
-            </button>
-            <ul
-              className="-help-list -acc-l"
-              style={
-                state.userDropDownActive
-                  ? { display: "flex" }
-                  : { display: "none" }
-              }
-            >
-              <Link to="/user/profile">
-                <li className="-help">
-                  <i className="lar la-user"></i>
-                  My Profile
-                </li>
-              </Link>
-              <Link to="/user/orders">
-                <li className="-help">
-                  <i className="las la-gift"></i>
-                  My Bookings
-                </li>
-              </Link>
-              <a href="/user/edit">
-                <li className="-help">
-                  <i className="las la-user-edit"></i>
-                  Edit Profile
-                </li>
-              </a>
-              <li className="-help">
-                <button
-                  className="-a-btn -lg"
-                  style={{ width: "100%" }}
-                  onClick={() => {
-                    const token_stored = localStorage.getItem("token");
-                    if (token_stored) {
-                      localStorage.removeItem("token");
-                    } else {
-                      sessionStorage.removeItem("token");
-                    }
-                    window.location.replace("/");
-                  }}
-                >
-                  <i className="las la-sign-out-alt"></i>
-                  Log Out
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="hdr-icons-ctr-sm">
-          <div
-            className="search-i-sm"
-            onClick={() => {
-              setState({
-                ...state,
-                search_small_screen: !state.search_small_screen,
-              });
-            }}
-          >
-            <SearchIcon fontSize="large" />
-          </div>
-          <div className="user-i-sm">
-            <Link to="/user/profile">
-              <User fontSize="large" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <div
-      className="search-bar-sm-appr"
-      style={
-        state.search_small_screen
-          ? { display: "block" }
-          : { display: "none" }
-      }
-    >
-      <form
-        className="hdr-search"
-        // onSubmit={submitSearch}
-        style={{ height: "50px" }}
-      >
-        <input type="text" name="search" placeholder="Search Hostels...." />
-        <button className="search-icon" type="submit">
-          <SearchIcon fontSize="medium" />
-        </button>
-      </form>
-    </div>
-  // </header>
-  </>
+    </>
   );
 };
 
