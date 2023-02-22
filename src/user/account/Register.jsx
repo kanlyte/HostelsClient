@@ -1,4 +1,7 @@
+import React, { useEffect, useState } from "react";
 import {
+  Alert as MuiAlert,
+  Slide,
   Backdrop,
   Button,
   Checkbox,
@@ -6,8 +9,8 @@ import {
   FormControlLabel,
   FormGroup,
   TextField,
+  Snackbar,
 } from "@mui/material";
-import { useEffect, useState } from "react";
 import { Base64 } from "js-base64";
 import { Link, useNavigate } from "react-router-dom";
 import FormsApi from "../../api/api";
@@ -15,6 +18,9 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import "../Design/register.css";
 import user from "..//../app.config";
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function Register() {
   const nav = useNavigate();
@@ -24,6 +30,14 @@ export default function Register() {
   const [apiEmailUsed, setApiEmailUsed] = useState(false);
   const [termsCheckBox, setTermsCheckBox] = useState(false);
   const [submit, setSubmit] = useState(false);
+  const [state, setState] = useState({
+    mui: {
+      snackBarOpen: false,
+      snackBarMessage: "",
+      snackBarStatus: "info",
+      snackBarPosition: { vertical: "bottom", horizontal: "center" },
+    },
+  });
 
   useEffect(() => {
     document.body.style.backgroundColor = "#fff";
@@ -64,6 +78,14 @@ export default function Register() {
       const data = Base64.encode(JSON.stringify({ ...res.result }));
       localStorage.setItem("token", data);
       setSubmit(false);
+      setState({...state,
+      mui:{
+        ...state.mui,
+        snackBarMessage: "Login successfull",
+        snackBarStatus: "info",
+        snackBarOpen: true,
+      }})
+
       nav("/user/profile");
     }
   };
@@ -74,8 +96,35 @@ export default function Register() {
   }, []);
 
   if (user) return <Header />;
+
+   //close mui
+   const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setState({
+      ...state,
+      mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
+    });
+  };
   return (
     <>
+    <Snackbar
+        open={state.mui.snackBarOpen}
+        anchorOrigin={state.mui.snackBarPosition}
+        autoHideDuration={9000}
+        onClose={handleClose}
+        message={state.mui.snackBarMessage}
+        TransitionComponent={(props) => <Slide {...props} direction="down" />}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={state.mui.snackBarStatus}
+          sx={{ width: "100%" }}
+        >
+          {state.mui.snackBarMessage}
+        </Alert>
+      </Snackbar>
       <Header />
       <div className="reg_ctr cdd">
         <div className="h_ctr">Register Your Account Here</div>

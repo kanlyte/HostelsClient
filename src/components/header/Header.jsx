@@ -7,6 +7,7 @@ import Help from '@mui/icons-material/HelpOutlineOutlined';
 import User from '@mui/icons-material/PersonOutlined';
 import Close from '@mui/icons-material/CloseOutlined';
 import CIcon from '@coreui/icons-react';
+import Policy from '@mui/icons-material/Shield';
 import * as icon from '@coreui/icons';
 import "./Header.css";
 import Logo from "..//../assets/logo.png"
@@ -21,6 +22,7 @@ const Header = () => {
   const [state, setState] = useState({
     helpDropDownActive: false,
     userDropDownActive: false,
+    termsDropDownActive: false,
     sideNav: false,
     search_small_screen: false,
   });
@@ -265,6 +267,60 @@ const Header = () => {
                    Help Center
                 </button>
               </li>
+            </ul>
+          </div>
+          <div className="hdr-user-terms">
+            <button
+              className="-dropdown"
+              onFocus={() => {
+                setState({
+                  ...state,
+                  termsDropDownActive: true,
+                });
+              }}
+              onBlur={() => {
+                setTimeout(() => {
+                  setState({
+                    ...state,
+                    termsDropDownActive: false,
+                  });
+                }, 500);
+              }}
+            >
+              <Policy fontSize="small" />
+              <span>Terms of Use</span>
+              {state.termsDropDownActive ? (
+                <ExpandUpIcon />
+              ) : (
+                <ExpandDownIcon />
+              )}
+            </button>
+            <ul
+              className="-help-list -acc-l"
+              style={
+                state.termsDropDownActive
+                  ? { display: "flex" }
+                  : { display: "none" }
+              }
+            >
+              <Link to="/terms">
+                <li className="-help">
+                  <i className="las la-file-alt"></i>
+                  Terms & Conditions
+                </li>
+              </Link>
+              <Link to="/terms">
+                <li className="-help">
+                  <i className="las la-shield-alt"></i>
+                  Privacy Policy
+                </li>
+              </Link>
+              <Link to="/terms">
+                <li className="-help">
+                  <i className="las la-phone"></i>
+                  About Us
+                </li>
+              </Link>
             </ul>
           </div>
           <div className="hdr-user-account">

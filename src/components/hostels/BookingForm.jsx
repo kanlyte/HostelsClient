@@ -323,7 +323,7 @@ function BookingForm() {
                   PROCCED TO PAYMENT
                 </Button>
               </div>
-              <Backdrop
+              {/* <Backdrop
                 sx={{
                   color: "#fff",
                   zIndex: (theme) => theme.zIndex.drawer + 1,
@@ -332,7 +332,7 @@ function BookingForm() {
                 onClick={handleClose}
               >
                 <CircularProgress color="inherit" />
-              </Backdrop>
+              </Backdrop> */}
             </form>
           
           </div>

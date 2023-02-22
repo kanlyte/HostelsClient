@@ -25,9 +25,11 @@ export default () => {
     <>
     <Header />
     <main>
-      <section className="main-user-ctr">
-        <div className="-b-x -br">
+      <section className="___profile-ctr">
+        <div className="___cad">
           <div>
+           
+          <div className="___mge_ac">Manage Your Hostel Account</div>
             <Link
               to="/user/profile"
               className={
@@ -36,8 +38,7 @@ export default () => {
                   : "user-link"
               }
             >
-              <Person />
-              <span> My Profile</span>
+            <span> My Profile</span>
             </Link>
             <Link
               to="/user/bookings"
@@ -47,17 +48,46 @@ export default () => {
                   : "user-link"
               }
             >
-              <Person />
               <span> My Bookings</span>
             </Link>
+            <Link
+              to="/user/recentlyviewed"
+              className={
+                params.page === "recentlyviewed"
+                  ? "user-link -b-x active"
+                  : "user-link"
+              }
+            >
+            <span> Recently viewed</span>
+            </Link>
+
             <Link
               to="/user/editprofile"
               className={
                 params.page === "editprofile" ? "user-link -b-x active" : "user-link"
               }
             >
-              <Person />
               <span> Edit Profile</span>
+            </Link>
+            <Link
+              to="/user/recentlyviewed"
+              className={
+                params.page === "recentlyviewed"
+                  ? "user-link -b-x active"
+                  : "user-link"
+              }
+            >
+              <span>Security</span>
+            </Link>
+            <Link
+              to="/user/recentlyviewed"
+              className={
+                params.page === "recentlyviewed"
+                  ? "user-link -b-x active"
+                  : "user-link"
+              }
+            >
+              <span> Close Account</span>
             </Link>
             <span
               className="user-link -b-x"
@@ -76,7 +106,7 @@ export default () => {
             </span>
           </div>
         </div>
-        <div className="-b-x -br">
+        <div className="___cad_te">
           <div>
             {params.page === "profile"
               ? "My Profile"
