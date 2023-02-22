@@ -1,4 +1,4 @@
-import Banner from "./Banner";
+// import Banner from "./Banner";
 
 //imports from mui
 import { Button } from "@mui/material";
@@ -7,6 +7,8 @@ import SettingsPhoneOutlinedIcon from "@mui/icons-material/SettingsPhoneOutlined
 import TtyOutlinedIcon from "@mui/icons-material/TtyOutlined";
 import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
+import Banner from "./Banner";
+import Footer from "../../components/footer/Footer";
 export default () => {
   return (
     <>
@@ -82,6 +84,7 @@ export default () => {
           <div className="message-img"></div>
           <div className="message-form"></div>
         </div>
+        <Footer />
       </div>
     </>
   );

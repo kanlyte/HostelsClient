@@ -28,6 +28,7 @@ function Login() {
       nav(-1);
     }
   });
+  console.log(user);
   //state
   const [rememberMe, setRememberMe] = useState(true);
   const [apiFeedBackError, setApiFeedBackError] = useState(false);
@@ -61,7 +62,7 @@ function Login() {
     if (res === "Error") {
       setApiFeedBackError(true);
       setSubmit(false);
-   
+
       return;
     }
     if (res.status === false) {
@@ -81,8 +82,8 @@ function Login() {
     }
   };
 
-   //close mui
-   const handleClose = (event, reason) => {
+  //close mui
+  const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -94,7 +95,7 @@ function Login() {
 
   return (
     <>
-        <Snackbar
+      <Snackbar
         open={state.mui.snackBarOpen}
         anchorOrigin={state.mui.snackBarPosition}
         autoHideDuration={9000}

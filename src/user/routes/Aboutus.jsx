@@ -1,10 +1,12 @@
 import "../Design/All.css";
 import Passport from "../../assets/passport.jpeg";
 import OurTeam from "..//../assets/ourteam.jpeg";
+import Banner from "./Banner";
 export default () => {
   return (
     <>
       <div className="aboutuscontainer">
+        <Banner />
         <div className="aboutus">
           <div className="aboutusdescription">
             <h2>Beacon Hostels App</h2>
@@ -21,21 +23,74 @@ export default () => {
               evaluation systems,ICT consultancy, business support and also
               conduct internship trainings at all levels.
             </p>
-            <h4 style={{ color: "blue" }}>About Beacon Hostels app</h4>
-            <p>
-              Beacon hostels is a room booking application that is developed
-              locally in Uganda. It was developed to solve problems that are
-              existing in the use of manual ways of booking rooms by different
-              categories of people including university and institutional
-              students, travelllers and rourists, residents and all other
-              categories of people accross Uganda. This syatem has all hostels,
-              rentals, appartments, hotels, inns, and Motels which provide
-              accomodation services to people and acced, registered and working
-              with beacon hostels.
-            </p>
           </div>
           <div className="aboutusimage">
             <img className="aboutus-image" src={OurTeam} alt="" />
+          </div>
+        </div>
+        <div className="aboutbeacon">
+          <h4 style={{ color: "blue" }}>About Beacon Hostels app</h4>
+          <p>
+            Beacon hostels is a room booking application that is developed
+            locally in Uganda. It was developed to solve problems that are
+            existing in the use of manual ways of booking rooms by different
+            categories of people including university and institutional
+            students, travelllers and rourists, residents and all other
+            categories of people accross Uganda. This system has all hostels,
+            rentals, appartments, hotels, inns, and Motels which provide
+            accomodation services to people and acced, registered and working
+            with beacon hostels.
+          </p>
+        </div>
+        <div className="m-v-c">
+          <div className="vision">
+            <h4>Our Vision</h4>
+            <p>
+              To build a reliable, efficient, secure, robust and reusable
+              locally available software providing all online booking and
+              payment preferences to the community.
+            </p>
+          </div>
+          <div className="mission">
+            <h4>Our Mission</h4>
+            <p>
+              Desire to avail all places of residence to the community for easy
+              choice, selection, booking and decision making of the places of
+              best suit, providing of a secure mobile wallet for saving and
+              accumulation of fares, save payments
+            </p>
+          </div>
+          <div className="m-o">
+            <div className="o-image"></div>
+            <div className="Objectives">
+              <h4>Objectives</h4>
+              <li>To provide a platform for online room booking.</li>
+              <li>
+                To provide a variety of choices of rooms and places of
+                residence.
+              </li>
+              <li>Real time data and response to clients.</li>
+              <li>Provision of a mobile payment gateway for all fares</li>
+              <li>
+                Provision of a mobile E-wallet for saving and accumulation of
+                fares
+              </li>
+              <li> To provide a platform for managing houses by the owners</li>
+            </div>
+          </div>
+          <div className="c-o">
+            <div className="corevalues">
+              <h4>Core Values</h4>
+              <li>Integrity</li>
+              <li>Transparency</li>
+              <li>Responsibility</li>
+              <li> Respect</li>
+              <li>Honesty</li>
+              <li>Loyalty</li>
+              <li>Confidentiality</li>
+              <li>Objectivity</li>
+            </div>
+            <div className="c-image"></div>
           </div>
         </div>
         <div className="ourteam">
