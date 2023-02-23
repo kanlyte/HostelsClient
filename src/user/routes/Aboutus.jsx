@@ -2,6 +2,9 @@ import "../Design/All.css";
 import Passport from "../../assets/passport.jpeg";
 import OurTeam from "..//../assets/ourteam.jpeg";
 import Banner from "./Banner";
+import q1 from "../../assets/q1.png";
+import q2 from "../../assets/q2.png";
+import Footer from "../../components/footer/Footer";
 export default () => {
   return (
     <>
@@ -60,8 +63,10 @@ export default () => {
               accumulation of fares, save payments
             </p>
           </div>
-          <div className="m-o">
-            <div className="o-image"></div>
+          {/* <div className="m-o">
+            <div className="o-image">
+              <img src={q1} alt="" />
+            </div>
             <div className="Objectives">
               <h4>Objectives</h4>
               <li>To provide a platform for online room booking.</li>
@@ -90,47 +95,13 @@ export default () => {
               <li>Confidentiality</li>
               <li>Objectivity</li>
             </div>
-            <div className="c-image"></div>
-          </div>
-        </div>
-        <div className="ourteam">
-          <div className="ourteam-head">
-            <h1>Our team</h1>
-            <p>
-              We're impartial and independent, and every day we create
-              distinctive,reusable , rubost, and world-class reintermediate
-              softwares.
-            </p>
-          </div>
-          <div className="ourteam-team">
-            <div className="team1">
-              <img className="team-image" src={Passport} alt="" />
-              <h3>Name</h3>
-              <p>Position</p>
+            <div className="c-image">
+              <img src={q2} alt="" />
             </div>
-            <div className="team2">
-              <img className="team-image" src={Passport} alt="" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-            <div className="team3">
-              <img className="team-image" src={Passport} alt="" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-            <div className="team4">
-              <img className="team-image" src={Passport} alt="" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-            <div className="team5">
-              <img className="team-image" src={Passport} alt="" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-          </div>
+          </div> */}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

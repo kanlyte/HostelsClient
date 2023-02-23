@@ -19,8 +19,8 @@ import Header from "../header/Header";
 import { Base64 } from "js-base64";
 import "../design/Booking.scss";
 import FormsApi from "../../api/api";
-import user from "..//../app.config";
-// const user = _user ? _user[0] : {};
+import _user from "..//../app.config";
+const user = _user ? _user : {};
 
 function BookingForm() {
   const navigate = useNavigate();
@@ -37,8 +37,6 @@ function BookingForm() {
   const changeSelectRoomNo = (event) => {
     setState({ ...state, selected_room_no: event.target.value });
   };
-
- 
 
   useEffect(() => {
     (async () => {
@@ -102,8 +100,7 @@ function BookingForm() {
       setTimeout(() => {
         navigate("/bookings/finish");
       }, 2000);
-    
-    } else if(res.status === false) {
+    } else if (res.status === false) {
       setState({
         ...state,
         mui: {
@@ -131,10 +128,8 @@ function BookingForm() {
       setTimeout(() => {
         window.location.reload();
       }, 2000);
-   
     }
-  // console.log(contentObj);
-
+    // console.log(contentObj);
   };
   const handleClose = () => {
     setState({ ...state, open_loader: false });
@@ -212,7 +207,7 @@ function BookingForm() {
                 hidden
                 onChange={() => {}}
               />
-                <input
+              <input
                 type="text"
                 name="room_id"
                 value={state.selected_room_no ? state.selected_room_no : ""}
@@ -334,7 +329,6 @@ function BookingForm() {
                 <CircularProgress color="inherit" />
               </Backdrop> */}
             </form>
-          
           </div>
         </div>
       </div>
