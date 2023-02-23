@@ -4,12 +4,12 @@ import "../Design/user.css";
 import Avarta from "..//../assets/user.svg";
 import {
   Button,
+  FilledInput,
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   MenuItem,
-  OutlinedInput,
   Select,
   TextField,
 } from "@mui/material";
@@ -167,9 +167,9 @@ useEffect(()=>{
 };
 
 const Profile = ({_user}) => {
+  const [showPassword, setShowPassword] = useState(false);
   const[state, setState] = useState({
     _user: {},
-    showPassword: false,
   })
   useEffect(() => {
     (async () => {
@@ -185,10 +185,7 @@ const Profile = ({_user}) => {
     })();
   }, []);
 
-  const handleClickShowPassword = () =>{ setState({
-    ...state, showPassword: true,
-  });
-}
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -233,11 +230,16 @@ const Profile = ({_user}) => {
                   margin: "20px",
                 }}
               />
-          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={state.showPassword ? 'text' : 'password'}
+          <FormControl
+           variant="filled"
+           style={{
+            width: "75%",
+            margin: "20px",
+          }}>
+          <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
+          <FilledInput
+            id="filled-adornment-password"
+            type={showPassword ? 'text' : 'password'}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -246,11 +248,13 @@ const Profile = ({_user}) => {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {state.showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
             label="Password"
+            value={state._user.password || " "}
+
           />
         </FormControl>
             </div>
