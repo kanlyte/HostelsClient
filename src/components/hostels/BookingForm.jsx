@@ -76,6 +76,14 @@ function BookingForm() {
   const availabel_rooms = state.a_rooms.filter((v) => {
     return v.hostel_id === hostel_id;
   });
+
+  const selected_room_arr = availabel_rooms.filter((r)=>{
+    return state.selected_room_no === r.room_number;
+  })
+const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
+  // console.log(s_r_arr);
+
+
   const submit_booking_form = async (e) => {
     e.preventDefault();
     setState({ ...state, submit: true, open_loader: true });
@@ -210,7 +218,7 @@ function BookingForm() {
               <input
                 type="text"
                 name="room_id"
-                value={state.selected_room_no ? state.selected_room_no : ""}
+                value={s_r_arr ? s_r_arr.id : ""}
                 hidden
                 onChange={() => {}}
               />
@@ -261,7 +269,7 @@ function BookingForm() {
                       <MenuItem value="">No rooms available</MenuItem>
                     ) : (
                       availabel_rooms.map((v, i) => (
-                        <MenuItem key={i} value={v.id}>
+                        <MenuItem key={i} value={v.room_number}>
                           {v.room_number}
                         </MenuItem>
                       ))
