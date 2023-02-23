@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import ExpandDownIcon from '@mui/icons-material/ExpandMoreOutlined';
-import ExpandUpIcon from '@mui/icons-material/ExpandLessOutlined';
-import Help from '@mui/icons-material/HelpOutlineOutlined';
 import User from '@mui/icons-material/PersonOutlined';
 import Close from '@mui/icons-material/CloseOutlined';
-import Policy from '@mui/icons-material/Shield';
-import ExpandDownIcon from "@mui/icons-material/ExpandMoreOutlined";
 import ExpandUpIcon from "@mui/icons-material/ExpandLessOutlined";
 import Help from "@mui/icons-material/HelpOutlineOutlined";
-import User from "@mui/icons-material/PersonOutlined";
-import Close from "@mui/icons-material/CloseOutlined";
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo.png";
@@ -110,10 +104,18 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="sd-item">
-                  <Link to="/user/edit">
+                  <Link to="/user/editprofile">
                     <span className="sd-item-name">
                       <i className="las la-user-edit ctg-icon"></i>
                       Edit Profile
+                    </span>
+                  </Link>
+                </li>
+                <li className="sd-item">
+                  <Link to="/user/usersecurity">
+                    <span className="sd-item-name">
+                      <i className="las la-user-edit ctg-icon"></i>
+                      Security
                     </span>
                   </Link>
                 </li>
@@ -171,7 +173,7 @@ const Header = () => {
       <header>
         <div className="hdr-banner-ctr">
           <div className="hdr-banner">
-            <h4>beaconhostels@gmail.com</h4>
+            <p>beaconhostels@gmail.com</p>
             <p>Call:0778089708/0706533720</p>
           </div>
         </div>
@@ -348,7 +350,7 @@ const Header = () => {
                 >
                   <User />
                   <span>
-                    {user ? `${user[0].full_name.split(" ")[0]}` : "Account"}
+                    {user ? `${user.full_name.split(" ")[0]}` : "Account"}
                   </span>
                   {state.userDropDownActive ? (
                     <ExpandUpIcon />
@@ -370,13 +372,13 @@ const Header = () => {
                       My Profile
                     </li>
                   </Link>
-                  <Link to="/user/orders">
+                  <Link to="/user/bookings">
                     <li className="-help">
                       <i className="las la-gift"></i>
                       My Bookings
                     </li>
                   </Link>
-                  <a href="/user/edit">
+                  <a href="/user/editprofile">
                     <li className="-help">
                       <i className="las la-user-edit"></i>
                       Edit Profile

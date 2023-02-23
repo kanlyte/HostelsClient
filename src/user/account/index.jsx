@@ -5,8 +5,11 @@ import Avarta from "..//../assets/user.svg";
 import {
   Button,
   FormControl,
+  IconButton,
+  InputAdornment,
   InputLabel,
   MenuItem,
+  OutlinedInput,
   Select,
   TextField,
 } from "@mui/material";
@@ -14,17 +17,27 @@ import Person from "@mui/icons-material/Person";
 import user from "..//../app.config";
 import { useEffect } from "react";
 import { ChevronRight } from "@mui/icons-material";
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Footer from "../../components/footer/Footer";
+import { useState } from "react";
+import FormsApi from "../../api/api";
 
-export default () => {
+export default ({_user}) => {
   const params = useParams();
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!user) {
-      navigate("/user/login");
-    }
-  }, []);
+useEffect(()=>{
+  if (!user) {
+    navigate("/user/login");
+  }
+}, []);
+  // console.log(state._user);
 
+
+//filtering the users and matchng the right user
+// const _usa = state.users.filter((m)=>{
+//   return user.id === m.id;
+// });
   if (!user) return <Header />;
 
   return (
@@ -153,7 +166,33 @@ export default () => {
   );
 };
 
-const Profile = () => {
+const Profile = ({_user}) => {
+  const[state, setState] = useState({
+    _user: {},
+    showPassword: false,
+  })
+  useEffect(() => {
+    (async () => {
+      const res = await new FormsApi().get("/user/one/" + user.id);
+      if (res !== "Error") {
+        if (res.status !== false) {
+          setState({
+            ...state,
+            _user: res.result,
+          });
+        }
+      }
+    })();
+  }, []);
+
+  const handleClickShowPassword = () =>{ setState({
+    ...state, showPassword: true,
+  });
+}
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
     <>
       <div className="__profile_">
@@ -162,8 +201,9 @@ const Profile = () => {
             <div className="__inputs_on_left">
               <TextField
                 name="full_name"
-                variant="outlined"
+                variant="filled"
                 label="Full name"
+                value={state._user.full_name || " "}
                 style={{
                   width: "75%",
                   margin: "20px",
@@ -172,7 +212,8 @@ const Profile = () => {
               <TextField
                 type="number"
                 name="phone_number"
-                variant="outlined"
+                value={state._user.phone_number || " "}
+                variant="filled"
                 label="contact"
                 style={{
                   width: "75%",
@@ -184,22 +225,34 @@ const Profile = () => {
             <div className="__inputs_on_right">
               <TextField
                 name="email"
-                variant="outlined"
+                variant="filled"
                 label="Email Address"
+                value={state._user.email || " "}
                 style={{
                   width: "75%",
                   margin: "20px",
                 }}
               />
-              <TextField
-                name="password"
-                variant="outlined"
-                label="password"
-                style={{
-                  width: "75%",
-                  margin: "20px",
-                }}
-              />
+          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            type={state.showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {state.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label="Password"
+          />
+        </FormControl>
             </div>
           </div>
         </form>

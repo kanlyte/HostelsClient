@@ -59,6 +59,8 @@ export default function Register() {
     }
     let api = new FormsApi();
     let res = await api.post("/newuser", _fcontent);
+    console.log(res.result);
+
     if (res === "Error") {
       setApiFeedBackError(true);
       setSubmit(false);
@@ -85,6 +87,7 @@ export default function Register() {
         snackBarStatus: "info",
         snackBarOpen: true,
       }})
+
 
       nav("/user/profile");
     }
