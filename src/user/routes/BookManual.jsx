@@ -1,15 +1,17 @@
 import Banner from "./Banner";
 import "../Design/All.css";
 import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 
 export default () => {
   return (
     <>
       <div className="bookmanualcontainer">
-        <Banner />
+        {/* <Banner /> */}
+        <Header />
         <div className="bookingmanual">
           <div className="bookheading">
-            <h4>Booking Manual</h4>
+            <h4 style={{ marginTop: "15px" }}>Booking Manual</h4>
             <p>
               Hello our estemmed client. The beacon hostels team is privilaged
               to have you here. Feel free to mail us in case of any matters

@@ -19,8 +19,8 @@ import Header from "../header/Header";
 import { Base64 } from "js-base64";
 import "../design/Booking.scss";
 import FormsApi from "../../api/api";
-import _user from "..//../app.config";
-const user = _user ? _user : {};
+import user from "..//../app.config";
+// const user = _user ? _user : {};
 
 function BookingForm() {
   const navigate = useNavigate();
@@ -77,12 +77,11 @@ function BookingForm() {
     return v.hostel_id === hostel_id;
   });
 
-  const selected_room_arr = availabel_rooms.filter((r)=>{
+  const selected_room_arr = availabel_rooms.filter((r) => {
     return state.selected_room_no === r.room_number;
-  })
-const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
+  });
+  const s_r_arr = selected_room_arr ? selected_room_arr[0] : {};
   // console.log(s_r_arr);
-
 
   const submit_booking_form = async (e) => {
     e.preventDefault();

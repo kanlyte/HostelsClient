@@ -9,14 +9,16 @@ import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import Banner from "./Banner";
 import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 export default () => {
   return (
     <>
       <div className="help-container">
-        <Banner />
+        {/* <Banner /> */}
+        <Header />
         <div className="helpcenter">
           <div className="heading">
-            <h4>Help Desk</h4>
+            <h4 style={{ marginTop: "15px" }}>Help Desk</h4>
           </div>
           <div className="body">
             <div className="b-1">

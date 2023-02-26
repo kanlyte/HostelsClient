@@ -1,3 +1,4 @@
+import Header from "../../components/header/Header";
 import "../Design/All.css";
 
 import Banner from "./Banner";
@@ -6,10 +7,11 @@ export default () => {
   return (
     <>
       <div className="privacepolicy">
-        <Banner />
+        {/* <Banner /> */}
+        <Header />
         <div className="ppcontainer">
           <div className="sec1">
-            <h2>Private Policy.</h2>
+            <h2 style={{ marginTop: "15px" }}>Private Policy.</h2>
             <p>
               This manual serves to provide information on how Beacon Hostels
               App collects and processes your personal data when you visit our

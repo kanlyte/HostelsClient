@@ -5,14 +5,16 @@ import Banner from "./Banner";
 import q1 from "../../assets/q1.png";
 import q2 from "../../assets/q2.png";
 import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 export default () => {
   return (
     <>
       <div className="aboutuscontainer">
-        <Banner />
+        {/* <Banner /> */}
+        <Header />
         <div className="aboutus">
           <div className="aboutusdescription">
-            <h2>Beacon Hostels App</h2>
+            <h2 style={{ marginTop: "15px" }}>Beacon Hostels App</h2>
             <p>
               This is a product under Kanlyte technlogies.
               <br />
