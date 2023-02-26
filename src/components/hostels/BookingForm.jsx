@@ -18,7 +18,7 @@ import { Base64 } from "js-base64";
 import "../design/Booking.scss";
 import FormsApi from "../../api/api";
 import user from "..//../app.config";
-// const user = _user ? _user[0] : {};
+// const user = _user ? _user : {};
 
 function BookingForm() {
   const navigate = useNavigate();
@@ -35,8 +35,6 @@ function BookingForm() {
   const changeSelectRoomNo = (event) => {
     setState({ ...state, selected_room_no: event.target.value });
   };
-
- 
 
   useEffect(() => {
     (async () => {
@@ -77,8 +75,12 @@ function BookingForm() {
     return v.hostel_id === hostel_id;
   });
 
-  const selected_room_arr = availabel_rooms.filter((r)=>{
+  const selected_room_arr = availabel_rooms.filter((r) => {
     return state.selected_room_no === r.room_number;
+  });
+  const s_r_arr = selected_room_arr ? selected_room_arr[0] : {};
+  // console.log(s_r_arr);
+
   })
 const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
   const submit_booking_form = async (e) => {
@@ -105,8 +107,7 @@ const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
       setTimeout(() => {
         navigate("/bookings/finish");
       }, 2000);
-    
-    } else if(res.status === false) {
+    } else if (res.status === false) {
       setState({
         ...state,
         mui: {
@@ -134,10 +135,8 @@ const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
       setTimeout(() => {
         window.location.reload();
       }, 2000);
-   
     }
-  // console.log(contentObj);
-
+    // console.log(contentObj);
   };
   const handleClose = () => {
     setState({ ...state, open_loader: false });
@@ -222,7 +221,7 @@ const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
                 hidden
                 onChange={() => {}}
               />
-                <input
+              <input
                 type="text"
                 name="user_id"
                 value={user ? user.id : ""}
@@ -341,7 +340,6 @@ const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
                 </Button>
               </div>
             </form>
-          
           </div>
         </div>
       </div>

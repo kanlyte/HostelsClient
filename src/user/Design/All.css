@@ -254,12 +254,6 @@ Stlying for the booking manual page stops here
   margin: auto !important;
   text-align: left;
 }
-.m-o {
-  display: flex;
-  flex: 2;
-  justify-content: space-between;
-  text-align: left;
-}
 
 .ourteam {
   width: 85%;

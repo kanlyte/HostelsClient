@@ -1,5 +1,6 @@
 import { Link } from "@mui/material";
 import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 import "../Design/All.css";
 
 import Banner from "./Banner";
@@ -8,10 +9,13 @@ export default () => {
   return (
     <>
       <div className="tc">
-        <Banner />
+        {/* <Banner /> */}
+        <Header />
         <div className="tcontainer">
           <div className="sec2">
-            <h2>BEACON HOSTELS' TERMS AND CONDITIONS</h2>
+            <h2 style={{ marginTop: "15px" }}>
+              BEACON HOSTELS' TERMS AND CONDITIONS
+            </h2>
             <p>
               These terms and conditions create a contract between you and
               BEACON HOSTELS. Endeavor to read them carefully.
