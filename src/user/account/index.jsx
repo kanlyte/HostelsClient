@@ -1,8 +1,11 @@
+import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "../Design/user.css";
 import Avarta from "..//../assets/user.svg";
 import {
+  Alert as MuiAlert,
+  Slide,
   Button,
   FilledInput,
   FormControl,
@@ -11,6 +14,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Snackbar,
   TextField,
 } from "@mui/material";
 import Person from "@mui/icons-material/Person";
@@ -22,6 +26,9 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";
 import FormsApi from "../../api/api";
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 export default ({_user}) => {
   const params = useParams();
@@ -266,6 +273,7 @@ const Profile = ({_user}) => {
 };
 
 const Bookings = () => {
+ 
   return (
     <>
       <div className="___projects">
@@ -323,29 +331,171 @@ const Bookings = () => {
 };
 
 const EditProfile = () => {
+  const navigate = useNavigate();
+  const [state, setState] = useState({
+    user_details: {},
+    mui: {
+        SnackBarOpen: false,
+        snackBarMessage: "",
+        snackBarStatus: "info",
+        snackBarPosition: { vertical: "top", horizontal: "right" },
+    },
+
+})
+  useEffect(()=>{
+    (async () => {
+        let bookings = await new FormsApi().get("/user/one/" + user.id);
+
+        if (bookings !== "Error") {
+          if (bookings.status !== false) {
+
+            setState({
+              ...state,
+              user_details: bookings.result || {},
+            });
+
+          }
+        }
+      })();
+      return () => {
+        setState({
+          user_details: {},
+          mui: {
+            snackBarOpen: false,
+            snackBarMessage: "",
+            snackBarStatus: "info",
+            snackBarPosition: { vertical: "top", horizontal: "right" },
+          },
+        });
+      };
+}, []);
+  const updateInfo = async (e) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      mui: {
+        ...state.mui,
+        snackBarMessage: "Please Wait....",
+        snackBarStatus: "info",
+        snackBarOpen: true,
+      },
+    });
+    let formDataInstance = new FormData(e.target);
+    let form_contents = {};
+    formDataInstance.forEach((el, i) => {
+    form_contents[i] = el;
+    });
+    let res = await new FormsApi().put(`/user/${user.id}`,form_contents);
+    if (res !== "Error") {
+      if (res.status !== false) {
+        setState({
+          ...state,
+          mui: {
+            ...state.mui,
+            snackBarMessage: "User updated Successfully....",
+            snackBarStatus: "success",
+            snackBarOpen: true,
+          },
+        });
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2000);
+      } else {
+        setState({
+          ...state,
+          mui: {
+            ...state.mui,
+            snackBarMessage: "Update User Failed, Server Error....",
+            snackBarStatus: "warning",
+            snackBarOpen: true,
+          },
+        });
+      }
+      
+    } else {
+      setState({
+        ...state,
+        mui: {
+          ...state.mui,
+          snackBarMessage:
+            "Update User Failed, Check your internet....",
+          snackBarStatus: "warning",
+          snackBarOpen: true,
+        },
+      });
+    }
+}
+
+
+    const handleClose = (event, reason) => {
+      if (reason === "clickaway") {
+        return;
+      }
+      setState({
+        ...state,
+        mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
+      });
+    };
+
   return (
     <>
+        <Snackbar
+        open={state.mui.snackBarOpen}
+        anchorOrigin={state.mui.snackBarPosition}
+        autoHideDuration={5000}
+        onClose={handleClose}
+        message={state.mui.snackBarMessage}
+        TransitionComponent={(props) => <Slide {...props} direction="down" />}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={state.mui.snackBarStatus}
+          sx={{ width: "100%" }}
+        >
+          {state.mui.snackBarMessage}
+        </Alert>
+      </Snackbar>
       <div className="__profile_">
-        <form autoComplete="off">
+        <form onSubmit={updateInfo} autoComplete="off">
           <div className="__input_ctr">
             <div className="__inputs_on_left">
               <TextField
                 name="full_name"
-                variant="outlined"
+                variant="filled"
                 label="Full name"
                 style={{
                   width: "75%",
                   margin: "20px",
                 }}
+                value={state.user_details.full_name || " "}
+                onChange={(e) => {
+                  setState({
+                    ...state,
+                    user_details: {
+                      ...state.user_details,
+                      full_name: e.target.value,
+                    },
+                  });
+                }}
               />
               <TextField
                 type="number"
                 name="phone_number"
-                variant="outlined"
+                variant="filled"
                 label="contact"
                 style={{
                   width: "75%",
                   margin: "20px",
+                }}
+                value={state.user_details.phone_number || " "}
+                onChange={(e) => {
+                  setState({
+                    ...state,
+                    user_details: {
+                      ...state.user_details,
+                      phone_number: e.target.value,
+                    },
+                  });
                 }}
               />
               <Button
@@ -361,20 +511,40 @@ const EditProfile = () => {
             <div className="__inputs_on_right">
               <TextField
                 name="email"
-                variant="outlined"
+                variant="filled"
                 label="Email Address"
                 style={{
                   width: "75%",
                   margin: "20px",
                 }}
+                value={state.user_details.email || " "}
+                onChange={(e) => {
+                  setState({
+                    ...state,
+                    user_details: {
+                      ...state.user_details,
+                      email: e.target.value,
+                    },
+                  });
+                }}
               />
               <TextField
                 name="password"
-                variant="outlined"
+                variant="filled"
                 label="password"
                 style={{
                   width: "75%",
                   margin: "20px",
+                }}
+                value={state.user_details.password || " "}
+                onChange={(e) => {
+                  setState({
+                    ...state,
+                    user_details: {
+                      ...state.user_details,
+                    password: e.target.value,
+                    },
+                  });
                 }}
               />
             </div>

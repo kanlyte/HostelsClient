@@ -3,8 +3,6 @@ import {
   TextField,
   Alert as MuiAlert,
   Button,
-  Backdrop,
-  CircularProgress,
   Snackbar,
   Slide,
   Box,
@@ -83,9 +81,6 @@ function BookingForm() {
     return state.selected_room_no === r.room_number;
   })
 const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
-  // console.log(s_r_arr);
-
-
   const submit_booking_form = async (e) => {
     e.preventDefault();
     setState({ ...state, submit: true, open_loader: true });
@@ -213,10 +208,24 @@ const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
           </div>
           <div className="booking-inputs-ctr">
             <form onSubmit={submit_booking_form}>
+            <input
+                type="text"
+                name="landlord_id"
+                value={bookh ? bookh.hostel_landlord : ""}
+                hidden
+                onChange={() => {}}
+              />
               <input
                 type="text"
                 name="hostel_id"
                 value={bookh ? bookh.id : ""}
+                hidden
+                onChange={() => {}}
+              />
+                <input
+                type="text"
+                name="user_id"
+                value={user ? user.id : ""}
                 hidden
                 onChange={() => {}}
               />
@@ -331,16 +340,6 @@ const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
                   PROCCED TO PAYMENT
                 </Button>
               </div>
-              {/* <Backdrop
-                sx={{
-                  color: "#fff",
-                  zIndex: (theme) => theme.zIndex.drawer + 1,
-                }}
-                open={state.open_loader}
-                onClick={handleClose}
-              >
-                <CircularProgress color="inherit" />
-              </Backdrop> */}
             </form>
           
           </div>

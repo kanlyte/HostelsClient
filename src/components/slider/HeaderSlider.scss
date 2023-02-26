@@ -15,3 +15,14 @@ img{
     width: 100%;
     display: block;
 }
+@media screen and (max-width: 768px) {
+    .___contnr{
+        max-width: 100%;
+        margin: 0;
+        padding: 0 ;
+    }
+    .slider-item{
+        height: 11rem;
+    }
+
+}

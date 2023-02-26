@@ -92,6 +92,7 @@ function Login() {
       mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
     });
   };
+  if (user) return <Header />;
 
   return (
     <>

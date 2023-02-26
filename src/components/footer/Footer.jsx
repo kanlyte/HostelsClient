@@ -43,16 +43,16 @@ function Footer() {
               <ul>
                 <li>
                   <Link
-                    to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    to="/"
+                    style={{ color:"white" }}
                   >
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    to="/aboutus"
+                    style={{ color:"white" }}
                   >
                     About Us
                   </Link>
@@ -60,7 +60,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ color: "white" }}
                   >
                     How to book
                   </Link>
@@ -69,7 +69,7 @@ function Footer() {
                   {" "}
                   <Link
                     to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ color: "white" }}
                   >
                     Describe Hostel
                   </Link>
@@ -78,7 +78,7 @@ function Footer() {
                   {" "}
                   <Link
                     to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ color: "white" }}
                   >
                     Make comments
                   </Link>
@@ -86,8 +86,8 @@ function Footer() {
                 <li>
                   {" "}
                   <Link
-                    to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    to="/aboutus"
+                    style={{ color: "white" }}
                   >
                     Contact
                   </Link>
