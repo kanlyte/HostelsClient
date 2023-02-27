@@ -28,7 +28,7 @@ function Login() {
       nav(-1);
     }
   });
-  console.log(user);
+  // console.log(user);
   //state
   const [rememberMe, setRememberMe] = useState(true);
   const [apiFeedBackError, setApiFeedBackError] = useState(false);
@@ -45,13 +45,6 @@ function Login() {
   const form_submit = async (e) => {
     e.preventDefault();
     setSubmit(true);
-    // setState({...state,
-    //   mui:{
-    //     ...state.mui,
-    //     snackBarMessage: "Login successfull",
-    //     snackBarStatus: "info",
-    //     snackBarOpen: true,
-    //   }})
     const fd = new FormData(e.target);
     let _fcontent = {};
     fd.forEach((value, key) => {
@@ -92,7 +85,7 @@ function Login() {
       mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
     });
   };
-  if (user) return <Header />;
+  // if (user) return <Header />;
 
   return (
     <>

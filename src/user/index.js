@@ -13,6 +13,7 @@ import PrivacyPolicy from "./routes/Privacypolicy";
 import Help from "./routes/Help";
 import BookManual from "./routes/BookManual";
 import TermsConditions from "./routes/TermsConditions";
+import BecomeLandlord from "./routes/BecomeLandlord";
 function User() {
   return (
     <BrowserRouter>
@@ -29,6 +30,7 @@ function User() {
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/help" element={<Help />} />
         <Route path="/bookmanual" element={<BookManual />} />
+        <Route path="/becomelandlord" element={<BecomeLandlord />} />
         <Route path="/tcs" element={<TermsConditions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

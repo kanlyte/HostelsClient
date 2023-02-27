@@ -273,7 +273,23 @@ const Profile = ({_user}) => {
 };
 
 const Bookings = () => {
- 
+ const [state, setState] = useState({
+  bookings: [],
+ })
+ useEffect(() => {
+  (async () => {
+    const res = await new FormsApi().get("/booking/user/" + user.id);
+    if (res !== "Error") {
+      if (res.status !== false) {
+        setState({
+          ...state,
+          bookings: res.result,
+        });
+      }
+    }
+  })();
+}, []);
+//  console.log(state.bookings);
   return (
     <>
       <div className="___projects">
@@ -290,38 +306,24 @@ const Bookings = () => {
                   <td>Booking date</td>
                 </tr>
               </thead>
-              {/* <tbody>
-                {this.state.free.length === 0 ? (
+              <tbody>
+                {state.bookings.length === 0 ? (
                   <tr>
-                    <td>No Free Room</td>
+                    <td>No bookings to display...</td>
                   </tr>
-                ) : this.state.free.length >= 5 ? (
-                  this.state.free
-                    .slice(
-                      this.state.free.length - 5,
-                      this.state.free.length
-                    )
-                    .map((x, y) => {
-                      return (
-                        <tr key={y}>
-                          <td>{x.room_no}</td>
-                          <td>{x.room_fee}</td>
-                          <td>{x.room_type}</td>
-                        </tr>
-                      );
-                    })
                 ) : (
-                  this.state.free.map((v, i) => {
+                  state.bookings.map((x, y) => {
                     return (
-                      <tr key={i}>
-                        <td>{v.room_no}</td>
-                        <td>{v.room_fee}</td>
-                        <td>{v.room_type}</td>
+                      <tr key={y}>
+                        <td>{x.name_of_hostel}</td>
+                        <td>{x.room_number}</td>
+                        <td>{x.booking_date}</td>
                       </tr>
                     );
                   })
-                )}
-              </tbody> */}
+                )
+                 }
+              </tbody>
             </table>
           </div>
         </div>

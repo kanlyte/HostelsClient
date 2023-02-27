@@ -81,8 +81,7 @@ function BookingForm() {
   const s_r_arr = selected_room_arr ? selected_room_arr[0] : {};
   // console.log(s_r_arr);
 
-  })
-const s_r_arr = selected_room_arr? selected_room_arr[0] : {};
+
   const submit_booking_form = async (e) => {
     e.preventDefault();
     setState({ ...state, submit: true, open_loader: true });

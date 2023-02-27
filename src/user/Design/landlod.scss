@@ -1,0 +1,15 @@
+.__req_ctr{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: 15px auto;
+}
+@media screen and (max-width: 768px) {
+    .__req_ctr{
+        display: flex;
+        flex-direction: column;
+        width: 98%;
+        margin: 5px auto;
+    }
+}
