@@ -43,7 +43,7 @@ const Header = () => {
           <ul className="sd-ns1 sd-ns">
             <div className="sd-hdr">Beacon Hostels</div>
             <li className="sd-item">
-              <Link to="/category/627b655966349809adc1d7c6">
+              <Link to="/">
                 <span className="sd-item-name">
                   <i className="las la-home ctg-icon"></i>
                   Home
@@ -75,7 +75,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="sd-item">
-              <Link to="/category/627b664566349809adc1d803">
+              <Link to="/tcs">
                 <span className="sd-item-name">
                   <i className="las la-file-alt ctg-icon"></i>
                   Terms &amp; Conditions
@@ -124,6 +124,14 @@ const Header = () => {
                     <span className="sd-item-name">
                       <i className="las la-user-edit ctg-icon"></i>
                       Security
+                    </span>
+                  </Link>
+                </li>
+                <li className="sd-item">
+                  <Link to="/user/closeaccount">
+                    <span className="sd-item-name">
+                      <i className="las la-user-edit ctg-icon"></i>
+                      Close Account
                     </span>
                   </Link>
                 </li>
