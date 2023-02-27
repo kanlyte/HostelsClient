@@ -80,16 +80,7 @@ export default function Register() {
       const data = Base64.encode(JSON.stringify({ ...res.result }));
       localStorage.setItem("token", data);
       setSubmit(false);
-      setState({...state,
-      mui:{
-        ...state.mui,
-        snackBarMessage: "Login successfull",
-        snackBarStatus: "info",
-        snackBarOpen: true,
-      }})
-
-
-      nav("/user/profile");
+    nav("/user/profile");
     }
   };
   useEffect(() => {
@@ -97,8 +88,6 @@ export default function Register() {
       nav(-1);
     }
   }, []);
-
-  if (user) return <Header />;
 
    //close mui
    const handleClose = (event, reason) => {
@@ -110,6 +99,7 @@ export default function Register() {
       mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
     });
   };
+  if (user) return <Header />;
   return (
     <>
     <Snackbar

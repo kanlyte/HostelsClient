@@ -3,6 +3,7 @@ import "./HeaderSlider.scss";
 import SlideOne from "..//../assets/book.jpeg";
 import SlideTwo from "..//../assets/book1.jpeg";
 import SlideThree from "..//../assets/slider3.jpg";
+import SliderFour from "..//../assets/banna.jpg"
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -33,6 +34,9 @@ const HeaderSlider = () => {
             </div>
             <div className='slider-item'>
               <img src = {SlideThree} alt = "" />
+            </div>
+            <div className='slider-item'>
+              <img src = {SliderFour} alt = "" />
             </div>
           </Slider>
         </div>

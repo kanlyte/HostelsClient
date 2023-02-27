@@ -3,8 +3,6 @@ import {
   TextField,
   Alert as MuiAlert,
   Button,
-  Backdrop,
-  CircularProgress,
   Snackbar,
   Slide,
   Box,
@@ -82,6 +80,7 @@ function BookingForm() {
   });
   const s_r_arr = selected_room_arr ? selected_room_arr[0] : {};
   // console.log(s_r_arr);
+
 
   const submit_booking_form = async (e) => {
     e.preventDefault();
@@ -207,6 +206,13 @@ function BookingForm() {
           </div>
           <div className="booking-inputs-ctr">
             <form onSubmit={submit_booking_form}>
+            <input
+                type="text"
+                name="landlord_id"
+                value={bookh ? bookh.hostel_landlord : ""}
+                hidden
+                onChange={() => {}}
+              />
               <input
                 type="text"
                 name="hostel_id"
@@ -215,6 +221,13 @@ function BookingForm() {
                 onChange={() => {}}
               />
               <input
+                type="text"
+                name="user_id"
+                value={user ? user.id : ""}
+                hidden
+                onChange={() => {}}
+              />
+                <input
                 type="text"
                 name="room_id"
                 value={s_r_arr ? s_r_arr.id : ""}
@@ -325,16 +338,6 @@ function BookingForm() {
                   PROCCED TO PAYMENT
                 </Button>
               </div>
-              {/* <Backdrop
-                sx={{
-                  color: "#fff",
-                  zIndex: (theme) => theme.zIndex.drawer + 1,
-                }}
-                open={state.open_loader}
-                onClick={handleClose}
-              >
-                <CircularProgress color="inherit" />
-              </Backdrop> */}
             </form>
           </div>
         </div>

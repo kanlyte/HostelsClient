@@ -9,8 +9,8 @@ import Help from "@mui/icons-material/HelpOutlineOutlined";
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo.png";
-import _user from "..//../app.config";
-const user = _user ? _user[0] : {};
+import user from "..//../app.config";
+// const user = _user ? _user[0] : {};
 
 const Header = () => {
   const navigate = useNavigate();
@@ -79,6 +79,14 @@ const Header = () => {
                 <span className="sd-item-name">
                   <i className="las la-file-alt ctg-icon"></i>
                   Terms &amp; Conditions
+                </span>
+              </Link>
+            </li>
+            <li className="sd-item">
+              <Link to="/becomelandlord">
+                <span className="sd-item-name">
+                  <i className="las la-user"></i>
+                  Become Landlord
                 </span>
               </Link>
             </li>
@@ -256,13 +264,13 @@ const Header = () => {
                       How To Book
                     </li>
                   </Link>
-                  <Link to="/help">
+                  <Link to="/becomelandlord">
                     <li className="-help">
-                      <i className="las la-shopping-cart"></i>
-                      Make comments
+                      <i className="las la-user"></i>
+                      Become Landlord
                     </li>
                   </Link>
-                  <Link to="/help">
+                  <Link to="/helpcenter">
                     <li className="-help">
                       <button className="-a-btn -lg" style={{ width: "100%" }}>
                         <i className="las la-sign-out-alt"></i>

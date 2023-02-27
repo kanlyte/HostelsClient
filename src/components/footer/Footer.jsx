@@ -25,10 +25,10 @@ function Footer() {
                 <h1 style={{ color: "orange" }}>Beacon Hostels</h1>
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
+                 Beacon Hostels is an Online hostel management System
+                that Provides acess to all hostels and rental surrounding Lira University that provides booking preferences
+                and an E-walet for saving and payment of rent fares
+                with  instant notifications after every booking or transaction made with the system.
               </p>
               <div class="social flex">
                 <i class="fab fa-facebook-f"></i>
@@ -43,16 +43,16 @@ function Footer() {
               <ul>
                 <li>
                   <Link
-                    to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    to="/"
+                    style={{ color:"white" }}
                   >
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    to="/aboutus"
+                    style={{ color:"white" }}
                   >
                     About Us
                   </Link>
@@ -60,7 +60,7 @@ function Footer() {
                 <li>
                   <Link
                     to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ color: "white" }}
                   >
                     How to book
                   </Link>
@@ -69,7 +69,7 @@ function Footer() {
                   {" "}
                   <Link
                     to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ color: "white" }}
                   >
                     Describe Hostel
                   </Link>
@@ -78,7 +78,7 @@ function Footer() {
                   {" "}
                   <Link
                     to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ color: "white" }}
                   >
                     Make comments
                   </Link>
@@ -86,8 +86,8 @@ function Footer() {
                 <li>
                   {" "}
                   <Link
-                    to="/help/request"
-                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                    to="/aboutus"
+                    style={{ color: "white" }}
                   >
                     Contact
                   </Link>
