@@ -277,4 +277,7 @@ Stlying for the booking manual page stops here
   height: 80%;
   border-radius: 50%;
 }
+
+@media screen and (max-width: 380px) {
+}
 /*styling for aboutus stops here*/
