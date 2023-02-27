@@ -231,10 +231,15 @@ Stlying for the booking manual page stops here
   padding: 20px !important;
 }
 .aboutusdescription h2 {
+  color: #1f93ff;
   margin-bottom: 10px !important;
 }
-
+.aboutusdescription p {
+  color: black;
+  font-size: large;
+}
 .aboutusimage {
+  padding-top: 40px;
   flex: 1 !important;
 }
 .aboutus-image {
@@ -246,15 +251,33 @@ Stlying for the booking manual page stops here
   margin: auto !important;
   text-align: left;
 }
-.aboutbeacon h4 {
+.aboutbeacon h2 {
   padding-top: 70px;
+  color: #1f93ff;
+}
+.aboutbeacon p {
+  color: black;
+  font-size: large;
 }
 .m-v-c {
   width: 85%;
   margin: auto !important;
   text-align: left;
 }
-
+.vision h2 {
+  color: #1f93ff;
+}
+.vision p {
+  color: black;
+  font-size: large;
+}
+.mission h2 {
+  color: #1f93ff;
+}
+.mission p {
+  color: black;
+  font-size: large;
+}
 .ourteam {
   width: 85%;
   margin: auto !important;
@@ -262,7 +285,7 @@ Stlying for the booking manual page stops here
 }
 .ourteam-team {
   display: flex;
-  flex: 5;
+  flex: 3;
   justify-content: space-around;
 }
 .team1,
@@ -273,11 +296,61 @@ Stlying for the booking manual page stops here
   flex: 1;
 }
 .team-image {
-  width: 80%;
-  height: 80%;
+  width: 50%;
+  height: 70%;
   border-radius: 50%;
 }
 
 @media screen and (max-width: 380px) {
+  .aboutus {
+    width: 100%;
+    margin: auto !important;
+    display: grid;
+  }
+  .aboutusdescription p {
+    color: black;
+    font-size: small;
+  }
+  .aboutbeacon p {
+    color: black;
+    font-size: small;
+  }
+  .vision p {
+    color: black;
+    font-size: small;
+  }
+  .mission p {
+    color: black;
+    font-size: small;
+  }
+}
+
+.message {
+  display: flex;
+  flex: 2;
+  width: 85%;
+  margin: auto;
+  background-color: #f1f5f9;
+  padding-top: 40px;
+}
+.message-image {
+  flex: 1;
+}
+.message-content {
+  padding-left: 20px;
+  flex: "1";
+}
+.message-content h2 {
+  color: #1f93ff;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 380px) {
+  .message {
+    display: grid;
+    width: 100%;
+  }
+  .message-content {
+    padding-left: 5px;
+  }
 }
 /*styling for aboutus stops here*/
