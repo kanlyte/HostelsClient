@@ -285,7 +285,10 @@ Stlying for the booking manual page stops here
 }
 .ourteam-team {
   display: flex;
-  flex: 3;
+  width: 85%;
+  margin: auto !important;
+  text-align: center;
+  flex: 5;
   justify-content: space-around;
 }
 .team1,
@@ -295,8 +298,23 @@ Stlying for the booking manual page stops here
 .team5 {
   flex: 1;
 }
+.team1 p,
+.team2 p,
+.team3 p,
+.team4 p,
+.team5 p {
+  padding: 0px !important;
+  margin-left: -100px !important;
+}
+.team1 h4,
+.team2 h4,
+.team3 h4,
+.team4 h4,
+.team5 h4 {
+  padding: 0px !important;
+}
 .team-image {
-  width: 50%;
+  width: 75%;
   height: 70%;
   border-radius: 50%;
 }
@@ -322,6 +340,27 @@ Stlying for the booking manual page stops here
   .mission p {
     color: black;
     font-size: small;
+  }
+  .ourteam-team {
+    display: grid;
+    width: 75%;
+    margin: auto !important;
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+  }
+  .team1 p,
+  .team2 p,
+  .team3 p,
+  .team4 p,
+  .team5 p {
+    padding: 0px !important;
+    margin-left: 0px !important;
+  }
+  .team-image {
+    width: 100%;
+    height: 70%;
+    border-radius: 50%;
   }
 }
 

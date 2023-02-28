@@ -100,22 +100,103 @@ export default () => {
             </div>
           </div>
         </div>
+        <h2
+          style={{
+            textAlign: "center",
+            marginTop: "50px",
+            marginBottom: "50px",
+            color: "#1f93ff",
+          }}
+        >
+          Our Developer Team
+        </h2>
+
         <div className="ourteam-team">
           <div className="team1">
             <img className="team-image" src={gaston} alt="" />
-            <h4>NAHURIRA GASTON</h4>
-            <p>Back end developer</p>
+            <p style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  color: "#1f93ff",
+                  fontWeight: "bolder",
+                  fontSize: "large",
+                }}
+              >
+                NAHURIRA GASTON
+              </span>
+              <br />
+              <span>Back end developer</span>
+            </p>
           </div>
           <div className="team2">
             <img className="team-image" src={Passport} alt="" />
-            <h4>NAHURIRA GASTON</h4>
-            <p>Back end developer</p>
+            <p style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  color: "#1f93ff",
+                  fontWeight: "bolder",
+                  fontSize: "large",
+                }}
+              >
+                WEKOBOSA SAMUEL
+              </span>
+              <br />
+              <span>Front end developer</span>
+            </p>
           </div>
           <div className="team3">
             <img className="team-image" src={aggi} alt="" />
-            <h4>NAHURIRA GASTON</h4>
-            <p>Back end developer</p>
+            <p style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  color: "#1f93ff",
+                  fontWeight: "bolder",
+                  fontSize: "large",
+                }}
+              >
+                AGGI PETER
+              </span>
+              <br />
+              <span>Front end developer</span>
+            </p>
           </div>
+          <div className="team4">
+            <img className="team-image" src={aggi} alt="" />
+            <p style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  color: "#1f93ff",
+                  fontWeight: "bolder",
+                  fontSize: "large",
+                }}
+              >
+                KUGUMIKIRIZA ANDREW
+              </span>
+              <br />
+              <span>Graphics designer</span>
+            </p>
+          </div>
+          <div className="team5">
+            <img className="team-image" src={aggi} alt="" />
+            <p style={{ marginLeft: "10px" }}>
+              <span
+                style={{
+                  color: "#1f93ff",
+                  fontWeight: "bolder",
+                  fontSize: "large",
+                }}
+              >
+                OBUA WOODGATE
+              </span>
+              <br />
+              <span>Marketing manager</span>
+            </p>
+          </div>
+        </div>
+        <div className="our-pattners">
+          <div className="lirauniversity"></div>
+          <div className="kakebe"></div>
+          <div className="amarahub"></div>
         </div>
       </div>
       <Footer />
