@@ -231,10 +231,15 @@ Stlying for the booking manual page stops here
   padding: 20px !important;
 }
 .aboutusdescription h2 {
+  color: #1f93ff;
   margin-bottom: 10px !important;
 }
-
+.aboutusdescription p {
+  color: black;
+  font-size: large;
+}
 .aboutusimage {
+  padding-top: 40px;
   flex: 1 !important;
 }
 .aboutus-image {
@@ -246,15 +251,33 @@ Stlying for the booking manual page stops here
   margin: auto !important;
   text-align: left;
 }
-.aboutbeacon h4 {
+.aboutbeacon h2 {
   padding-top: 70px;
+  color: #1f93ff;
+}
+.aboutbeacon p {
+  color: black;
+  font-size: large;
 }
 .m-v-c {
   width: 85%;
   margin: auto !important;
   text-align: left;
 }
-
+.vision h2 {
+  color: #1f93ff;
+}
+.vision p {
+  color: black;
+  font-size: large;
+}
+.mission h2 {
+  color: #1f93ff;
+}
+.mission p {
+  color: black;
+  font-size: large;
+}
 .ourteam {
   width: 85%;
   margin: auto !important;
@@ -262,6 +285,9 @@ Stlying for the booking manual page stops here
 }
 .ourteam-team {
   display: flex;
+  width: 85%;
+  margin: auto !important;
+  text-align: center;
   flex: 5;
   justify-content: space-around;
 }
@@ -272,9 +298,98 @@ Stlying for the booking manual page stops here
 .team5 {
   flex: 1;
 }
+.team1 p,
+.team2 p,
+.team3 p,
+.team4 p,
+.team5 p {
+  padding: 0px !important;
+  margin-left: -100px !important;
+}
+.team1 h4,
+.team2 h4,
+.team3 h4,
+.team4 h4,
+.team5 h4 {
+  padding: 0px !important;
+}
 .team-image {
-  width: 80%;
-  height: 80%;
+  width: 75%;
+  height: 70%;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 380px) {
+  .aboutus {
+    width: 100%;
+    margin: auto !important;
+    display: grid;
+  }
+  .aboutusdescription p {
+    color: black;
+    font-size: small;
+  }
+  .aboutbeacon p {
+    color: black;
+    font-size: small;
+  }
+  .vision p {
+    color: black;
+    font-size: small;
+  }
+  .mission p {
+    color: black;
+    font-size: small;
+  }
+  .ourteam-team {
+    display: grid;
+    width: 75%;
+    margin: auto !important;
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+  }
+  .team1 p,
+  .team2 p,
+  .team3 p,
+  .team4 p,
+  .team5 p {
+    padding: 0px !important;
+    margin-left: 0px !important;
+  }
+  .team-image {
+    width: 80%;
+    height: 60%;
+    border-radius: 50%;
+  }
+}
+
+.message {
+  display: flex;
+  flex: 2;
+  width: 85%;
+  margin: auto;
+  background-color: #f1f5f9;
+  padding-top: 40px;
+}
+.message-image {
+  flex: 1;
+}
+.message-content {
+  padding-left: 20px;
+  flex: "1";
+}
+.message-content h2 {
+  color: #1f93ff;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 380px) {
+  .message {
+    display: grid;
+    width: 100%;
+  }
+  .message-content {
+    padding-left: 5px;
+  }
 }
 /*styling for aboutus stops here*/
