@@ -219,10 +219,10 @@ dropdown in the header
   color: var(--color-primary);
 }
 .sd-item {
-  margin: 5px 10px;
+  margin: 11px 10px;
 }
 .side-nav-content {
-  padding: 25px 10%;
+  padding: 30px 10%;
 }
 a {
   color: var(--color-dark);
@@ -256,9 +256,7 @@ a {
     align-items: center;
   }
   .hdr-nav-logo > img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
+   display: none;
   }
   .menu-toggle {
     display: block;

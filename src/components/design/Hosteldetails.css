@@ -1,4 +1,4 @@
-.product-detail-container {
+.hostel-detail-container {
   display: flex;
   gap: 40px;
   margin-top: 60px;
@@ -7,7 +7,7 @@
   margin: 15px auto;
 }
 
-.product-detail-image {
+.hostel-detail-image {
   border-radius: 15px;
   background-color: #ebebeb;
 
@@ -16,7 +16,7 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-.product-detail-image:hover {
+.hostel-detail-image:hover {
   background-color: #f02d34;
 }
 .small-images-container {
@@ -35,43 +35,31 @@
 .selected-image {
   background-color: #f02d34;
 }
-.reviews {
-  color: #f02d34;
-  margin-top: 10px;
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
-.product-detail-desc h4 {
+.hostel-detail-desc h4 {
   margin-top: 10px;
 }
-.product-detail-desc p {
+.hostel-detail-desc p {
   margin-top: 10px;
 }
-.reviews p {
-  color: #324d67;
-  margin-top: 0px;
-}
-.product-detail-desc .price {
+.hostel-detail-desc .price {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 20px;
   margin-top: 30px;
   color: #f02d34;
 }
 .price .old-price,
-.product-price .old-price,
+.hostel-price .old-price,
 .price .old-price {
   color: gray;
   text-decoration: line-through;
 }
-.product-detail-desc .quantity {
+.hostel-detail-desc .quantity {
   display: flex;
   gap: 20px;
   margin-top: 10px;
   align-items: center;
 }
-.product-detail-desc .buttons {
+.hostel-detail-desc .buttons {
   display: flex;
   gap: 30px;
 }
@@ -88,24 +76,29 @@
   .desc {
     bottom: 60px;
   }
-  .product-detail-container {
+  .hostel-detail-container {
     flex-wrap: wrap;
   }
-  .product-detail-container .product-detail-image {
-    width: 350px;
-    height: 350px;
+  .hostel-detail-container .hostel-detail-image {
+    width: 300px;
+    height: 300px;
+  }
+  .hostel-detail-desc p {
+    /* margin-top: 10px; */
+    font-size: 12px;
+    justify-content: center;
   }
 
   .cart-heading {
     margin-top: 35px;
   }
-  .product-container {
+  .hostel-container {
     margin-top: 10px;
   }
-  .product {
+  .hostel {
     padding: 20px 5px;
   }
-  .product .cart-product-image {
+  .hostel .cart-product-image {
     width: 25%;
     height: 25%;
   }
@@ -115,7 +108,7 @@
   .buttons .buy-now {
     width: 150px;
   }
-  .product-detail-container {
+  .hostel-detail-container {
     margin: 20px;
   }
 
@@ -167,5 +160,21 @@
   .btn-container {
     width: 300px;
     margin: auto;
+  }
+  .small-image {
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+  }
+  .hostel-detail-desc h1{
+    font-size: 20px;
+  }
+  .hostel-detail-desc .quantity {
+    display: flex;
+    font-size: 11px;
+    gap: 3px;
+    margin-top: 0px;
+    align-items: left !important;
   }
 }

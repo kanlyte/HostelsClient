@@ -40,7 +40,7 @@ const HostelDetails = () => {
     <>
       {/* <MetaData title={`${product.name}`} /> */}
       <Header />
-      <div className="product-detail-container">
+      <div className="hostel-detail-container">
         <div>
           <div className="image-container">
             {state.hostel.hostel_images
@@ -51,7 +51,7 @@ const HostelDetails = () => {
                         <img
                           src={index ? index : image}
                           alt="Hostel img"
-                          className="product-detail-image"
+                          className="hostel-detail-image"
                         />
                       </div>
                     );
@@ -78,18 +78,8 @@ const HostelDetails = () => {
               : "No Hostel Images"}
           </div>
         </div>
-        <div className="product-detail-desc">
+        <div className="hostel-detail-desc">
           <h1>{state.hostel.hostel_name}</h1>
-          <div className="reviews">
-            <div>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
-            </div>
-            <p>(20)</p>
-          </div>
           <h4>Hostel Description: </h4>
           <p>{state.hostel.hostel_description}</p>
           <div className="quantity">
@@ -130,7 +120,7 @@ const HostelDetails = () => {
       <div className="_more_hostel_inf_ctr -s">
         <div>
           <h4 className="_line">More Hostel Description</h4>
-          <div>{state.hostel.hostel_description || " .... "}</div>
+          <div>More info here</div>
         </div>
       </div>
       <Footer />
