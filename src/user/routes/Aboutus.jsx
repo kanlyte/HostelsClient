@@ -45,11 +45,11 @@ export default () => {
             locally in Uganda. It was developed to solve problems that are
             existing in the use of manual ways of booking rooms by different
             categories of people including university and institutional
-            students, travelllers and rourists, residents and all other
-            categories of people accross Uganda. This system has all hostels,
-            rentals, appartments, hotels, inns, and Motels which provide
-            accomodation services to people and acced, registered and working
-            with beacon hostels.
+            students, travelllers and tourists, residents and all other
+            categories of people accross the country. This system has all
+            hostels, rentals, appartments, hotels, inns, and Motels which
+            provide accomodation services to people that are registered and
+            working with beacon hostels.
           </p>
         </div>
         <div className="m-v-c">
@@ -67,7 +67,8 @@ export default () => {
               Desire to avail all places of residence to the community for easy
               choice, selection, booking and decision making of the places of
               best suit, providing of a secure mobile wallet for saving and
-              accumulation of fares, save payments
+              accumulation of fares and payments with timely notifications,
+              messages and emails about the transactions made.
             </p>
           </div>
         </div>

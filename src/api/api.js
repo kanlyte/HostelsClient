@@ -1,13 +1,13 @@
 import axios from "axios";
 
-// const url = "http://127.0.0.1:5055/api/v6"; 
-const url = "https://wide-eyed-boa-boot.cyclic.app/api/v6"
+// const url = "http://127.0.0.1:5055/api/v6";
+const url = "https://wide-eyed-boa-boot.cyclic.app/api/v6";
 
-export default class FormsApi{
+export default class FormsApi {
   //post requests
   async post(i, data) {
     try {
-     const res = await axios.post(`${url}${i}`, data);
+      const res = await axios.post(`${url}${i}`, data);
       return res.data;
     } catch (error) {
       console.log(error);
