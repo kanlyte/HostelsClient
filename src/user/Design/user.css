@@ -106,7 +106,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #bab8b8;
+  border-bottom: 1px solid #f0f0f0;
 }
 .card-header button {
   background: var(--main-color);
@@ -118,20 +118,20 @@ table {
   border-collapse: collapse;
 }
 thead tr {
-  border-top: 1px solid #bab8b8;
-  border-bottom: 1px solid #bab8b8;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 thead tr {
-  border-top: 1px solid #bab8b8;
-  border-bottom: 1px solid #bab8b8;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
 }
 thead td {
   font-weight: 700;
 }
 
 .tr-border > tr {
-  border-bottom: 1px solid #bab8b8;
+  border-bottom: 1px solid #f0f0f0;
 }
 td {
   padding: 0.5rem 1rem;
@@ -139,6 +139,7 @@ td {
   color: #222;
   white-space: nowrap;
 }
+
 /*___close account___*/
 .__act_t p{
   line-height: 20px;
@@ -151,6 +152,15 @@ p{
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+}
+.__cl_aa{
+  /* margin: 5px 0px 0px 0px !important; */
+
+}
+._close_ctr{
+  justify-content: left;
+  align-items: inherit;
+  
 }
 @media only screen and (max-width: 1024px) {
   .lab_tbl_ctr {
@@ -182,5 +192,8 @@ p{
   .___projects{
     grid-template-columns: 100%;
     grid-gap: 1.5rem;
+  }
+  .__cl_aa{
+
   }
 }

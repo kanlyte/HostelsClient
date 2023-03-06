@@ -292,42 +292,41 @@ const Bookings = () => {
 //  console.log(state.bookings);
   return (
     <>
-      <div className="___projects">
-        <div className="card">
-          <div className="card-header">
-            <h4>My Bookings</h4>
+      <div className="projects">
+          <div className="card">
+            <div className="card-header">
+              <h4>Bookings</h4>
+                 </div>
+                  <div className="card-body">
+                    <table width="100%">
+                      <thead>
+                        <tr>
+                          <td>Hostel name</td>
+                          <td>Room number</td>
+                          <td>Booking date</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {state.bookings.length === 0 ? (
+                          <tr>
+                            <td>No bookings to display</td>
+                          </tr>
+                        ) : (state.bookings
+                          .map((x, y) => {
+                            return (
+                              <tr key={y}>
+                                <td>{x.name_of_hostel}</td>
+                                <td>{x.room_number}</td>
+                                <td>{x.booking_date}</td>
+                              </tr>
+                            );
+                          })
+                        )}
+                   </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div className="card-body">
-            <table width="100%">
-              <thead>
-                <tr>
-                  <td>Hostel Name</td>
-                  <td>Room Number</td>
-                  <td>Booking date</td>
-                </tr>
-              </thead>
-              <tbody>
-                {state.bookings.length === 0 ? (
-                  <tr>
-                    <td>No bookings to display...</td>
-                  </tr>
-                ) : (
-                  state.bookings.map((x, y) => {
-                    return (
-                      <tr key={y}>
-                        <td>{x.name_of_hostel}</td>
-                        <td>{x.room_number}</td>
-                        <td>{x.booking_date}</td>
-                      </tr>
-                    );
-                  })
-                )
-                 }
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
@@ -558,7 +557,7 @@ const EditProfile = () => {
 };
 const AccountClosed = () => {
   return (
-    <div>
+    <div className="_close_ctr">
       <div>
         <span>Read Before closing your account</span>
       </div>

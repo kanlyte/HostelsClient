@@ -9,8 +9,9 @@ import Help from "@mui/icons-material/HelpOutlineOutlined";
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo.png";
-import _user from "..//../app.config";
-const user = _user ? _user[0] : {};
+import user from "..//../app.config";
+import { Button } from "@mui/material";
+// const user = _user ? _user[0] : {};
 
 const Header = () => {
   const navigate = useNavigate();
@@ -47,14 +48,6 @@ const Header = () => {
                 <span className="sd-item-name">
                   <i className="las la-home ctg-icon"></i>
                   Home
-                </span>
-              </Link>
-            </li>
-            <li className="sd-item">
-              <Link to="/">
-                <span className="sd-item-name">
-                  <i className="las la-hotel ctg-icon"></i>
-                  Featured Hostels
                 </span>
               </Link>
             </li>
@@ -136,7 +129,8 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="sd-item">
-                  <button
+                  <Button
+                    variant="contained"
                     className="sd-item-name plus-btn"
                     onClick={() => {
                       const token_stored = localStorage.getItem("token");
@@ -148,40 +142,29 @@ const Header = () => {
                       window.location.replace("/");
                     }}
                   >
-                    <i className="las la-sign-out ctg-icon"></i>
-                    Log out
-                  </button>
+                    <i className="las la-sign-out-alt"></i> &nbsp; Log out
+                  </Button>
                 </li>
               </>
             ) : (
               <li className="sd-item">
                 <Link to="/user/login">
-                  <button className="sd-item-name plus-btn">
+                  <Button variant="contained">
                     <i className="las la-sign-in-alt ctg-icon"></i>
                     Log in
-                  </button>
+                  </Button>
                 </Link>
               </li>
             )}
-          </ul>
-          <ul className="sd-ns1 sd-ns">
-            <div className="sd-hdr">Seek for Help on Our System</div>
-            <li className="sd-item">
-              <Link to="/help/request">
-                <span className="sd-item-name">
-                  <i className="las la-bed ctg-icon"></i>
-                  Describe Your Hostel
-                </span>
-              </Link>
-            </li>
           </ul>
           <div>
             <div className="ftr-lw-center">
               <span style={{ fontWeight: "bold", fontSize: 20 }}>
                 Beacon Web App
               </span>
-              <div>{new Date().getFullYear()} &copy; Kanlyte Technologies</div>
-              <div>All Rights Reserved</div>
+              <div style={{ fontSize: 13 }}>
+                {new Date().getFullYear()} &copy; Kanlyte Technologies
+              </div>
             </div>
           </div>
         </div>
