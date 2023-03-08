@@ -52,10 +52,18 @@ const Header = () => {
               </Link>
             </li>
             <li className="sd-item">
-              <Link to="/aboutus">
+              <Link to="/help">
                 <span className="sd-item-name">
                   <i className="las la-phone ctg-icon"></i>
                   Contact Us
+                </span>
+              </Link>
+            </li>
+            <li className="sd-item">
+              <Link to="/aboutus">
+                <span className="sd-item-name">
+                  <i className="las la-phone ctg-icon"></i>
+                  About Us
                 </span>
               </Link>
             </li>
