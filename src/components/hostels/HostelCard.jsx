@@ -12,7 +12,7 @@ const HostelCard = ({ hostel }) => {
               <div className="___single_hstl">
                 <div className="___card">
                   <div className="__hstl_thumb">
-                    <div className="__hstl_tag">Book</div>
+                    <div className="__hstl_tag">Book now</div>
                     {hostel.hostel_images
                       ? JSON.parse(hostel.hostel_images).map((v, i) => {
                           if (i === 0) {
