@@ -17,7 +17,7 @@ const HostelDetails = () => {
     hostel: {},
     landlord: {},
   });
-// console.log(user);
+  // console.log(user);
   useEffect(() => {
     (async () => {
       let res = await new FormsApi().get(`/hostel/${params.id}`);
@@ -35,7 +35,7 @@ const HostelDetails = () => {
       setState({ hostel: {}, landlord: {} });
     };
   }, []);
-// console.log(state.hostel);
+  // console.log(state.hostel);
   return (
     <>
       {/* <MetaData title={`${product.name}`} /> */}
@@ -96,22 +96,23 @@ const HostelDetails = () => {
             for a single Room and{" "}
             <strong>{state.hostel.double_room_amount}</strong> for a Double Room
           </p>
-          <p className="price">Booking Fee: ${state.hostel.booking_fee}</p>
+          <p className="price">Booking Fee: Ugshs:{state.hostel.booking_fee}</p>
           <div className="buttons">
             <Button variant="contained" color="primary">
               Cancel Hostel
             </Button>
             <Button
-            variant="contained" 
-            color="primary"
-            onClick={() => {
-              if (Boolean(user)) {
-                navigate(`/bookingform?hostel=${state.hostel.id}`);
-              } else {
-                navigate("/user/login");
-              }
-              // localStorage.setItem("hostel_id", Base64.encode(JSON.stringify(state.hostel.id)));
-            }}>
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                if (Boolean(user)) {
+                  navigate(`/bookingform?hostel=${state.hostel.id}`);
+                } else {
+                  navigate("/user/login");
+                }
+                // localStorage.setItem("hostel_id", Base64.encode(JSON.stringify(state.hostel.id)));
+              }}
+            >
               Book Now
             </Button>
           </div>
