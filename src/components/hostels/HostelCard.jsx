@@ -4,7 +4,6 @@ import "../design/Hostel.css";
 const HostelCard = ({ hostel }) => {
   return (
     <>
-      <Fragment>
         <section className="__property">
           <div className="__cntr">{/* <h3>Popula Hostel</h3> */}</div>
           <div className="__row">
@@ -58,7 +57,6 @@ const HostelCard = ({ hostel }) => {
             </div>
           </div>
         </section>
-      </Fragment>
     </>
   );
 };

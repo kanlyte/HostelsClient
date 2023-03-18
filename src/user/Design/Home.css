@@ -1,17 +1,17 @@
 
-.container {
+._container {
   display: grid;
-  padding: 0px 5px;
+  padding: 0px 0px;
+  margin-top: 10px;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-columns: repeat(3, minmax(20rem, 1fr)); */
-  /* row-gap: 0.1rem !important;
-  column-gap: 0.2rem !important; */
+  row-gap: 3px !important;
+  column-gap: 10px !important;
 }
 ._load_h {
   align-items: center;
   text-align: center;
 }
-.main{
+.__main{
   width: 80%;
   margin: 15px auto;
 
