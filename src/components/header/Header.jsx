@@ -8,8 +8,8 @@ import ExpandUpIcon from "@mui/icons-material/ExpandLessOutlined";
 import Help from "@mui/icons-material/HelpOutlineOutlined";
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
-import Logo from "..//../assets/logo.png";
-import _user from "..//../app.config";
+import Logo from "..//../assets/logo3.png";
+import user from "..//../app.config";
 import { Button } from "@mui/material";
 const user = _user ? _user[0] : {};
 

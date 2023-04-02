@@ -88,6 +88,31 @@
   flex: 1;
 }
 
+.user-data-ctr {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+.user-data-ctr > div {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.user-data-ctr > div > div:first-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-weight: bold;
+}
+.user-data-ctr > div > div:not(:first-child) {
+  margin: 10px;
+}
+.user-data-ctr > div > div:not(:first-child) > div:first-child {
+  font-size: 13px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
 /* .cd {
     border: 1px solid transparent;
     border-radius: 5px;

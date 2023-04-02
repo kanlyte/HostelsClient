@@ -296,35 +296,23 @@ const Bookings = () => {
           <div className="card">
             <div className="card-header">
               <h4>Bookings</h4>
-                 </div>
-                  <div className="card-body">
-                    <table width="100%">
-                      <thead>
-                        <tr>
-                          <td>Hostel name</td>
-                          <td>Room number</td>
-                          <td>Booking date</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {state.bookings.length === 0 ? (
-                          <tr>
-                            <td>No bookings to display</td>
-                          </tr>
-                        ) : (state.bookings
-                          .map((x, y) => {
-                            return (
-                              <tr key={y}>
-                                <td>{x.name_of_hostel}</td>
-                                <td>{x.room_number}</td>
-                                <td>{x.booking_date}</td>
-                              </tr>
-                            );
-                          })
-                        )}
-                   </tbody>
-                </table>
               </div>
+            </div>
+            <div className="_tex_ctr">
+              {state.bookings.length === 0? (
+                <h5>No bookings to display</h5>
+              ):(state.bookings.map((v, i)=>{
+                return(
+                  <div key={i} className="user-data-ctr">
+                  <div>Hostel Name</div>
+                  <div>{v.name_of_hostel}</div>
+                  <div>Room Number</div>
+                  <div>{v.room_number}</div>
+                  <div>Booking Date</div>
+                  <div>{v.booking_date}</div>
+                </div>
+                );
+              }))}
             </div>
           </div>
     </>
@@ -398,9 +386,7 @@ const EditProfile = () => {
             snackBarOpen: true,
           },
         });
-        setTimeout(() => {
-          navigate("/profile");
-        }, 2000);
+     window.location.reload();
       } else {
         setState({
           ...state,

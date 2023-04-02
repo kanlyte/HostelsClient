@@ -44,8 +44,8 @@ header {
   flex: 0.75;
 }
 .hdr-nav-logo > img {
-  width: 130px;
-  height: 15%;
+  width: 150px;
+  height: 35%;
   object-fit: contain;
 }
 .hdr-search-ctr {

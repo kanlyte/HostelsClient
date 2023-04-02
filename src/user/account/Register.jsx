@@ -80,7 +80,7 @@ export default function Register() {
       const data = Base64.encode(JSON.stringify({ ...res.result }));
       localStorage.setItem("token", data);
       setSubmit(false);
-    nav("/user/profile");
+    nav(0);
     }
   };
   useEffect(() => {

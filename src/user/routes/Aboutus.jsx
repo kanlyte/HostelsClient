@@ -1,6 +1,7 @@
 import "../Design/All.css";
 import Passport from "../../assets/passport.jpeg";
 import aggi from "../../assets/aggi.jpeg";
+import obua from "../../assets/obua.jpg";
 import gaston from "../../assets/gaston.jpeg";
 import OurTeam from "..//../assets/ourteam.jpeg";
 import Banner from "./Banner";
@@ -178,7 +179,7 @@ export default () => {
             </p>
           </div>
           <div className="team5">
-            <img className="team-image" src={aggi} alt="" />
+            <img className="team-image" src={obua} alt="" />
             <p style={{ marginLeft: "10px" }}>
               <span
                 style={{

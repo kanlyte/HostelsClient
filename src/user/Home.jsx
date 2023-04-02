@@ -41,14 +41,14 @@ const Home = () => {
     <>
     
       <Header />
-      <div className="main">
+      <div className="__main">
       <div className='slider-wrapper'>
         <HeaderSlider />
       </div>
       <div className='__title-md'>
       <h3>See our Featured Hostels</h3>
       </div>
-      <div className="container" id="container">
+      <div className="_container" id="container">
         {state.hostels.length === 0 ? ( 
         <Loader />
         ) :

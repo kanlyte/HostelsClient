@@ -18,7 +18,7 @@
   color: #001d38;  
 }
 .__row{
-  padding-top: 4rem;
+  padding-top: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -32,8 +32,7 @@
   background: #fff;
 }
 .__column{
-  padding-left: 1rem;
-  padding-right: 1rem;
+ padding: 5px;
 }
 .__hstl_thumb{
   position: relative;
