@@ -18,9 +18,18 @@ import { Base64 } from "js-base64";
 import "../design/Booking.scss";
 import FormsApi from "../../api/api";
 import user from "..//../app.config";
+const shortid = require("shortid");
+var rn = require("random-number");
+
 // const user = _user ? _user : {};
 
 function BookingForm() {
+  var options = {
+    min: 1000,
+    max: 9000,
+    integer: true,
+  };
+
   const navigate = useNavigate();
   const [state, setState] = useState({
     open_loader: false,
@@ -81,7 +90,6 @@ function BookingForm() {
   const s_r_arr = selected_room_arr ? selected_room_arr[0] : {};
   // console.log(s_r_arr);
 
-
   const submit_booking_form = async (e) => {
     e.preventDefault();
     setState({ ...state, submit: true, open_loader: true });
@@ -104,7 +112,7 @@ function BookingForm() {
         submit: true,
       });
       setTimeout(() => {
-        navigate("/bookings/finish");
+        navigate("/bookings/Finish");
       }, 2000);
     } else if (res.status === false) {
       setState({
@@ -206,7 +214,7 @@ function BookingForm() {
           </div>
           <div className="booking-inputs-ctr">
             <form onSubmit={submit_booking_form}>
-            <input
+              <input
                 type="text"
                 name="landlord_id"
                 value={bookh ? bookh.hostel_landlord : ""}
@@ -227,12 +235,19 @@ function BookingForm() {
                 hidden
                 onChange={() => {}}
               />
-                <input
+              <input
                 type="text"
                 name="room_id"
                 value={s_r_arr ? s_r_arr.id : ""}
                 hidden
                 onChange={() => {}}
+              />
+              <input
+                type="text"
+                name="payment_code"
+                value={rn(options)}
+                hidden
+                // onChange={() => {}}
               />
               <div>
                 <TextField

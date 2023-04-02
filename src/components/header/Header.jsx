@@ -9,9 +9,9 @@ import Help from "@mui/icons-material/HelpOutlineOutlined";
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo.png";
-import user from "..//../app.config";
+import _user from "..//../app.config";
 import { Button } from "@mui/material";
-// const user = _user ? _user[0] : {};
+const user = _user ? _user[0] : {};
 
 const Header = () => {
   const navigate = useNavigate();
