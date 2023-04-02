@@ -3,10 +3,10 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import Req from "../../assets/Air hostess-pana.svg";
 import { Button, TextField } from "@mui/material";
-import "../Design/landlod.scss";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { Slide, Snackbar } from "@mui/material";
 import FormsApi from "../../api/api";
+import styled from "styled-components";
 
 function BecomeLandlord() {
   const [apiEmailUsed, setApiEmailUsed] = useState(false);
@@ -113,6 +113,7 @@ function BecomeLandlord() {
         </Alert>
       </Snackbar>
       <Header />
+      <Container>
       <div className="__req_ctr">
         <div className="__req_img">
           <div>
@@ -163,9 +164,28 @@ function BecomeLandlord() {
           </form>
         </div>
       </div>
+      </Container>
       <Footer />
     </>
   );
 }
+
+const Container = styled.div`
+.__req_ctr{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  margin: 15px auto;
+}
+@media screen and (max-width: 768px) {
+  .__req_ctr{
+      display: flex;
+      flex-direction: column;
+      width: 98%;
+      margin: 5px auto;
+  }
+}
+`;
 
 export default BecomeLandlord;

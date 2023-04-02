@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
-import Footerimg from "..//../assets/logo.png";
 import { Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
+import { validateEmail } from "../../utils/data/validate";
+import FormsApi from "../../api/api";
 function Footer() {
+  const { enqueueSnackbar } = useSnackbar();
+  const [submit, setSubmit] = useState(false);
+
+  const newsletterHandler = async (e) => {
+    e.preventDefault();
+    setSubmit(true);
+    const fd = new FormData(e.target);
+    let _fcontent = {};
+    fd.forEach((value, key) => {
+      _fcontent[key] = value;
+    });
+    if (_fcontent.email === "" || _fcontent.email === null) {
+      enqueueSnackbar("email field is empty", {variant: "warning",});
+    }else if(!validateEmail(_fcontent.email)){
+      enqueueSnackbar("Enter correct email format", {variant: "error",});
+    }
+    else{
+      let api = new FormsApi();
+      let res = await api.post("/new/subscriber", _fcontent);
+      if (res.status === true) {
+        enqueueSnackbar("Your Email has been added successfully", {variant: "success",});
+        setSubmit(true);
+      }
+      else if(res.status === false){
+        enqueueSnackbar("An error occured", {variant: "warning",});
+        setSubmit(false);
+      }else{
+        enqueueSnackbar("Some other error occured", {variant: "warning",});
+        setSubmit(false);
+      }
+
+    }
+  };
   return (
     <>
       <footer>
@@ -10,13 +45,21 @@ function Footer() {
           <div className="subscribe" id="contact">
             <h2>Subscribe to Our newsletter</h2>
             <p>This will help us connected with you in case of any query</p>
+            <form onSubmit={newsletterHandler}>
             <div className="input flex">
-              <input type="email" placeholder="Your Email address" />
-              <button className="flex1 __btn">
+              <input
+               name="email"
+               placeholder="Enter Your Email address"
+              />
+              <button
+               className="flex1 __btn"
+               type="submit">
                 <span>Subscribe</span>
                 <i className="fas fa-arrow-circle-right"></i>
               </button>
             </div>
+            </form>
+
           </div>
 
           <div className="content grid  top">

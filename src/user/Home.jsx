@@ -8,13 +8,19 @@ import FormsApi from "../api/api";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import user from "../app.config";
-import HeaderSlider from "../components/slider/HeaderSlider";
 import Loader from "../components/Loader/Loader";
+import ScrollUp from "../utils/ScrollUp";
+import Pageloader from "../utils/PageLoader";
+import Carousel from "../components/slider/Carousel";
 const Home = () => {
+  const [loader, setLoader] = useState(true);
   const [state, setState] = useState({
     pending_hostels: [],
     hostels: [],
   });
+  setTimeout(() => {
+    setLoader(false);
+  }, 1500);
 // console.log(user);
   useEffect(() => {
     (async () => {
@@ -39,11 +45,11 @@ const Home = () => {
   }, []);
   return (
     <>
-    
+    {loader && <Pageloader />}
       <Header />
       <div className="__main">
       <div className='slider-wrapper'>
-        <HeaderSlider />
+        <Carousel />
       </div>
       <div className='__title-md'>
       <h3>See our Featured Hostels</h3>
@@ -60,6 +66,7 @@ const Home = () => {
       </div>
       </div>
     <Footer />
+    <ScrollUp />
     </>
   );
 };

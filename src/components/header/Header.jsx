@@ -5,7 +5,7 @@ import ExpandDownIcon from "@mui/icons-material/ExpandMoreOutlined";
 import User from "@mui/icons-material/PersonOutlined";
 import Close from "@mui/icons-material/CloseOutlined";
 import ExpandUpIcon from "@mui/icons-material/ExpandLessOutlined";
-import Help from "@mui/icons-material/HelpOutlineOutlined";
+import Help from '@mui/icons-material/QuestionMark';
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo3.png";
@@ -253,8 +253,8 @@ const Header = () => {
                 >
                   <Link to="/help">
                     <li className="-help">
-                      <i className="lar la-user"></i>
-                      Describe hostel
+                      <i className="las la-phone-volume"></i>
+                      Contact Us
                     </li>
                   </Link>
                   <Link to="/bookmanual">

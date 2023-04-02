@@ -12,14 +12,26 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import ScrollUp from "../../utils/ScrollUp";
+import Pageloader from "../../utils/PageLoader";
+import { useState } from "react";
+import PageStarter from "../../utils/PageStarter";
+import styled from "styled-components";
 export default () => {
+  const [loader, setLoader] = useState(true);
+  setTimeout(() => {
+    setLoader(false);
+  }, 1500);
   return (
     <>
+      {loader && <Pageloader />}
       <div className="aboutuscontainer">
-        {/* <Banner /> */}
         <Header />
         <div className="aboutus">
-          <div className="aboutusdescription">
+          <div
+            className="aboutusdescription wow fadeInLeft"
+            data-wow-delay=".5s"
+          >
             <h2 style={{ marginTop: "15px" }}>Beacon Hostels App</h2>
             <p>
               This is a product under Kanlyte technlogies.
@@ -54,7 +66,7 @@ export default () => {
           </p>
         </div>
         <div className="m-v-c">
-          <div className="vision">
+          <div className="vision c_card">
             <h2>Our Vision</h2>
             <p>
               To build a reliable, efficient, secure, robust and reusable
@@ -62,7 +74,7 @@ export default () => {
               payment preferences to the community.
             </p>
           </div>
-          <div className="mission">
+          <div className="mission c_card">
             <h2>Our Mission</h2>
             <p>
               Desire to avail all places of residence to the community for easy
@@ -73,135 +85,271 @@ export default () => {
             </p>
           </div>
         </div>
-        <div className="message">
-          <div className="message-image">
-            <img src={message} alt="" />
-          </div>
-          <div className="message-content">
-            <h2>Send a message to our team for any inquires </h2>
-            <div style={{ paddingLeft: "10px" }}>
-              <TextField
-                id="outlined-multiline-static"
-                label="inquiry"
-                multiline
-                fullWidth
-                rows={8}
-                defaultValue="Type your message here"
-              />
+        <Container>
+          <section class="w3l-team-main team py-5" id="team">
+            <div class="container py-lg-5">
+              <div class="title-content text-center mb-2">
+                <h6 class="title-subw3hny mb-1">Our Team</h6>
+                <h3 class="title-w3l">Who Worked With Us.</h3>
+              </div>
+              <div class="row team-row justify-content-center">
+                <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src={gaston} alt="" class="radius-image" />
+                      <div class="overlay-team">
+                        <div class="team-details text-center">
+                          <div class="socials mt-20">
+                            <a href="#url">
+                              <span class="fab fa-facebook-f"></span>
+                            </a>
+                            <a href="#url">
+                              <span class="fab fa-twitter"></span>
+                            </a>
+                            <a href="#url">
+                              <span class="fab fa-linkedin-in"></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#url" class="team-title">
+                      Lawrence Petrie
+                    </a>
+                    <p>Selling Agent</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src={aggi} alt="" class="radius-image" />
+                      <div class="overlay-team">
+                        <div class="team-details text-center">
+                          <div class="socials mt-20">
+                            <a href="#url">
+                              <span class="fab fa-facebook-f"></span>
+                            </a>
+                            <a href="#url">
+                              <span class="fab fa-twitter"></span>
+                            </a>
+                            <a href="#url">
+                              <span class="fab fa-linkedin-in"></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#url" class="team-title">
+                      Jack Peters
+                    </a>
+                    <p>Selling Agent</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src={obua} alt="" class="radius-image" />
+                      <div class="overlay-team">
+                        <div class="team-details text-center">
+                          <div class="socials mt-20">
+                            <a href="#url">
+                              <span class="fab fa-facebook-f"></span>
+                            </a>
+                            <a href="#url">
+                              <span class="fab fa-twitter"></span>
+                            </a>
+                            <a href="#url">
+                              <span class="fab fa-linkedin-in"></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#url" class="team-title">
+                      Anna Phillips
+                    </a>
+                    <p>Selling Agent</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              style={{
-                paddingLeft: "10px",
-                paddingTop: "20px",
-                paddingBottom: "20px",
-              }}
-            >
-              <Button variant="contained" fullWidth>
-                Send message
-              </Button>
-            </div>
-          </div>
-        </div>
-        <h2
-          style={{
-            textAlign: "center",
-            marginTop: "50px",
-            marginBottom: "50px",
-            color: "#1f93ff",
-          }}
-        >
-          Our Developer Team
-        </h2>
-
-        <div className="ourteam-team">
-          <div className="team1">
-            <img className="team-image" src={gaston} alt="" />
-            <p style={{ marginLeft: "10px" }}>
-              <span
-                style={{
-                  color: "#1f93ff",
-                  fontWeight: "bolder",
-                  fontSize: "large",
-                }}
-              >
-                NAHURIRA GASTON
-              </span>
-              <br />
-              <span>Back end developer</span>
-            </p>
-          </div>
-          <div className="team2">
-            <img className="team-image" src={Passport} alt="" />
-            <p style={{ marginLeft: "10px" }}>
-              <span
-                style={{
-                  color: "#1f93ff",
-                  fontWeight: "bolder",
-                  fontSize: "large",
-                }}
-              >
-                WEKOBOSA SAMUEL
-              </span>
-              <br />
-              <span>Front end developer</span>
-            </p>
-          </div>
-          <div className="team3">
-            <img className="team-image" src={aggi} alt="" />
-            <p style={{ marginLeft: "10px" }}>
-              <span
-                style={{
-                  color: "#1f93ff",
-                  fontWeight: "bolder",
-                  fontSize: "large",
-                }}
-              >
-                AGGI PETER
-              </span>
-              <br />
-              <span>Front end developer</span>
-            </p>
-          </div>
-          <div className="team4">
-            <img className="team-image" src={aggi} alt="" />
-            <p style={{ marginLeft: "10px" }}>
-              <span
-                style={{
-                  color: "#1f93ff",
-                  fontWeight: "bolder",
-                  fontSize: "large",
-                }}
-              >
-                KUGUMIKIRIZA ANDREW
-              </span>
-              <br />
-              <span>Graphics designer</span>
-            </p>
-          </div>
-          <div className="team5">
-            <img className="team-image" src={obua} alt="" />
-            <p style={{ marginLeft: "10px" }}>
-              <span
-                style={{
-                  color: "#1f93ff",
-                  fontWeight: "bolder",
-                  fontSize: "large",
-                }}
-              >
-                OBUA WOODGATE
-              </span>
-              <br />
-              <span>Marketing manager</span>
-            </p>
-          </div>
-        </div>
-        <div className="our-pattners">
-          <div className="lirauniversity"></div>
-          <div className="kakebe"></div>
-          <div className="amarahub"></div>
-        </div>
+          </section>
+        </Container>
       </div>
       <Footer />
+      <ScrollUp />
     </>
   );
 };
+const Container = styled.div`
+  .team-landing {
+    background: #6c757d;
+  }
+
+  .grid-alignment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    align-items: end;
+  }
+
+  .w3l-team-main .team {
+    position: relative;
+  }
+
+  .w3l-team-main .our-team .team-row {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  .w3l-team-main .our-team .team-wrap {
+    padding: 0 40px;
+  }
+
+  .w3l-team-main .our-team .container-fluid,
+  .w3l-team-main .our-team .container-sm,
+  .w3l-team-main .our-team .container-md,
+  .w3l-team-main .our-team .container-lg,
+  .w3l-team-main .our-team .container-xl,
+  .w3l-team-main .our-team .container-sm,
+  .w3l-team-main .our-team .container-md,
+  .w3l-team-main .our-team .container-lg,
+  .w3l-team-main .our-team .container-xl,
+  .w3l-team-main .our-team .container-sm,
+  .w3l-team-main .our-team .container-md,
+  .w3l-team-main .our-team .container-lg,
+  .w3l-team-main .our-team .container-xl {
+    padding: 0 50px;
+  }
+
+  .w3l-team-main .team-img img {
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .w3l-team-main .team-member,
+  .w3l-team-main .team-img {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .w3l-team-main .team-title {
+    margin: 25px 0 0px;
+    font-size: 20px;
+    color: var(--heading-color);
+    font-weight: 600;
+    display: block;
+  }
+
+  .w3l-team-main .team-member p {
+    text-transform: capitalize;
+  }
+
+  .w3l-team-main .team-details {
+    opacity: 0;
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: 2;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .w3l-team-main .team-img:hover .team-details {
+    opacity: 1;
+  }
+
+  .w3l-team-main .team-img:hover .overlay-team {
+    opacity: 1;
+  }
+
+  .w3l-team-main .team-member:hover a {
+    color: var(--primary-color);
+  }
+
+  .w3l-team-main .socials a {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .w3l-team-main .socials a span {
+    color: var(--heading-color);
+    font-size: 16px;
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    line-height: 42px;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    background: var(--bg-color);
+  }
+
+  .w3l-team-main .team-details .socials span {
+    color: var(--heading-color);
+  }
+
+  .w3l-team-main .socials a:hover span {
+    background: #fff;
+    color: var(--primary-color);
+  }
+
+  @media all and (max-width: 991px) {
+    .w3l-team-main .team-title {
+      margin: 18px 0 0px;
+      font-size: 20px;
+    }
+  }
+
+  @media all and (max-width: 667px) {
+    .grid-alignment {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+      align-items: end;
+    }
+
+    .call-grids-w3 .grids-1 {
+      padding: 30px 10px;
+    }
+
+    .call-grids-w3 .grids-1 h4 a {
+      margin: 25px 0 0px;
+      font-size: 18px;
+    }
+  }
+
+  @media all and (max-width: 568px) {
+    .team-row {
+      padding: 0 10px;
+    }
+
+    .team-row .col-6 {
+      padding: 0 10px;
+    }
+  }
+
+  @media all and (max-width: 415px) {
+    .team-row {
+      padding: 0 5px;
+    }
+  }
+
+  @media all and (max-width: 384px) {
+    .w3l-team-main .team-title {
+      font-size: 18px;
+    }
+
+    .w3l-team-main .socials a span {
+      width: 38px;
+      height: 38px;
+      line-height: 38px;
+    }
+
+    .w3l-team-main .socials a {
+      margin-right: 2px;
+    }
+  }
+`;
