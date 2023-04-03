@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import "./Design/Home.css";
-
+import ReactPaginate from "react-paginate";
 import "react-toastify/dist/ReactToastify.css";
 import HostelCard from "../components/hostels/HostelCard";
 import FormsApi from "../api/api";
@@ -14,6 +14,7 @@ import Pageloader from "../utils/PageLoader";
 import Carousel from "../components/slider/Carousel";
 const Home = () => {
   const [loader, setLoader] = useState(true);
+  const [pageNumber, setPageNumber] = useState(0);
   const [state, setState] = useState({
     pending_hostels: [],
     hostels: [],
@@ -43,6 +44,12 @@ const Home = () => {
       }
     })();
   }, []);
+  const cardsPerPage = 8;
+  const pagesVisited = pageNumber * cardsPerPage;
+  const pageCount = Math.ceil(state.hostels.length / cardsPerPage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
   return (
     <>
     {loader && <Pageloader />}
@@ -58,12 +65,25 @@ const Home = () => {
         {state.hostels.length === 0 ? ( 
         <Loader />
         ) :
-        (  state.hostels.map((v, i) => (
+        (  state.hostels
+          .slice(pagesVisited, pagesVisited + cardsPerPage).map((v, i) => (
           <Link to={`/hostel/${v.id}`} key={i}>
           <HostelCard  hostel={v}  />
           </Link>
         )))}
+      
       </div>
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBttn"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
       </div>
     <Footer />
     <ScrollUp />
