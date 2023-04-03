@@ -191,161 +191,178 @@ function BookingForm() {
                 style={{
                   borderBottom: "1px solid #f0f0f0",
                   padding: "1rem",
-                }}>
+                }}
+              >
                 <div className="form-header-ctr">
                   <div className="">
                     <h5>Booking Form</h5>
                   </div>
                 </div>
-              <div className="card-body">
-                <div>
-                  <div className="inputCtr">
-                    <h4>Booking Details</h4>
-                    <div className="inputs_ctr_np">
+                <div className="card-body">
+                  <div>
+                    <div className="inputCtr">
+                      <h4>Booking Details</h4>
+                      <div className="inputs_ctr_np">
                         <div className="inputs_left_np">
-                        <form className="card" autoComplete="off" onSubmit={submit_booking_form}>
-                        <input
-                          type="text"
-                          name="landlord_id"
-                          value={bookh ? bookh.hostel_landlord : ""}
-                          hidden
-                          onChange={() => {}}
-                        />
-                        <input
-                          type="text"
-                          name="hostel_id"
-                          value={bookh ? bookh.id : ""}
-                          hidden
-                          onChange={() => {}}
-                        />
-                        <input
-                          type="text"
-                          name="user_id"
-                          value={user ? user.id : ""}
-                          hidden
-                          onChange={() => {}}
-                        />
-                        <input
-                          type="text"
-                          name="room_id"
-                          value={s_r_arr ? s_r_arr.id : ""}
-                          hidden
-                          onChange={() => {}}
-                        />
-                          <input
-                          type="text"
-                          name="payment_code"
-                          value={rn(options)}
-                          hidden
-                          // onChange={() => {}}
-                        />
-                        <div className="inputs_ctr_flex">
-                          <TextField
-                            name="name"
-                            variant="outlined"
-                            label="Full Name"
-                            style={{
-                              width: "75%",
-                              margin: "10px",
-                            }}
-                            value={user.full_name || " "}
-                          />
-                          <TextField
-                            name="telephone_number"
-                            variant="outlined"
-                            label="Contact"
-                            value={user.phone_number || " "}
-                            style={{
-                              width: "75%",
-                              margin: "10px",
-                            }}
-                          />
-                          </div>
-                          <div className="inputs_ctr_fullwidth">
-                          <TextField
-                            name="name_of_hostel"
-                            variant="outlined"
-                            label="Hostel name"
-                            value={bookh ? bookh.hostel_name : " "}
-                            style={{
-                              width: "100%",
-                            }}/>
+                          <form
+                            className="card"
+                            autoComplete="off"
+                            onSubmit={submit_booking_form}
+                          >
+                            <input
+                              type="text"
+                              name="landlord_id"
+                              value={bookh ? bookh.hostel_landlord : ""}
+                              hidden
+                              onChange={() => {}}
+                            />
+                            <input
+                              type="text"
+                              name="hostel_id"
+                              value={bookh ? bookh.id : ""}
+                              hidden
+                              onChange={() => {}}
+                            />
+                            <input
+                              type="text"
+                              name="user_id"
+                              value={user ? user.id : ""}
+                              hidden
+                              onChange={() => {}}
+                            />
+                            <input
+                              type="text"
+                              name="room_id"
+                              value={s_r_arr ? s_r_arr.id : ""}
+                              hidden
+                              onChange={() => {}}
+                            />
+                            <input
+                              type="text"
+                              name="payment_code"
+                              value={rn(options)}
+                              hidden
+                              // onChange={() => {}}
+                            />
+                            <TextField
+                              name="booking_fee"
+                              type="number"
+                              value={bookh ? bookh.booking_fee : " "}
+                              hidden
+                            />
+                            <div className="inputs_ctr_flex">
+                              <TextField
+                                name="name"
+                                variant="outlined"
+                                label="Full Name"
+                                style={{
+                                  width: "75%",
+                                  margin: "10px",
+                                }}
+                                value={user.full_name || " "}
+                              />
+                              <TextField
+                                name="telephone_number"
+                                variant="outlined"
+                                label="Contact"
+                                value={user.phone_number || " "}
+                                style={{
+                                  width: "75%",
+                                  margin: "10px",
+                                }}
+                              />
+                            </div>
+                            <div className="inputs_ctr_fullwidth">
+                              <TextField
+                                name="name_of_hostel"
+                                variant="outlined"
+                                label="Hostel name"
+                                value={bookh ? bookh.hostel_name : " "}
+                                style={{
+                                  width: "100%",
+                                }}
+                              />
                             </div>
                             <div className="inputs_ctr_flex">
-                            <TextField
-                            name="email"
-                            variant="outlined"
-                            label="Email"
-                            value={user.email || " "}
-                            style={{
-                              width: "75%",
-                              margin: "10px",
-                            }}
-                          />
-                         <FormControl fullWidth>
-                  <InputLabel id="select-room-no-label">
-                    Select Room No.
-                  </InputLabel>
-                  <Select
-                    labelId="select-room-no-label"
-                    value={state.selected_room_no}
-                    label="Select Room No"
-                    onChange={changeSelectRoomNo}
-                    name="room_number"
-                    required
-                    style={{
-                      width: "75%",
-                      margin: "10px",
-                    }}
-                  >
-                    {availabel_rooms.length === 0 ? (
-                      <MenuItem value="">No rooms available</MenuItem>
-                    ) : (
-                      availabel_rooms.map((v, i) => (
-                        <MenuItem key={i} value={v.room_number}>
-                          {v.room_number}
-                        </MenuItem>
-                      ))
-                    )}
-                  </Select>
-                </FormControl>
-                          </div>
-                          <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "flex-start",
-                          margin: 10,
-                        }}
-                      >
-                        <Button
-                          variant="outlined"
-                          color="primary"
-                          type="submit"
-                        >
-                          Submit Form
-                        </Button>
-                      </div>
-                      </form>
+                              <TextField
+                                name="email"
+                                variant="outlined"
+                                label="Email"
+                                value={user.email || " "}
+                                style={{
+                                  width: "75%",
+                                  margin: "10px",
+                                }}
+                              />
+                              <FormControl fullWidth>
+                                <InputLabel id="select-room-no-label">
+                                  Select Room No.
+                                </InputLabel>
+                                <Select
+                                  labelId="select-room-no-label"
+                                  value={state.selected_room_no}
+                                  label="Select Room No"
+                                  onChange={changeSelectRoomNo}
+                                  name="room_number"
+                                  required
+                                  style={{
+                                    width: "75%",
+                                    margin: "10px",
+                                  }}
+                                >
+                                  {availabel_rooms.length === 0 ? (
+                                    <MenuItem value="">
+                                      No rooms available
+                                    </MenuItem>
+                                  ) : (
+                                    availabel_rooms.map((v, i) => (
+                                      <MenuItem key={i} value={v.room_number}>
+                                        {v.room_number}
+                                      </MenuItem>
+                                    ))
+                                  )}
+                                </Select>
+                              </FormControl>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "flex-start",
+                                margin: 10,
+                              }}
+                            >
+                              <Button
+                                variant="outlined"
+                                color="primary"
+                                type="submit"
+                              >
+                                Submit Form
+                              </Button>
+                            </div>
+                          </form>
                         </div>
-                      <div className="inputs_right_np">
-                        <h4 style={{ margin: "20px" }}>See Room Details</h4>
-                        <div className="tbl_ctr_np">
-                          <table width="100%">
-                            <thead>
-                              <tr>
-                                <td>Room type</td>
-                                <td>Booking fee</td>
-                                <td>Room description</td>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>{s_r_arr ? s_r_arr.room_type : ""}</td>
-                                <td>{s_r_arr ? s_r_arr.room_fee : ""}</td>
-                                <td>{s_r_arr ? s_r_arr.room_description : ""}</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                        <div className="inputs_right_np">
+                          <h4 style={{ margin: "20px" }}>See Room Details</h4>
+                          <div className="tbl_ctr_np">
+                            <table width="100%">
+                              <thead>
+                                <tr>
+                                  <td>Room type</td>
+                                  <td>Booking fee</td>
+                                  <td>Room description</td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>{s_r_arr ? s_r_arr.room_type : ""}</td>
+                                  <td>{s_r_arr ? s_r_arr.room_fee : ""}</td>
+                                  <td>
+                                    {s_r_arr ? s_r_arr.room_description : ""}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -353,8 +370,7 @@ function BookingForm() {
                 </div>
               </div>
             </div>
-            </div>
-            </div>
+          </div>
         </main>
       </Container>
       <Footer />

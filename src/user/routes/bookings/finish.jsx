@@ -91,7 +91,7 @@ const Finish = () => {
                       align="right"
                       style={{ color: "black", fontWeight: "bolder" }}
                     >
-                      Status
+                      Payment Status
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -113,7 +113,7 @@ const Finish = () => {
                             {v.name_of_hostel}
                           </TableCell>
                           <TableCell align="right">{v.room_number}</TableCell>
-                          <TableCell align="right">100,000</TableCell>
+                          <TableCell align="right">{v.booking_fee}</TableCell>
                           <TableCell align="right">{v.payment_code}</TableCell>
                           <TableCell align="right">
                             <Button
@@ -132,78 +132,6 @@ const Finish = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            {/* <p>
-              <span
-                style={{
-                  fontSize: "15px",
-                  color: "black",
-                  fontWeight: "bolder",
-                }}
-              >
-                Hostel:&nbsp; &nbsp;
-              </span>
-              Greysn
-            </p>
-            <p>
-              <span
-                style={{
-                  fontSize: "15px",
-                  fontWeight: "bolder",
-                  color: "black",
-                }}
-              >
-                Type or room:&nbsp; &nbsp;
-              </span>
-              Single
-            </p>
-            <p>
-              <span
-                style={{
-                  fontSize: "15px",
-                  fontWeight: "bolder",
-                  color: "black",
-                }}
-              >
-                Room Amount:&nbsp; &nbsp;
-              </span>
-              Ugsh:800000
-            </p>
-            <p>
-              <p>
-                <span
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: "bolder",
-                    color: "black",
-                  }}
-                >
-                  Booking Fee:&nbsp; &nbsp;
-                </span>
-                Ugsh:100000
-              </p>
-              <span
-                style={{
-                  fontSize: "15px",
-                  color: "black",
-                  fontWeight: "bolder",
-                }}
-              >
-                Booking code:&nbsp; &nbsp;
-              </span>{" "}
-              10362
-            </p>
-            <p>
-              <span
-                style={{
-                  fontSize: "15px",
-                  color: "black",
-                  fontWeight: "bolder",
-                }}
-              >
-                Booking status:&nbsp; &nbsp;
-              </span>
-              Pending
-            </p> */}
             <p>A pending room can be booked by another person.</p>
             <div className="my__">
               <Link to="/">
