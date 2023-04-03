@@ -11,7 +11,7 @@ import "./Header.css";
 import Logo from "..//../assets/logo3.png";
 import user from "..//../app.config";
 import { Button } from "@mui/material";
-// const user = _user ? _user[0] : {};
+const user = _user ? _user[0] : {};
 
 const Header = () => {
   const navigate = useNavigate();

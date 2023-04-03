@@ -1,17 +1,48 @@
 ._f_booking_ctr {
   display: flex;
   justify-content: center;
-  width: 70vw;
+  width: 90vw;
   margin: 2% auto;
 }
-._booking_info{
-  margin: 20px;
 
-}
 ._b_text{
     font-size: 16px;
 }
+._booking_info{
+  // margin: 20px;
+  display: flex;
+  flex: 2;
+  gap: 2rem
+  // color: rgb(26, 235, 26);
+  // color: rgb(14, 195, 255);
 
+}
+._booking_details{
+  flex: 1;
+}
+._booking_payments{
+  flex: 1;
+}
+.m__{
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  ._booking_info{
+    font-size: small !important;
+    display: grid;
+    margin: 0px !important;
+  
+  }
+  ._img, .my__{
+display: none;
+  }
+  .m__{
+    display: block;
+  }
+
+
+
+}
 
   
 
