@@ -1,10 +1,3 @@
-body {
-  background-color: #f1f5f9;
-} /*
-/*
-styling for banner
-
-*/
 .banner {
   width: 100%;
   height: 50px;
@@ -66,7 +59,7 @@ styling for banner
   text-align: center;
 }
 .contact-cards p {
-  color: black !important;
+  color: #777777 !important;
 }
 .contact-cards {
   display: flex;
@@ -94,129 +87,6 @@ styling for banner
 .location0 p {
   margin: 20px 0px !important;
 }
-@media screen and (max-width: 380px) {
-  .banner {
-    height: 2rem;
-    width: 100% !important;
-  }
-  .email p,
-  .contact p {
-    padding-top: 0.5rem !important;
-    font-size: small;
-  }
-  .helpcenter {
-    width: 90%;
-  }
-  .b-2 {
-    display: grid;
-    grid-template-columns: 1;
-  }
-  .contact-cards {
-    display: grid;
-    grid-template-columns: 1;
-    width: 95%;
-  }
-  .help-container {
-    overflow-x: hidden;
-  }
-  @media screen and (max-width: 280px) {
-    .contact {
-      display: none;
-    }
-  }
-}
-
-/*
-Styling for the help desk page stops here
-*/
-
-/*
-
-
-
-Stlying for the booking manual page starts here
-*/
-
-.bookingmanual {
-  width: 80%;
-  margin: auto !important;
-  /* padding: 20px !important; */
-}
-.bookheading {
-  background-color: white;
-  padding: 20px 10px 20px 10px !important;
-}
-.bookheading p {
-  padding-top: 20px !important;
-}
-.bookdetails {
-  background-color: white;
-  padding: 0px 5px 20px 10px !important;
-}
-.bookdetails h4 {
-  margin-top: 10px !important;
-  padding: 10px 0px !important;
-}
-.bookdetails p {
-  padding: 10px 5px 10px 10px !important;
-}
-.payment {
-  margin-top: 10px !important;
-  background-color: white;
-  padding: 20px 10px !important;
-}
-.payment p {
-  padding: 10px !important;
-}
-.payment h5 {
-  color: #1f93ff;
-  /* padding-top: 10px !important; */
-}
-@media screen and (max-width: 380px) {
-  .bookingmanual {
-    width: 100%;
-  }
-}
-
-/*
-Stlying for the booking manual page stops here
-*/
-
-/* Styling for privacy policy starts here */
-.ppcontainer,
-.tcontainer {
-  width: 80%;
-  margin: auto !important;
-}
-.sec1 {
-  background-color: white;
-  padding: 20px 10px 20px 10px !important;
-}
-.sec1 p {
-  padding-top: 20px !important;
-}
-.sec2 {
-  background-color: white;
-  padding: 0px 5px 20px 10px !important;
-}
-.sec2 h4 {
-  margin-top: 10px !important;
-  padding: 10px 0px !important;
-}
-.sec3 {
-  background-color: white;
-  padding: 0px 5px 20px 10px !important;
-}
-.sec3 h3 {
-  margin-top: 10px !important;
-  padding: 10px 0px !important;
-}
-.sec3 p,
-.sec3 h5 {
-  padding-top: 10px !important;
-}
-/* Styling for privacy policy starts here */
-
 /*styling for aboutus starts here*/
 
 .aboutus {
@@ -231,12 +101,12 @@ Stlying for the booking manual page stops here
   padding: 20px !important;
 }
 .aboutusdescription h2 {
-  color: #1f93ff;
+  color: #1a5ba6;
   margin-bottom: 10px !important;
 }
 .aboutusdescription p {
-  color: black;
-  font-size: large;
+  color: #777777;
+  font-size: 14px;
 }
 .aboutusimage {
   padding-top: 40px;
@@ -253,30 +123,47 @@ Stlying for the booking manual page stops here
 }
 .aboutbeacon h2 {
   padding-top: 70px;
-  color: #1f93ff;
+  color: #1a5ba6;
 }
 .aboutbeacon p {
-  color: black;
-  font-size: large;
+  color: #777777;
+  font-size: 14px;
 }
 .m-v-c {
   width: 85%;
   margin: auto !important;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  flex: 2;
+  gap: 15px;
+}
+.vision{
+  flex: 1;
+}
+.vision:hover{
+  background-color: #1f93ff;
+  color: #fff;
+}
+.mission{
+  flex: 1;
 }
 .vision h2 {
-  color: #1f93ff;
+  color: black;
 }
 .vision p {
-  color: black;
-  font-size: large;
+  color: #000;
+  font-size: 14px;
 }
 .mission h2 {
-  color: #1f93ff;
+  color: #000;
 }
 .mission p {
-  color: black;
-  font-size: large;
+  color: #000;
+  font-size: 14px;
+}
+.mission:hover{
+  background: #1f93ff;
+  color: #fff;
 }
 .ourteam {
   width: 85%;
@@ -319,7 +206,131 @@ Stlying for the booking manual page stops here
   border-radius: 50%;
 }
 
+/* Styling for privacy policy starts here */
+.ppcontainer,
+.tcontainer {
+  width: 80%;
+  margin: auto !important;
+}
+.sec1 {
+  background-color: white;
+  padding: 20px 10px 20px 10px !important;
+}
+.sec1 p {
+  padding-top: 20px !important;
+}
+.sec2 {
+  background-color: white;
+  padding: 0px 5px 20px 10px !important;
+}
+.sec2 h4 {
+  margin-top: 10px !important;
+  padding: 10px 0px !important;
+}
+.sec3 {
+  background-color: white;
+  padding: 0px 5px 20px 10px !important;
+}
+.sec3 h3 {
+  margin-top: 10px !important;
+  padding: 10px 0px !important;
+}
+.sec3 p,
+.sec3 h5 {
+  padding-top: 10px !important;
+}
+
+/*Stlying for the booking manual page starts here
+*/
+
+.bookingmanual {
+  width: 80%;
+  margin: auto !important;
+  /* padding: 20px !important; */
+}
+.bookheading {
+  background-color: white;
+  padding: 20px 10px 20px 10px !important;
+}
+.bookheading p {
+  padding-top: 20px !important;
+}
+.bookdetails {
+  background-color: white;
+  padding: 0px 5px 20px 10px !important;
+}
+.bookdetails h4 {
+  margin-top: 10px !important;
+  padding: 10px 0px !important;
+}
+.bookdetails p {
+  padding: 10px 5px 10px 10px !important;
+}
+.payment {
+  margin-top: 10px !important;
+  background-color: white;
+  padding: 20px 10px !important;
+}
+.payment p {
+  padding: 10px !important;
+}
+.payment h5 {
+  color: #1f93ff;
+  /* padding-top: 10px !important; */
+}
+
+/*
+Stlying for the booking manual page stops here
+*/
+
+.message {
+  display: flex;
+  flex: 2;
+  width: 85%;
+  margin: auto;
+  background-color: #f1f5f9;
+  padding-top: 40px;
+}
+.message-image {
+  flex: 1;
+}
+.message-content {
+  padding-left: 20px;
+  flex: "1";
+}
+.message-content h2 {
+  color: #1f93ff;
+  padding-bottom: 20px;
+}
+
 @media screen and (max-width: 380px) {
+  .bookingmanual {
+    width: 100%;
+  }
+  .banner {
+    height: 2rem;
+    width: 100% !important;
+  }
+  .email p,
+  .contact p {
+    padding-top: 0.5rem !important;
+    font-size: small;
+  }
+  .helpcenter {
+    width: 90%;
+  }
+  .b-2 {
+    display: grid;
+    grid-template-columns: 1;
+  }
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1;
+    width: 95%;
+  }
+  .help-container {
+    overflow-x: hidden;
+  }
   .aboutus {
     width: 100%;
     margin: auto !important;
@@ -362,28 +373,6 @@ Stlying for the booking manual page stops here
     height: 60%;
     border-radius: 50%;
   }
-}
-
-.message {
-  display: flex;
-  flex: 2;
-  width: 85%;
-  margin: auto;
-  background-color: #f1f5f9;
-  padding-top: 40px;
-}
-.message-image {
-  flex: 1;
-}
-.message-content {
-  padding-left: 20px;
-  flex: "1";
-}
-.message-content h2 {
-  color: #1f93ff;
-  padding-bottom: 20px;
-}
-@media screen and (max-width: 380px) {
   .message {
     display: grid;
     width: 100%;
@@ -392,4 +381,5 @@ Stlying for the booking manual page stops here
     padding-left: 5px;
   }
 }
-/*styling for aboutus stops here*/
+
+

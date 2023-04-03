@@ -1,93 +1,346 @@
-// import Banner from "./Banner";
-
-//imports from mui
-import { Button } from "@mui/material";
-import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
-import SettingsPhoneOutlinedIcon from "@mui/icons-material/SettingsPhoneOutlined";
-import TtyOutlinedIcon from "@mui/icons-material/TtyOutlined";
-import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
-import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
-import Banner from "./Banner";
+import { useSnackbar } from "notistack";
+import React, { useState } from "react";
+import styled from "styled-components";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 export default () => {
+  const {Snackbar } = useSnackbar();
+  const [sendSuccess, setSendSuccess] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    subject: "",
+    email: "",
+    message: "",
+  });
+const submitMessage = async(e)=>{
+  e.preventDefault();
+  if (data.name === "" || data.name === null) {
+    Snackbar("Name field is blank", { variant: "error" });
+  }else if (data.subject === "" || data.subject === null) {
+    Snackbar("Subject field is blank", { variant: "error" });
+}else if (data.email === "" || data.email === null) {
+    Snackbar("Email field is blank", { variant: "error" });
+}else if (data.message === "" || data.message === null) {
+    Snackbar("message field is blank", { variant: "error" });
+}
+}
+
+
+const onCall = () => {
+  window.open("tel:+256778089708");
+  };
+
   return (
     <>
-      <div className="help-container">
-        {/* <Banner /> */}
-        <Header />
-        <div className="helpcenter">
-          <div className="heading">
-            <h4 style={{ marginTop: "15px" }}>Help Desk</h4>
+      <Header />
+      <Container>
+      <main id="main">
+        <section id="breadcrumbs" class="breadcrumbs">
+          <div class="container">
+            <ol>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>Contact</li>
+            </ol>
+            <h2>Contact Us</h2>
           </div>
-          <div className="body">
-            <div className="b-1">
-              <h4>Welcome to lyte help center</h4>
-              <p>
-                Feel free to sign in to access our help desk - We are available
-                for you 24/7
-              </p>
+        </section>
+        <section id="contact" class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-4 contact_hovering">
+              <i class="las la-map icon-box"></i>
+              <h3>Our Address</h3>
+              <p>Obote Avenue, Lira City, Uganda</p>
             </div>
-            <div className="b-2">
-              <div className="b-2-1">
-                <div className="b-2-2-1">
-                  <AttachEmailOutlinedIcon />
-                  <h5>Send us a message </h5>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4 contact_hovering">
+              <i class="las la-envelope icon-box"></i>
+              <h3>Email Us</h3>
+              <p>beaconhostels@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4 contact_hovering" onClick={()=> onCall()}>
+              <i class="las la-phone-alt icon-box"></i>
+              <h3>Call Us</h3>
+              <p>+256778089708</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 ">
+            {/* <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.3589020022708!2d32.59921337416957!3d0.35338587788557546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb5263afb221%3A0xf710e7c1db9d9677!2skawu%20smart!5e0!3m2!1sen!2sug!4v1669599345997!5m2!1sen!2sug" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe> */}
+          </div>
+
+          <div class="col-lg-6">
+            <form  method="post" role="form" class="php-email-form" action="assets/mail/mail.php">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input
+                   type="text"
+                   name="name"
+                   class="form-control"
+                   id="name"
+                   placeholder="Enter Your Name"
+                   required="required"
+                   value={data.name} 
+                   onChange={(e) =>
+                    setData({ ...data, name: e.target.value })
+                  }/>
                 </div>
-                <p>
-                  Contact our help desk about your bookings or any inquiry - we
-                  shall respond to you.
-                </p>
-              </div>
-              <div className="b-2-2">
-                <div className="b-2-2-2">
-                  <SettingsPhoneOutlinedIcon />
-                  <h5>Call us</h5>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input
+                   type="email" 
+                   class="form-control" 
+                   name="email" 
+                   id="email"
+                   placeholder="Enter Your Email"
+                   required 
+                   value={data.email} 
+                   onChange={(e) =>
+                    setData({ ...data, email: e.target.value })
+                  }
+                   />
                 </div>
-                <p>
-                  For any emergency - make a direct call to our beacon team.
-                </p>
               </div>
-            </div>
-            <div className="b-3">
-              <Button size="large">Lyte mobile app will soon be here !</Button>
-            </div>
+              <div class="form-group mt-3">
+                <input
+                 type="text"
+                 class="form-control"
+                 name="subject"
+                 id="subject" 
+                 placeholder="Enter your Subject"
+                 required
+                 value={data.subject} 
+                 onChange={(e) =>
+                  setData({ ...data, subject: e.target.value })
+                } />
+              </div>
+              <div class="form-group mt-3">
+                <textarea
+                 class="form-control"
+                 name="message"
+                 rows="5" 
+                 placeholder="Enter your Message"
+                 required
+                 value={data.message} 
+                 onChange={(e) =>
+                  setData({ ...data, message: e.target.value })
+                }></textarea>
+              </div>
+              <div class="text-center"><button type="submit" onClick={submitMessage}>Send Message</button></div>
+            </form>
           </div>
+
         </div>
-        <div className="contact-cards">
-          <div className="email0">
-            <MarkEmailReadOutlinedIcon fontSize="large" color="primary" />
-            <h3>Email Us</h3>
-            <p>
-              <span style={{ color: "#1f93ff" }}>kanlyteug@gmail.com</span>,
-              This is our support centered email where you can mail any issues.
-            </p>
-          </div>
-          <div className="call0">
-            <TtyOutlinedIcon fontSize="large" color="primary" />
-            <h3>Call Us</h3>
-            <p>
-              <span style={{ color: "#1f93ff" }}>
-                +256-787-299-525 | +256-706-533-720
-              </span>
-              . These are our customer care numbers. Available 24/7
-            </p>
-          </div>
-          <div className="location0">
-            <RoomOutlinedIcon fontSize="large" color="primary" />
-            <h3>Location</h3>
-            <p>
-              <span style={{ color: "#1f93ff" }}>Lira University !</span> Ayere
-              Village, Barapwo subcounty, Lira city West.
-            </p>
-          </div>
-        </div>
-        <div className="leavemessage">
-          <div className="message-img"></div>
-          <div className="message-form"></div>
-        </div>
-        <Footer />
+
       </div>
+    </section>
+      </main>
+      </Container>
+      <Footer />
     </>
   );
 };
+const Container = styled.div`
+.breadcrumbs {
+  padding: 20px 0 20px 0;
+  background: #f7f7f7;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 40px;
+}
+.breadcrumbs h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1519ee;
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 5px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #6e6e6e;
+  content: "/";
+}
+.contact .info-box {
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 20px 0 30px 0;
+}
+
+.contact .info-box i {
+  font-size: 32px;
+  color: #e96b56;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dotted #fef5f4;
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #777777;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+  color: #777777;
+}
+
+.contact .php-email-form {
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 30px;
+}
+
+.contact .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #e96b56;
+}
+
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.contact .php-email-form button[type=submit] {
+  background: #e96b56;
+  border: 0;
+  border-radius: 50px;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: #e6573f;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+section {
+  padding: 0 9%;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.contact_hovering:hover {
+  background: #1a5ba6;
+  border-color: #e96b56;
+}
+.contact_hovering .icon-box:hover{
+  background: #fff;
+  color: #e96b56;
+
+}
+.contact_hovering:hover h3,
+.contact_hovering:hover p {
+  color: #fff;
+}
+
+
+
+`;

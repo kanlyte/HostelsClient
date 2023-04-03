@@ -15,13 +15,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import { Base64 } from "js-base64";
-import "../design/Booking.scss";
 import FormsApi from "../../api/api";
 import user from "..//../app.config";
-const shortid = require("shortid");
-var rn = require("random-number");
-
-// const user = _user ? _user : {};
+import styled from "styled-components";
+import rn from "random-number";
 
 function BookingForm() {
   var options = {
@@ -185,102 +182,107 @@ function BookingForm() {
         </Alert>
       </Snackbar>
       <Header />
-      <div className="bookingdetails">
-        <div className="bookingdetails1">
-          <div className="message">
-            <p>
-              <span style={{ color: "blue" }}>Dear Gaston,</span> <br />
-              Feel free to complete your booking proces, You shall be mailed and
-              called back to confirm to you that your room has been isorated for
-              you. On your arrival, you shall find a custodian at our offices at
-              the trading center of the university and shall direct you to your
-              hostel.
-              <br />
-              <span style={{ color: "blue" }}>Thanks for booking with us.</span>
-              <br />
-              <span style={{ color: "gray" }}>For more information;</span>
-              <br />
-              Call / Whatsapp :
-              <span style={{ color: "gray" }}>0787299525 / 0778089708</span>
-              <br />
-              Email:
-              <span style={{ color: "gray" }}>kanlyteug@gmail.com</span>
-            </p>
-          </div>
-        </div>
-        <div className="bookingdetails2">
-          <div>
-            <h4>Please Fill this form to complete your booking process</h4>
-          </div>
-          <div className="booking-inputs-ctr">
-            <form onSubmit={submit_booking_form}>
-              <input
-                type="text"
-                name="landlord_id"
-                value={bookh ? bookh.hostel_landlord : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="hostel_id"
-                value={bookh ? bookh.id : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="user_id"
-                value={user ? user.id : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="room_id"
-                value={s_r_arr ? s_r_arr.id : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="payment_code"
-                value={rn(options)}
-                hidden
-                // onChange={() => {}}
-              />
-              <div>
-                <TextField
-                  label="Full Name"
-                  name="name"
-                  variant="outlined"
-                  helperText={`Like: "Aggi peter"`}
-                  color="primary"
-                  style={{ width: "98%" }}
-                  value={user.full_name || " "}
-                />
-              </div>
-              <div className="bking-inputs-ctr-d">
-                <TextField
-                  label="Telephone Number"
-                  variant="outlined"
-                  name="telephone_number"
-                  helperText={`Eg: "0778089708"`}
-                  color="primary"
-                  style={{ width: "48%" }}
-                  value={user.phone_number || " "}
-                />
-                <TextField
-                  label="Name of hostel booked"
-                  variant="outlined"
-                  name="name_of_hostel"
-                  color="primary"
-                  style={{ width: "48%" }}
-                  value={bookh ? bookh.hostel_name : " "}
-                />
-              </div>
-              <div className="bking-inputs-ctr-hw">
-                <FormControl fullWidth>
+      <Container>
+        <main>
+          <div className="fullwidth-ctr">
+            <div className="projects">
+              <div
+                className=""
+                style={{
+                  borderBottom: "1px solid #f0f0f0",
+                  padding: "1rem",
+                }}>
+                <div className="form-header-ctr">
+                  <div className="">
+                    <h5>Booking Form</h5>
+                  </div>
+                </div>
+              <div className="card-body">
+                <div>
+                  <div className="inputCtr">
+                    <h4>Booking Details</h4>
+                    <div className="inputs_ctr_np">
+                        <div className="inputs_left_np">
+                        <form className="card" autoComplete="off" onSubmit={submit_booking_form}>
+                        <input
+                          type="text"
+                          name="landlord_id"
+                          value={bookh ? bookh.hostel_landlord : ""}
+                          hidden
+                          onChange={() => {}}
+                        />
+                        <input
+                          type="text"
+                          name="hostel_id"
+                          value={bookh ? bookh.id : ""}
+                          hidden
+                          onChange={() => {}}
+                        />
+                        <input
+                          type="text"
+                          name="user_id"
+                          value={user ? user.id : ""}
+                          hidden
+                          onChange={() => {}}
+                        />
+                        <input
+                          type="text"
+                          name="room_id"
+                          value={s_r_arr ? s_r_arr.id : ""}
+                          hidden
+                          onChange={() => {}}
+                        />
+                          <input
+                          type="text"
+                          name="payment_code"
+                          value={rn(options)}
+                          hidden
+                          // onChange={() => {}}
+                        />
+                        <div className="inputs_ctr_flex">
+                          <TextField
+                            name="name"
+                            variant="outlined"
+                            label="Full Name"
+                            style={{
+                              width: "75%",
+                              margin: "10px",
+                            }}
+                            value={user.full_name || " "}
+                          />
+                          <TextField
+                            name="telephone_number"
+                            variant="outlined"
+                            label="Contact"
+                            value={user.phone_number || " "}
+                            style={{
+                              width: "75%",
+                              margin: "10px",
+                            }}
+                          />
+                          </div>
+                          <div className="inputs_ctr_fullwidth">
+                          <TextField
+                            name="name_of_hostel"
+                            variant="outlined"
+                            label="Hostel name"
+                            value={bookh ? bookh.hostel_name : " "}
+                            style={{
+                              width: "100%",
+                            }}/>
+                            </div>
+                            <div className="inputs_ctr_flex">
+                            <TextField
+                            name="email"
+                            variant="outlined"
+                            label="Email"
+                            value={user.email || " "}
+                            style={{
+                              width: "75%",
+                              margin: "10px",
+                            }}
+                          />
+                         <FormControl fullWidth>
                   <InputLabel id="select-room-no-label">
                     Select Room No.
                   </InputLabel>
@@ -291,6 +293,10 @@ function BookingForm() {
                     onChange={changeSelectRoomNo}
                     name="room_number"
                     required
+                    style={{
+                      width: "75%",
+                      margin: "10px",
+                    }}
                   >
                     {availabel_rooms.length === 0 ? (
                       <MenuItem value="">No rooms available</MenuItem>
@@ -303,63 +309,165 @@ function BookingForm() {
                     )}
                   </Select>
                 </FormControl>
+                          </div>
+                          <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-start",
+                          margin: 10,
+                        }}
+                      >
+                        <Button
+                          variant="outlined"
+                          color="primary"
+                          type="submit"
+                        >
+                          Submit Form
+                        </Button>
+                      </div>
+                      </form>
+                        </div>
+                      <div className="inputs_right_np">
+                        <h4 style={{ margin: "20px" }}>See Room Details</h4>
+                        <div className="tbl_ctr_np">
+                          <table width="100%">
+                            <thead>
+                              <tr>
+                                <td>Room type</td>
+                                <td>Booking fee</td>
+                                <td>Room description</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>{s_r_arr ? s_r_arr.room_type : ""}</td>
+                                <td>{s_r_arr ? s_r_arr.room_fee : ""}</td>
+                                <td>{s_r_arr ? s_r_arr.room_description : ""}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="bking-inputs-ctr-d">
-                <TextField
-                  label="Email"
-                  name="email"
-                  variant="outlined"
-                  color="primary"
-                  helperText={`gmail account`}
-                  style={{ width: "48%" }}
-                  value={user.email || " "}
-                />
-                <TextField
-                  label="Level: (council / degree / depromer / masters"
-                  variant="outlined"
-                  name="level"
-                  color="primary"
-                  style={{ width: "48%" }}
-                />
-              </div>
-              <div className="bking-inputs-ctr-d">
-                <TextField
-                  label="Type of entry (private / government)"
-                  name="type_of_entry"
-                  variant="outlined"
-                  color="primary"
-                  style={{ width: "48%" }}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Location / district"
-                  name="location"
-                  required
-                  variant="outlined"
-                  color="primary"
-                  style={{ width: "48%" }}
-                />
-              </div>
-
-              <div className="tf">
-                <Button
-                  id="booking-btn"
-                  variant="contained"
-                  className="btn-btn"
-                  size="medium"
-                  type="submit"
-                  onClick={handleToggle}
-                >
-                  PROCCED TO PAYMENT
-                </Button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+            </div>
+            </div>
+            </div>
+        </main>
+      </Container>
       <Footer />
     </>
   );
 }
+
+const Container = styled.div`
+  .inputCtr {
+    width: 95%;
+    margin: auto;
+  }
+  .inputs_ctr_fullwidth {
+    padding: 15px 20px;
+  }
+  .inputCtrPaymentsDepart {
+    width: 55%;
+    margin: auto;
+  }
+  .inputs_ctr_flex {
+    display: flex;
+    justify-content: space-between;
+    // padding: 15px 20px;
+  }
+  .inputs_ctr {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  /*inputs for new product*/
+  .inputs_ctr_np {
+    width: 100%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  .inputs_ctr_np > div {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  .inputs_right_np {
+    flex: 2;
+    margin-left: 10px;
+  }
+  .inputs_left_np {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .tbl_ctr_np {
+    width: 95%;
+    margin: auto;
+    /* overflow-x: scroll; */
+  }
+  td {
+    width: 25% !important;
+  }
+  /*inputs for new product*/
+  .inpts_center {
+    flex: 1;
+  }
+  .inpts_on_left {
+    flex: 1;
+  }
+  .inpts_on_right {
+    flex: 1;
+  }
+  /*name cell*/
+  .name_cell {
+    max-width: 150px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: red;
+  }
+  /*name cell*/
+  /*finish up ctr*/
+
+  /*finish up ctr*/
+  @media screen and (max-width: 1024px) {
+    .form-header-ctr {
+      width: 100%;
+      align-items: center;
+    }
+
+    .inputCtr {
+      width: 100%;
+      margin: auto;
+    }
+    .inputs_ctr {
+      flex-direction: column;
+    }
+    /*Payments Responsive*/
+    .card-header-payments {
+      justify-content: flex-end;
+    }
+    .class_payment_header {
+      display: none;
+    }
+    .inputCtrPaymentsDepart {
+      width: 75%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    /* payments responsive */
+    .inputCtrPaymentsDepart {
+      width: 100%;
+      margin: auto;
+    }
+  }
+`;
 
 export default BookingForm;
