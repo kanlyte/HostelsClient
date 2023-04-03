@@ -18,10 +18,7 @@ import { Base64 } from "js-base64";
 import FormsApi from "../../api/api";
 import user from "..//../app.config";
 import styled from "styled-components";
-const shortid = require("shortid");
-var rn = require("random-number");
-
-// const user = _user ? _user : {};
+import rn from "random-number";
 
 function BookingForm() {
   var options = {
@@ -200,59 +197,6 @@ function BookingForm() {
                     <h5>Booking Form</h5>
                   </div>
                 </div>
-      <div className="bookingdetails">
-        <div className="bookingdetails2">
-          <div>
-            <h4>Please Fill this form to complete your booking process</h4>
-          </div>
-          <div className="booking-inputs-ctr">
-            <form onSubmit={submit_booking_form}>
-              <input
-                type="text"
-                name="landlord_id"
-                value={bookh ? bookh.hostel_landlord : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="hostel_id"
-                value={bookh ? bookh.id : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="user_id"
-                value={user ? user.id : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="room_id"
-                value={s_r_arr ? s_r_arr.id : ""}
-                hidden
-                onChange={() => {}}
-              />
-              <input
-                type="text"
-                name="payment_code"
-                value={rn(options)}
-                hidden
-                // onChange={() => {}}
-              />
-              <div>
-                <TextField
-                  label="Full Name"
-                  name="name"
-                  variant="outlined"
-                  helperText={`Like: "Aggi peter"`}
-                  color="primary"
-                  style={{ width: "98%" }}
-                  value={user.full_name || " "}
-                />
-              </div>
               <div className="card-body">
                 <div>
                   <div className="inputCtr">
@@ -287,6 +231,13 @@ function BookingForm() {
                           value={s_r_arr ? s_r_arr.id : ""}
                           hidden
                           onChange={() => {}}
+                        />
+                          <input
+                          type="text"
+                          name="payment_code"
+                          value={rn(options)}
+                          hidden
+                          // onChange={() => {}}
                         />
                         <div className="inputs_ctr_flex">
                           <TextField
@@ -402,7 +353,8 @@ function BookingForm() {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+            </div>
         </main>
       </Container>
       <Footer />
