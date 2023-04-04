@@ -36,6 +36,7 @@ const HostelDetails = () => {
       setState({ hostel: {}, landlord: {} });
     };
   }, []);
+
   // console.log(state.hostel);
   return (
     <>
@@ -220,6 +221,7 @@ const HostelDetails = () => {
                             <label for="message">Your Review *</label>
                             <textarea
                               id="message"
+                              name="review"
                               cols="30"
                               rows="5"
                               className="form-control"
@@ -229,6 +231,7 @@ const HostelDetails = () => {
                             <label for="name">Your Name *</label>
                             <input
                               type="text"
+                              name="name"
                               className="form-control"
                               id="name"
                             />
@@ -237,6 +240,7 @@ const HostelDetails = () => {
                             <label for="email">Your Email *</label>
                             <input
                               type="email"
+                              name="email"
                               className="form-control"
                               id="email"
                             />
