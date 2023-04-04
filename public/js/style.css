@@ -2307,7 +2307,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #6C757D;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -2327,7 +2327,7 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #6C757D;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -2350,35 +2350,35 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #212529;
-  background-color: #FFD333;
-  border-color: #FFD333;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
 }
 
 .btn-primary:hover {
-  color: #212529;
-  background-color: #ffcb0d;
-  border-color: #ffc800;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  color: #212529;
-  background-color: #ffcb0d;
-  border-color: #ffc800;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
   box-shadow: 0 0 0 0.2rem rgba(222, 185, 50, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-  color: #212529;
-  background-color: #FFD333;
-  border-color: #FFD333;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: #212529;
-  background-color: #ffc800;
-  border-color: #f2be00;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2387,28 +2387,28 @@ fieldset:disabled a.btn {
 }
 
 .btn-secondary {
-  color: #212529;
-  background-color: #F5F5F5;
-  border-color: #F5F5F5;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
 }
 
 .btn-secondary:hover {
-  color: #212529;
+  color: #fff;
   background-color: #e2e2e2;
   border-color: gainsboro;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
-  color: #212529;
-  background-color: #e2e2e2;
+  color: #fff;
+  background-color: #1742A6;
   border-color: gainsboro;
   box-shadow: 0 0 0 0.2rem rgba(213, 214, 214, 0.5);
 }
 
 .btn-secondary.disabled, .btn-secondary:disabled {
-  color: #212529;
-  background-color: #F5F5F5;
-  border-color: #F5F5F5;
+  color: #fff;
+  background-color: #1742A6;
+  border-color: #1742A6;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
@@ -8119,6 +8119,7 @@ button.bg-dark:focus {
   .ml-md-5,
   .mx-md-5 {
     margin-left: 3rem !important;
+    color: #fff;
   }
   .p-md-0 {
     padding: 0 !important;

@@ -18,6 +18,7 @@ import Header from "../../components/header/Header";
 import user from "..//../app.config";
 import "../Design/login.scss";
 import LogIn from "..//../assets/login.svg";
+import ScrollUp from "../../utils/ScrollUp";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -187,6 +188,7 @@ function Login() {
         </form>
       </div>
       <Footer />
+      <ScrollUp />
     </>
   );
 }

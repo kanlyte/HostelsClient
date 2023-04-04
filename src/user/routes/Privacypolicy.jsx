@@ -1,4 +1,5 @@
 import Header from "../../components/header/Header";
+import ScrollUp from "../../utils/ScrollUp";
 import "../Design/All.css";
 
 import Banner from "./Banner";
@@ -237,6 +238,7 @@ export default () => {
           </div>
         </div>
       </div>
+    <ScrollUp />
     </>
   );
 };
