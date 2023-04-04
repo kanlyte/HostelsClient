@@ -54,42 +54,48 @@ const Finish = () => {
                 style={{ marginLeft: "10px" }}
               /> */}
             </div>
-            <h2>-----Your Bookings------</h2>
+            <h2 style={{ color: "#007bff" }}>-----Your Bookings------</h2>
             <p>
               Hello &nbsp; &nbsp;
-              <span style={{ fontSize: "15px", color: "black" }}>
+              <span style={{ fontSize: "15px", color: "#007bff" }}>
                 {user ? user.full_name : ""}
               </span>
             </p>
             <p>The following is your booking details</p>
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableContainer
+              className="--table--"
+              component={Paper}
+              // sx={{ maxWidth: "500px" }}
+            >
+              <Table size="small" aria-label="a dense table">
                 <TableHead>
                   <TableRow>
-                    <TableCell style={{ color: "black", fontWeight: "bolder" }}>
+                    <TableCell
+                      style={{ color: "#007bff", fontWeight: "bolder" }}
+                    >
                       Hostel
                     </TableCell>
                     <TableCell
                       align="right"
-                      style={{ color: "black", fontWeight: "bolder" }}
+                      style={{ color: "#007bff", fontWeight: "bolder" }}
                     >
                       Room No
                     </TableCell>
                     <TableCell
                       align="right"
-                      style={{ color: "black", fontWeight: "bolder" }}
+                      style={{ color: "#007bff", fontWeight: "bolder" }}
                     >
                       Booking Fee
                     </TableCell>
                     <TableCell
                       align="right"
-                      style={{ color: "black", fontWeight: "bolder" }}
+                      style={{ color: "#007bff", fontWeight: "bolder" }}
                     >
                       Payment token
                     </TableCell>
                     <TableCell
                       align="right"
-                      style={{ color: "black", fontWeight: "bolder" }}
+                      style={{ color: "#007bff", fontWeight: "bolder" }}
                     >
                       Payment Status
                     </TableCell>
@@ -98,7 +104,7 @@ const Finish = () => {
                 <TableBody>
                   {state.bookings.length === 0 ? (
                     <div>
-                      <h4>Keep around, your bookings are loading</h4>
+                      <p style={{ padding: "5px" }}>loading ......</p>
                     </div>
                   ) : (
                     state.bookings.map((v, i) => {
@@ -133,6 +139,27 @@ const Finish = () => {
               </Table>
             </TableContainer>
             <p>A pending room can be booked by another person.</p>
+            <p
+              style={{
+                fontSize: "15px",
+                color: "black",
+                fontWeight: "500",
+              }}
+            >
+              Your booking code shall expire in 12 hours. Once you exceed 12
+              hours before paying your booking fee, your booking will be
+              canceled.
+              <br />
+              Please note that the booking fee is part of the Room Amount
+            </p>
+            <p>
+              Your booking status shall be changed to completed from your
+              bookings and there you will have completed the booking process.
+            </p>
+            <h4>
+              For inquiries: call, whatsapp, or text <span>0762-534-356</span>
+            </h4>
+            <p style={{ color: "#007bff" }}>Thanks for booking with us</p>
             <div className="my__">
               <Link to="/">
                 <Button
@@ -149,26 +176,52 @@ const Finish = () => {
             </div>
           </div>
           <div className="_booking_payments">
-            <h2>How to pay booking fee</h2>
-            <p
-              style={{
-                fontSize: "15px",
-                color: "black",
-                fontWeight: "500",
-              }}
-            >
-              Your booking code shall expire in 12 hours. Once you exceed 12
-              hours before paying your booking fee, your booking will be
-              canceled.
+            <h2 style={{ color: "#007bff" }}>How to pay booking fee</h2>
+
+            <p>
+              The following are the different methods of paying the booking fee
+            </p>
+            <h4>Method 1: Using Payment Code</h4>
+            <div className="--mtd1--">
+              <p>
+                <span style={{ color: "#007bff" }}>Using MTN Network</span>
+                <br />
+                Dial
+                <span
+                  style={{
+                    fontSize: "15px",
+                    color: "black",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  *165*1*1#
+                </span>
+                <br />
+                Enter this number:
+                <span
+                  style={{
+                    fontSize: "15px",
+                    color: "black",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  03924367477
+                </span>
+                <br />
+                Enter your booking fee corresponding to the booking that you are
+                paying for
+                <br />
+                Enter the payment code as a reason for the booking that you are
+                paying
+                <br />
+                Enter your MMomey pin to complete your payment.
+              </p>
+            </div>
+            {/* <h4>Using AIRTEL Network</h4> */}
+            <p>
+              <span style={{ color: "#007bff" }}>Using AIRTEL Network</span>
               <br />
-              Please note that the booking fee is part of the Room Amount
-            </p>
-            <p>
-              Follow the following procedures to complete your payment using our
-              merchant codes.
-            </p>
-            <p>
-              Dial{" "}
+              Dial
               <span
                 style={{
                   fontSize: "15px",
@@ -176,29 +229,90 @@ const Finish = () => {
                   fontWeight: "bolder",
                 }}
               >
-                *598*7#
-              </span>{" "}
-              on your phone on either airtel or mtn network
+                *185*1*1#
+              </span>
+              <br />
+              Enter this number:
+              <span
+                style={{
+                  fontSize: "15px",
+                  color: "black",
+                  fontWeight: "bolder",
+                }}
+              >
+                03924367477
+              </span>
+              <br />
+              Enter your booking fee corresponding to the booking that you are
+              paying for
+              <br />
+              Enter the payment code as a reason for the booking that you are
+              paying
+              <br />
+              Enter your MMomey pin to complete your payment.
+            </p>
+
+            <br />
+            <h4>Method 2: Using Merchant Code</h4>
+            <p>
+              <span style={{ color: "#007bff" }}>Using MTN Network</span>
+              <br />
+              Dial
+              <span
+                style={{
+                  fontSize: "15px",
+                  color: "black",
+                  fontWeight: "bolder",
+                }}
+              >
+                *165*3#
+              </span>
+              <br /> Enter our authorized merchant code
+              <span
+                style={{
+                  fontSize: "15px",
+                  color: "black",
+                  fontWeight: "bolder",
+                }}
+              >
+                45643
+              </span>
+              <br />
+              Enter Booking fee
+              <br /> Enter your MMomey pin to complete your payment.
             </p>
             <p>
-              A list of services to be payed for shall be displayed. including
-              Hostel, Hotel, Office space, appartments and others
+              <span style={{ color: "#007bff" }}>Using AIRTEL Network</span>
+              <br />
+              Dial
+              <span
+                style={{
+                  fontSize: "15px",
+                  color: "black",
+                  fontWeight: "bolder",
+                }}
+              >
+                *185*9#
+              </span>
+              <br />
+              Enter our authorized merchant code
+              <span
+                style={{
+                  fontSize: "15px",
+                  color: "black",
+                  fontWeight: "bolder",
+                }}
+              >
+                45643
+              </span>
+              <br />
+              Enter Booking fee
+              <br />
+              Enter your MMomey pin to complete your payment.
             </p>
-            <p>
-              Select <span>Hostel</span>
-            </p>
-            <p>You will be required to enter your booking code</p>
-            <p>After, you will enter the booking fee </p>
-            <p>
-              And complete the transaction by putting your mobile money pin.
-            </p>
-            <p>
-              Your booking status shall be changed to completed from your
-              bookings and there you will have completed the booking process.
-            </p>
-            <h4>
-              For inquiries: call, whatsapp, or text <span>0762-534-356</span>
-            </h4>
+
+            <p style={{ color: "#007bff" }}>Thanks for booking with us</p>
+
             <div className="m__">
               <Link to="/">
                 <Button

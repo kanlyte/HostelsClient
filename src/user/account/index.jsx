@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "../Design/user.css";
 import Avarta from "..//../assets/user.svg";
+import Paper from "@mui/material/Paper";
 import {
   Alert as MuiAlert,
   Slide,
@@ -16,35 +17,40 @@ import {
   Select,
   Snackbar,
   TextField,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
 } from "@mui/material";
 import Person from "@mui/icons-material/Person";
 import user from "..//../app.config";
 import { useEffect } from "react";
 import { ChevronRight } from "@mui/icons-material";
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";
 import FormsApi from "../../api/api";
 const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
-export default ({_user}) => {
+export default ({ _user }) => {
   const params = useParams();
   const navigate = useNavigate();
-useEffect(()=>{
-  if (!user) {
-    navigate("/user/login");
-  }
-}, []);
+  useEffect(() => {
+    if (!user) {
+      navigate("/user/login");
+    }
+  }, []);
   // console.log(state._user);
 
-
-//filtering the users and matchng the right user
-// const _usa = state.users.filter((m)=>{
-//   return user.id === m.id;
-// });
+  //filtering the users and matchng the right user
+  // const _usa = state.users.filter((m)=>{
+  //   return user.id === m.id;
+  // });
   if (!user) return <Header />;
 
   return (
@@ -173,11 +179,11 @@ useEffect(()=>{
   );
 };
 
-const Profile = ({_user}) => {
+const Profile = ({ _user }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const[state, setState] = useState({
+  const [state, setState] = useState({
     _user: {},
-  })
+  });
   useEffect(() => {
     (async () => {
       const res = await new FormsApi().get("/user/one/" + user.id);
@@ -237,33 +243,35 @@ const Profile = ({_user}) => {
                   margin: "20px",
                 }}
               />
-          <FormControl
-           variant="filled"
-           style={{
-            width: "75%",
-            margin: "20px",
-          }}>
-          <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
-          <FilledInput
-            id="filled-adornment-password"
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-            value={state._user.password || " "}
-
-          />
-        </FormControl>
+              <FormControl
+                variant="filled"
+                style={{
+                  width: "75%",
+                  margin: "20px",
+                }}
+              >
+                <InputLabel htmlFor="filled-adornment-password">
+                  Password
+                </InputLabel>
+                <FilledInput
+                  id="filled-adornment-password"
+                  type={showPassword ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                  value={state._user.password || " "}
+                />
+              </FormControl>
             </div>
           </div>
         </form>
@@ -273,48 +281,82 @@ const Profile = ({_user}) => {
 };
 
 const Bookings = () => {
- const [state, setState] = useState({
-  bookings: [],
- })
- useEffect(() => {
-  (async () => {
-    const res = await new FormsApi().get("/booking/user/" + user.id);
-    if (res !== "Error") {
-      if (res.status !== false) {
-        setState({
-          ...state,
-          bookings: res.result,
-        });
+  const [state, setState] = useState({
+    bookings: [],
+  });
+  useEffect(() => {
+    (async () => {
+      const res = await new FormsApi().get("/booking/user/" + user.id);
+      if (res !== "Error") {
+        if (res.status !== false) {
+          setState({
+            ...state,
+            bookings: res.result,
+          });
+        }
       }
-    }
-  })();
-}, []);
-//  console.log(state.bookings);
+    })();
+  }, []);
+  //  console.log(state.bookings);
   return (
     <>
       <div className="projects">
-          <div className="card">
-            <div className="card-header">
-              <h4>Bookings</h4>
-              </div>
-            </div>
-            <div className="_tex_ctr">
-              {state.bookings.length === 0? (
-                <h5>No bookings to display</h5>
-              ):(state.bookings.map((v, i)=>{
-                return(
-                  <div key={i} className="user-data-ctr">
-                  <div>Hostel Name</div>
-                  <div>{v.name_of_hostel}</div>
-                  <div>Room Number</div>
-                  <div>{v.room_number}</div>
-                  <div>Booking Date</div>
-                  <div>{v.booking_date}</div>
-                </div>
-                );
-              }))}
-            </div>
+        <div className="card">
+          <div className="card-header">
+            <h4>Bookings</h4>
           </div>
+        </div>
+        <div className="_tex_ctr">
+          <TableContainer component={Paper} className="--tables--">
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>No</TableCell>
+                  <TableCell align="right">Hostel name</TableCell>
+                  <TableCell align="right">Room Number</TableCell>
+                  <TableCell align="right">Booking Date</TableCell>
+                  <TableCell align="right">Payment Code</TableCell>
+                  <TableCell align="right">Booking status</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {state.bookings.length === 0 ? (
+                  <h5>No bookings to display</h5>
+                ) : (
+                  state.bookings.map((v, i) => {
+                    return (
+                      <TableRow
+                        key={v.id}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          {i + 1}
+                        </TableCell>
+                        <TableCell align="right">{v.name_of_hostel}</TableCell>
+                        <TableCell align="right">{v.room_number}</TableCell>
+                        <TableCell align="right">{v.booking_date}</TableCell>
+                        <TableCell align="right">{v.payment_code}</TableCell>
+                        <TableCell align="right">
+                          <Button
+                            variant="contained"
+                            color={
+                              v.book_status === true ? "primary" : "secondary"
+                            }
+                          >
+                            {v.book_status === true ? "Confirmed" : "Pending"}
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })
+                )}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </div>
     </>
   );
 };
@@ -324,40 +366,37 @@ const EditProfile = () => {
   const [state, setState] = useState({
     user_details: {},
     mui: {
-        SnackBarOpen: false,
-        snackBarMessage: "",
-        snackBarStatus: "info",
-        snackBarPosition: { vertical: "top", horizontal: "right" },
+      SnackBarOpen: false,
+      snackBarMessage: "",
+      snackBarStatus: "info",
+      snackBarPosition: { vertical: "top", horizontal: "right" },
     },
-
-})
-  useEffect(()=>{
+  });
+  useEffect(() => {
     (async () => {
-        let bookings = await new FormsApi().get("/user/one/" + user.id);
+      let bookings = await new FormsApi().get("/user/one/" + user.id);
 
-        if (bookings !== "Error") {
-          if (bookings.status !== false) {
-
-            setState({
-              ...state,
-              user_details: bookings.result || {},
-            });
-
-          }
+      if (bookings !== "Error") {
+        if (bookings.status !== false) {
+          setState({
+            ...state,
+            user_details: bookings.result || {},
+          });
         }
-      })();
-      return () => {
-        setState({
-          user_details: {},
-          mui: {
-            snackBarOpen: false,
-            snackBarMessage: "",
-            snackBarStatus: "info",
-            snackBarPosition: { vertical: "top", horizontal: "right" },
-          },
-        });
-      };
-}, []);
+      }
+    })();
+    return () => {
+      setState({
+        user_details: {},
+        mui: {
+          snackBarOpen: false,
+          snackBarMessage: "",
+          snackBarStatus: "info",
+          snackBarPosition: { vertical: "top", horizontal: "right" },
+        },
+      });
+    };
+  }, []);
   const updateInfo = async (e) => {
     e.preventDefault();
     setState({
@@ -372,9 +411,9 @@ const EditProfile = () => {
     let formDataInstance = new FormData(e.target);
     let form_contents = {};
     formDataInstance.forEach((el, i) => {
-    form_contents[i] = el;
+      form_contents[i] = el;
     });
-    let res = await new FormsApi().put(`/user/${user.id}`,form_contents);
+    let res = await new FormsApi().put(`/user/${user.id}`, form_contents);
     if (res !== "Error") {
       if (res.status !== false) {
         setState({
@@ -386,7 +425,7 @@ const EditProfile = () => {
             snackBarOpen: true,
           },
         });
-     window.location.reload();
+        window.location.reload();
       } else {
         setState({
           ...state,
@@ -398,35 +437,32 @@ const EditProfile = () => {
           },
         });
       }
-      
     } else {
       setState({
         ...state,
         mui: {
           ...state.mui,
-          snackBarMessage:
-            "Update User Failed, Check your internet....",
+          snackBarMessage: "Update User Failed, Check your internet....",
           snackBarStatus: "warning",
           snackBarOpen: true,
         },
       });
     }
-}
+  };
 
-
-    const handleClose = (event, reason) => {
-      if (reason === "clickaway") {
-        return;
-      }
-      setState({
-        ...state,
-        mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
-      });
-    };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setState({
+      ...state,
+      mui: { ...state.mui, snackBarMessage: "", snackBarOpen: false },
+    });
+  };
 
   return (
     <>
-        <Snackbar
+      <Snackbar
         open={state.mui.snackBarOpen}
         anchorOrigin={state.mui.snackBarPosition}
         autoHideDuration={5000}
@@ -529,7 +565,7 @@ const EditProfile = () => {
                     ...state,
                     user_details: {
                       ...state.user_details,
-                    password: e.target.value,
+                      password: e.target.value,
                     },
                   });
                 }}

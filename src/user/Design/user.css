@@ -166,12 +166,11 @@ td {
 }
 
 /*___close account___*/
-.__act_t p{
+.__act_t p {
   line-height: 20px;
-
 }
 
-p{
+p {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
@@ -179,10 +178,13 @@ p{
   margin-inline-end: 0px;
 }
 
-._close_ctr{
+._close_ctr {
   justify-content: left;
   align-items: inherit;
-  
+}
+.--tables-- {
+  max-width: 1053px !important;
+  overflow: scroll;
 }
 @media only screen and (max-width: 1024px) {
   .lab_tbl_ctr {
@@ -211,11 +213,14 @@ p{
   .card-body {
     overflow: auto;
   }
-  .___projects{
+  .___projects {
     grid-template-columns: 100%;
     grid-gap: 1.5rem;
   }
-  .__cl_aa{
-
+  .__cl_aa {
+  }
+  .--tables-- {
+    max-width: 333px !important;
+    overflow: scroll;
   }
 }

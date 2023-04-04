@@ -5,7 +5,7 @@ import ExpandDownIcon from "@mui/icons-material/ExpandMoreOutlined";
 import User from "@mui/icons-material/PersonOutlined";
 import Close from "@mui/icons-material/CloseOutlined";
 import ExpandUpIcon from "@mui/icons-material/ExpandLessOutlined";
-import Help from '@mui/icons-material/QuestionMark';
+import Help from "@mui/icons-material/QuestionMark";
 import Policy from "@mui/icons-material/Shield";
 import "./Header.css";
 import Logo from "..//../assets/logo3.png";
@@ -269,7 +269,7 @@ const Header = () => {
                       Become Landlord
                     </li>
                   </Link>
-                  <Link to="/helpcenter">
+                  <Link to="/help">
                     <li className="-help">
                       <button className="-a-btn -lg" style={{ width: "100%" }}>
                         <i className="las la-sign-out-alt"></i>
