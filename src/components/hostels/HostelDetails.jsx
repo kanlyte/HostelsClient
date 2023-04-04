@@ -9,6 +9,7 @@ import Footer from "../footer/Footer";
 import { Base64 } from "js-base64";
 import user from "..//../app.config";
 import styled from "styled-components";
+import ScrollUp from "../../utils/ScrollUp";
 
 const HostelDetails = () => {
   const navigate = useNavigate();
@@ -80,26 +81,32 @@ const HostelDetails = () => {
           </div>
         </div>
         <div className="hostel-detail-desc">
-          <h1>{state.hostel.hostel_name}</h1>
-          <h4>Hostel Description: </h4>
+          <h5>{state.hostel.hostel_name}</h5>
+          <h5>Hostel Description: </h5>
           <p>{state.hostel.hostel_description}</p>
           <div className="quantity">
-            <h4>
+            <h5>
               Single Rooms Available: {state.hostel.single_rooms_available}
-            </h4>
-            <h4>
+            </h5>
+            <h5>
               Double Rooms Available: {state.hostel.double_rooms_available}
-            </h4>
+            </h5>
           </div>
-          <h4>Hostel Fee Structure: </h4>
+          <h5>Hostel Fee Structure: </h5>
           <p>
             The Hostel Fee is <strong>{state.hostel.single_room_amount}</strong>{" "}
             for a single Room and{" "}
             <strong>{state.hostel.double_room_amount}</strong> for a Double Room
           </p>
-          <p className="price">Booking Fee: Ugshs:{state.hostel.booking_fee}</p>
+          <p className="price">Booking Fee: (UGX): {state.hostel.booking_fee}</p>
           <div className="buttons">
-            <Button variant="contained" color="primary">
+            <Button
+            variant="contained"
+            color="primary"
+            onClick={()=>{
+              window.history.back();
+            }}
+            >
               Cancel Hostel
             </Button>
             <Button
@@ -162,16 +169,14 @@ const HostelDetails = () => {
                       <div className="col-md-6">
                         <ul className="list-group list-group-flush">
                           <li className="list-group-item px-0">
-                            Duo amet accusam eirmod nonumy stet et et stet
-                            eirmod.
+                            
                           </li>
                         </ul>
                       </div>
                       <div className="col-md-6">
                         <ul className="list-group list-group-flush">
                           <li className="list-group-item px-0">
-                            Duo amet accusam eirmod nonumy stet et et stet
-                            eirmod.
+                            
                           </li>
                         </ul>
                       </div>
@@ -259,6 +264,7 @@ const HostelDetails = () => {
         </div>
       </Container>
       <Footer />
+    <ScrollUp />
     </>
     //   )}
   );

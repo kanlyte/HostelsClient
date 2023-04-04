@@ -19,6 +19,7 @@ import FormsApi from "../../api/api";
 import user from "..//../app.config";
 import styled from "styled-components";
 import rn from "random-number";
+import ScrollUp from "../../utils/ScrollUp";
 
 function BookingForm() {
   var options = {
@@ -185,7 +186,6 @@ function BookingForm() {
       <Container>
         <main>
           <div className="fullwidth-ctr">
-            <div className="projects">
               <div
                 className=""
                 style={{
@@ -369,19 +369,26 @@ function BookingForm() {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </main>
       </Container>
       <Footer />
+    <ScrollUp />
     </>
   );
 }
 
 const Container = styled.div`
   .inputCtr {
-    width: 95%;
+    width: 90%;
     margin: auto;
+  }
+  .form-header-ctr h5{
+    font-size:25px;
+    margin-left: 70px;
+  }
+   .inputCtr h4{
+    font-size: 18px;
   }
   .inputs_ctr_fullwidth {
     padding: 15px 20px;
@@ -403,7 +410,6 @@ const Container = styled.div`
     display: flex;
     justify-content: space-around;
   }
-  /*inputs for new product*/
   .inputs_ctr_np {
     width: 100%;
     margin: 15px auto;
@@ -447,16 +453,7 @@ const Container = styled.div`
     text-overflow: ellipsis;
     color: red;
   }
-  /*name cell*/
-  /*finish up ctr*/
-
-  /*finish up ctr*/
   @media screen and (max-width: 1024px) {
-    .form-header-ctr {
-      width: 100%;
-      align-items: center;
-    }
-
     .inputCtr {
       width: 100%;
       margin: auto;
@@ -483,6 +480,33 @@ const Container = styled.div`
       width: 100%;
       margin: auto;
     }
+    .inputs_ctr_np{
+      display: flex;
+      flex-direction: column;
+      gap:30px;
+    }
+      .form-header-ctr h5{
+    font-size:20px;
+    margin-left: 10px;
+  }
+   .card-body {
+    overflow: auto;
+  }
+    .tbl_ctr_np {
+  overflow-x: scroll;
+  }
+    .inputs_ctr {
+    border: none;
+    margin: 0px;
+  }
+   .inputs_ctr_np > div {
+    border:none;
+    border-radius: 5px;
+  }
+  .inputCtr h4{
+    font-size: 16px;
+  }
+
   }
 `;
 

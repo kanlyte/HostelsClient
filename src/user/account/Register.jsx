@@ -304,6 +304,10 @@ const Container = styled.div`
     width: 95%;
     margin: 15px auto;
   }
+  .register-ctr > div:first-child {
+    diplay: flex;
+    flex-direction:column;
+  }
 }
 
 `;

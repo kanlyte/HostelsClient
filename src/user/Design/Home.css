@@ -82,7 +82,7 @@
 
 
 @media screen and (max-width: 768px) {
-  .container {
+  ._container {
     grid-template-columns: repeat(1, 1fr);
   }
   .main{
