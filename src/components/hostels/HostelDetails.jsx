@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../header/Header";
 import "../design/Hosteldetails.css";
 import { useNavigate, useParams } from "react-router-dom";
+import Avarta from "../../assets/avarta.jpeg";
 import FormsApi from "../../api/api";
 import { Button } from "@mui/material";
 import Footer from "../footer/Footer";
@@ -21,17 +22,19 @@ const HostelDetails = () => {
   const [state, setState] = useState({
     hostel: {},
     landlord: {},
+    reviews: [],
   });
   const [data, setData] = useState({
     review: "",
     name: "",
     email: "",
+    hostel_id: "",
   });
-  // console.log(user);
   useEffect(() => {
     (async () => {
       let res = await new FormsApi().get(`/hostel/${params.id}`);
-      if (res !== "Error") {
+      let reviews = await new FormsApi().get(`/reviews/hostel/${params.id}`);
+      if (res !== "Error"){
         if (res.status) {
           setState({
             ...state,
@@ -40,11 +43,20 @@ const HostelDetails = () => {
           });
         }
       }
+      if(reviews !== "Error"){
+        if (reviews.status !== false){
+          setState({
+            ...state,
+            reviews: reviews.result,
+          });
+        }
+      }
     })();
     return () => {
-      setState({ hostel: {}, landlord: {} });
+      setState({ hostel: {}, landlord: {}, });
     };
   }, []);
+  // console.log(state.reviews);
   const submitReview = async (e) => {
     e.preventDefault();
     if (data.review === "" || data.review === null) {
@@ -67,6 +79,7 @@ const HostelDetails = () => {
           review: "",
           name: "",
           email: "",
+          hostel_id: "",
         });
       } else if (res.status === false) {
         enqueueSnackbar("An error occured", { variant: "warning" });
@@ -121,18 +134,18 @@ const HostelDetails = () => {
           </div>
         </div>
         <div className="hostel-detail-desc">
-          <h4>{state.hostel.hostel_name}</h4>
+          <h2>{state.hostel.hostel_name}</h2>
           <h4>Hostel Description: </h4>
           <p>{state.hostel.hostel_description}</p>
           <div className="quantity">
-            <h4>
+            <h5>
               Single Rooms Available: {state.hostel.single_rooms_available}
-            </h4>
+            </h5>
             <h4>
               Double Rooms Available: {state.hostel.double_rooms_available}
             </h4>
           </div>
-          <h4>Hostel Fee Structure: </h4>
+          <h4 className="h_s">Hostel Fee Structure: </h4>
           <p>
             The Hostel Fee is <strong>{state.hostel.single_room_amount}</strong>{" "}
             for a single Room and{" "}
@@ -223,23 +236,19 @@ const HostelDetails = () => {
                   <div className="tab-pane fade" id="tab-pane-3">
                     <div className="row">
                       <div className="col-md-6">
-                        <h4 className="mb-4">
-                          {" "}
-                          No reviews for {state.hostel.hostel_name}
-                        </h4>
-                        {/* <div className="media mb-4">
+                          <div className="media mb-4" >
+    
+                          <div>
                           <img
-                            src="img/user.jpg"
-                            alt="Image"
+                            src={Avarta}
+                            alt="avarta"
                             className="img-fluid mr-3 mt-1"
                             style={{ width: "45px" }}
                           />
                           <div className="media-body">
                             <h6>
-                              John Doe
                               <small>
-                                {" "}
-                                - <i>01 Jan 2045</i>
+                                {}-<i>01 Jan 2045</i>
                               </small>
                             </h6>
                             <div className="text-primary mb-2">
@@ -249,11 +258,12 @@ const HostelDetails = () => {
                               <i className="fas fa-star-half-alt"></i>
                               <i className="far fa-star"></i>
                             </div>
-                            <p>
-                              D
-                            </p>
+                            <p></p>
                           </div>
-                        </div> */}
+                          </div>
+                         
+                        </div>
+                      
                       </div>
                       <div className="col-md-6">
                         <h4 className="mb-4">Leave a review</h4>
@@ -273,6 +283,15 @@ const HostelDetails = () => {
                         </div>
                         <form onSubmit={submitReview}>
                           <div className="form-group">
+                          <input
+                              type="text"
+                              name="hostel_id"
+                              value={params.id ? params.id : ""}
+                              hidden
+                              onChange={(e) =>
+                                setData({ ...data, hostel_id: e.target.value })
+                              }
+                            />
                             <label for="message">Your Review *</label>
                             <textarea
                               id="message"

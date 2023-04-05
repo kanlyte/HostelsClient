@@ -157,5 +157,13 @@ const Container = styled.div`
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+
+@media screen and (max-width: 768px) {
+  .container-fluid{
+    display:none;
+  }
+
+}
+
 `;
 export default Carousel;
