@@ -7,6 +7,7 @@ import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { Slide, Snackbar } from "@mui/material";
 import FormsApi from "../../api/api";
 import styled from "styled-components";
+import ScrollUp from "../../utils/ScrollUp";
 
 function BecomeLandlord() {
   const [apiEmailUsed, setApiEmailUsed] = useState(false);
@@ -166,6 +167,7 @@ function BecomeLandlord() {
       </div>
       </Container>
       <Footer />
+      <ScrollUp />
     </>
   );
 }

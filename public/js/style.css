@@ -2292,38 +2292,6 @@ fieldset:disabled a.btn {
   pointer-events: none;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1742A6;
-  border-color: #1742A6;
-}
-
-.btn-primary:hover {
-  color: #fff;
-  background-color: #1742A6;
-  border-color: #1742A6;
-}
-
-.btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #1742A6;
-  border-color: #1742A6;
-  box-shadow: 0 0 0 0.2rem rgba(222, 185, 50, 0.5);
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  color: #fff;
-  background-color: #1742A6;
-  border-color: #1742A6;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #1742A6;
-  border-color: #1742A6;
-}
-
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(222, 185, 50, 0.5);

@@ -57,7 +57,7 @@ function Footer() {
                }
               />
               <button
-               className="flex1 __btn"
+               className="flex1 ---btn-1"
                type="submit">
                 <span>Subscribe</span>
                 <i className="fas fa-arrow-circle-right"></i>
