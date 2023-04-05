@@ -341,6 +341,11 @@ footer .content {
   .subscribe {
     max-width: 100%;
   }
+  .flex-cl{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 
   /*------------footer------------*/
 }

@@ -141,7 +141,7 @@
   flex: 1;
 }
 .vision:hover{
-  background-color: #1f93ff;
+  background-color: #1a5ba6;
   color: #fff;
 }
 .mission{
@@ -162,7 +162,10 @@
   font-size: 14px;
 }
 .mission:hover{
-  background: #1f93ff;
+  background: #1a5ba6;
+  color: #fff;
+}
+.mission> p :hover{
   color: #fff;
 }
 .ourteam {
@@ -299,11 +302,11 @@ Stlying for the booking manual page stops here
   flex: "1";
 }
 .message-content h2 {
-  color: #1f93ff;
+  color: #1742A6;
   padding-bottom: 20px;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 786px) {
   .bookingmanual {
     width: 100%;
   }
@@ -379,6 +382,10 @@ Stlying for the booking manual page stops here
   }
   .message-content {
     padding-left: 5px;
+  }
+  .m-v-c{
+    display: flex;
+    flex-direction: column;
   }
 }
 

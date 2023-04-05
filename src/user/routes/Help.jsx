@@ -1,11 +1,15 @@
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import styled from "styled-components";
+import FormsApi from "../../api/api";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
+import { validateEmail } from "../../utils/data/validate";
 export default () => {
-  const {Snackbar } = useSnackbar();
+  const {enqueueSnackbar } = useSnackbar();
   const [sendSuccess, setSendSuccess] = useState(false);
+  const [submit, setSubmit] = useState(false);
+
   const [data, setData] = useState({
     name: "",
     subject: "",
@@ -15,13 +19,37 @@ export default () => {
 const submitMessage = async(e)=>{
   e.preventDefault();
   if (data.name === "" || data.name === null) {
-    Snackbar("Name field is blank", { variant: "error" });
+   enqueueSnackbar("Name field is blank", { variant: "error" });
   }else if (data.subject === "" || data.subject === null) {
-    Snackbar("Subject field is blank", { variant: "error" });
+   enqueueSnackbar("Subject field is blank", { variant: "error" });
 }else if (data.email === "" || data.email === null) {
-    Snackbar("Email field is blank", { variant: "error" });
+   enqueueSnackbar("Email field is blank", { variant: "error" });
 }else if (data.message === "" || data.message === null) {
-    Snackbar("message field is blank", { variant: "error" });
+   enqueueSnackbar("message field is blank", { variant: "error" });
+}else if(!validateEmail(data.email)){
+  enqueueSnackbar("Enter correct email format", {variant: "error",});
+}
+else{
+  let api = new FormsApi();
+  let res = await api.post("/new/contact", data);
+  if (res.status === true) {
+    enqueueSnackbar("Request sent successfully", {variant: "success",});
+    setSubmit(true);
+    setData({
+      name: "",
+      subject: "",
+      email: "",
+      message: "",
+    })
+  }
+  else if(res.status === false){
+    enqueueSnackbar("An error occured", {variant: "warning",});
+    setSubmit(false);
+  }else{
+    enqueueSnackbar("Some other error occured", {variant: "warning",});
+    setSubmit(false);
+  }
+
 }
 }
 
@@ -82,16 +110,14 @@ const onCall = () => {
           </div>
 
           <div class="col-lg-6">
-            <form  method="post" role="form" class="php-email-form" action="assets/mail/mail.php">
+            <form class="php-email-form" onSubmit={submitMessage}>
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input
-                   type="text"
                    name="name"
                    class="form-control"
                    id="name"
                    placeholder="Enter Your Name"
-                   required="required"
                    value={data.name} 
                    onChange={(e) =>
                     setData({ ...data, name: e.target.value })
@@ -99,12 +125,11 @@ const onCall = () => {
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <input
-                   type="email" 
                    class="form-control" 
                    name="email" 
                    id="email"
                    placeholder="Enter Your Email"
-                   required 
+                  //  required 
                    value={data.email} 
                    onChange={(e) =>
                     setData({ ...data, email: e.target.value })
@@ -114,12 +139,11 @@ const onCall = () => {
               </div>
               <div class="form-group mt-3">
                 <input
-                 type="text"
                  class="form-control"
                  name="subject"
                  id="subject" 
                  placeholder="Enter your Subject"
-                 required
+                //  required
                  value={data.subject} 
                  onChange={(e) =>
                   setData({ ...data, subject: e.target.value })
@@ -131,13 +155,13 @@ const onCall = () => {
                  name="message"
                  rows="5" 
                  placeholder="Enter your Message"
-                 required
+                //  required
                  value={data.message} 
                  onChange={(e) =>
                   setData({ ...data, message: e.target.value })
                 }></textarea>
               </div>
-              <div class="text-center"><button type="submit" onClick={submitMessage}>Send Message</button></div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
 

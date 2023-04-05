@@ -140,9 +140,9 @@
   .___single_hstl{
       width: 500px;
   }
-  .__column{
+  /* .__column{
       padding-bottom: 1rem;
-  }
+  } */
   .__hstl_thumb img{
       width: 500px;
   }

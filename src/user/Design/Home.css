@@ -86,8 +86,8 @@
     grid-template-columns: repeat(1, 1fr);
   }
   .main{
-    width: 95%;
-    margin: 10px auto;
+    width: 100%;
+    margin: 0px auto;
     
   
   }

@@ -187,11 +187,6 @@ function BookingForm() {
         <main>
           <div className="fullwidth-ctr">
               <div
-                className=""
-                style={{
-                  borderBottom: "1px solid #f0f0f0",
-                  padding: "1rem",
-                }}
               >
                 <div className="form-header-ctr">
                   <div className="">
@@ -203,7 +198,7 @@ function BookingForm() {
                     <div className="inputCtr">
                       <h4>Booking Details</h4>
                       <div className="inputs_ctr_np">
-                        <div className="inputs_left_np">
+                        <div className="inputs_left_np c_card">
                           <form
                             className="card"
                             autoComplete="off"
@@ -255,21 +250,16 @@ function BookingForm() {
                                 name="name"
                                 variant="outlined"
                                 label="Full Name"
-                                style={{
-                                  width: "75%",
-                                  margin: "10px",
-                                }}
+                                className="text_f"
+                             
                                 value={user.full_name || " "}
                               />
                               <TextField
                                 name="telephone_number"
                                 variant="outlined"
                                 label="Contact"
+                                className="text_f"
                                 value={user.phone_number || " "}
-                                style={{
-                                  width: "75%",
-                                  margin: "10px",
-                                }}
                               />
                             </div>
                             <div className="inputs_ctr_fullwidth">
@@ -278,9 +268,7 @@ function BookingForm() {
                                 variant="outlined"
                                 label="Hostel name"
                                 value={bookh ? bookh.hostel_name : " "}
-                                style={{
-                                  width: "100%",
-                                }}
+                                className="text_f_l"
                               />
                             </div>
                             <div className="inputs_ctr_flex">
@@ -289,10 +277,7 @@ function BookingForm() {
                                 variant="outlined"
                                 label="Email"
                                 value={user.email || " "}
-                                style={{
-                                  width: "75%",
-                                  margin: "10px",
-                                }}
+                                className="text_f"
                               />
                               <FormControl fullWidth>
                                 <InputLabel id="select-room-no-label">
@@ -305,10 +290,7 @@ function BookingForm() {
                                   onChange={changeSelectRoomNo}
                                   name="room_number"
                                   required
-                                  style={{
-                                    width: "75%",
-                                    margin: "10px",
-                                  }}
+                                  className="text_f"
                                 >
                                   {availabel_rooms.length === 0 ? (
                                     <MenuItem value="">
@@ -341,7 +323,7 @@ function BookingForm() {
                             </div>
                           </form>
                         </div>
-                        <div className="inputs_right_np">
+                        <div className="inputs_right_np c_card">
                           <h4 style={{ margin: "20px" }}>See Room Details</h4>
                           <div className="tbl_ctr_np">
                             <table width="100%">
@@ -379,6 +361,13 @@ function BookingForm() {
 }
 
 const Container = styled.div`
+.text_f{
+  width:75%;
+  margin:10px;
+}
+.text_f_l{
+  width:100%;
+}
   .inputCtr {
     width: 90%;
     margin: auto;
@@ -404,7 +393,7 @@ const Container = styled.div`
   }
   .inputs_ctr {
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    // border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     margin: 15px auto;
     display: flex;
@@ -412,13 +401,13 @@ const Container = styled.div`
   }
   .inputs_ctr_np {
     width: 100%;
-    margin: 15px auto;
+    margin: 0px auto;
     display: flex;
     justify-content: space-around;
   }
   .inputs_ctr_np > div {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    // border: 1px solid rgba(0, 0, 0, 0.1);
+    // border-radius: 5px;
   }
   .inputs_right_np {
     flex: 2;
@@ -429,7 +418,7 @@ const Container = styled.div`
     margin-right: 10px;
   }
   .tbl_ctr_np {
-    width: 95%;
+    width: 90%;
     margin: auto;
     /* overflow-x: scroll; */
   }
@@ -468,18 +457,10 @@ const Container = styled.div`
     .class_payment_header {
       display: none;
     }
-    .inputCtrPaymentsDepart {
-      width: 75%;
-      margin: auto;
-    }
+  
   }
 
   @media screen and (max-width: 600px) {
-    /* payments responsive */
-    .inputCtrPaymentsDepart {
-      width: 100%;
-      margin: auto;
-    }
     .inputs_ctr_np{
       display: flex;
       flex-direction: column;
@@ -506,6 +487,29 @@ const Container = styled.div`
   .inputCtr h4{
     font-size: 16px;
   }
+  .tbl_ctr_np {
+    width: 100%;
+    // margin: 0px;
+    /* overflow-x: scroll; */
+  }
+  .inputs_ctr_flex {
+    display: flex;
+    flex-direction:column;
+    padding: 10px 12px;
+
+  }
+  .inputs_ctr_fullwidth {
+    padding: 10px 12px;
+  }
+  .text_f{
+    width:100%;
+    margin:7px;
+  }
+  .text_f_l{
+    width:100%;
+    margin:7px;
+  }
+ 
 
   }
 `;

@@ -10,14 +10,23 @@ import { Base64 } from "js-base64";
 import user from "..//../app.config";
 import styled from "styled-components";
 import ScrollUp from "../../utils/ScrollUp";
+import { useSnackbar } from "notistack";
+import { validateEmail } from "../../utils/data/validate";
 
 const HostelDetails = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const params = useParams();
   const [index, setIndex] = useState(0);
+  const [submit, setSubmit] = useState(false);
   const [state, setState] = useState({
     hostel: {},
     landlord: {},
+  });
+  const [data, setData] = useState({
+    review: "",
+    name: "",
+    email: "",
   });
   // console.log(user);
   useEffect(() => {
@@ -37,7 +46,42 @@ const HostelDetails = () => {
       setState({ hostel: {}, landlord: {} });
     };
   }, []);
-  // console.log(state.hostel);
+  const submitReview = async(e)=>{
+    e.preventDefault();
+    if (data.review === "" || data.review === null) {
+      enqueueSnackbar("Review field is blank", { variant: "error" });
+    }else if (data.name === "" || data.name === null) {
+      enqueueSnackbar("Name field is blank", { variant: "error" });
+  }else if (data.email === "" || data.email === null) {
+    enqueueSnackbar("Email field is blank", { variant: "error" });
+  }else if(!validateEmail(data.email)){
+    enqueueSnackbar("Enter correct email format", {variant: "error",});
+  }
+  else{
+    let api = new FormsApi();
+    let res = await api.post("/new/review", data);
+    if (res.status === true) {
+      enqueueSnackbar("Your Review has been added successfully", {variant: "success",});
+      setSubmit(true);
+      setData({
+        review: "",
+        name: "",
+        email: "",
+      });
+      
+    }
+    else if(res.status === false){
+      enqueueSnackbar("An error occured", {variant: "warning",});
+      setSubmit(false);
+    }else{
+      enqueueSnackbar("Some other error occured", {variant: "warning",});
+      setSubmit(false);
+    }
+
+  }
+  }
+
+
   return (
     <>
       {/* <MetaData title={`${product.name}`} /> */}
@@ -81,18 +125,18 @@ const HostelDetails = () => {
           </div>
         </div>
         <div className="hostel-detail-desc">
-          <h5>{state.hostel.hostel_name}</h5>
-          <h5>Hostel Description: </h5>
+          <h4>{state.hostel.hostel_name}</h4>
+          <h4>Hostel Description: </h4>
           <p>{state.hostel.hostel_description}</p>
           <div className="quantity">
-            <h5>
+            <h4>
               Single Rooms Available: {state.hostel.single_rooms_available}
-            </h5>
-            <h5>
+            </h4>
+            <h4>
               Double Rooms Available: {state.hostel.double_rooms_available}
-            </h5>
+            </h4>
           </div>
-          <h5>Hostel Fee Structure: </h5>
+          <h4>Hostel Fee Structure: </h4>
           <p>
             The Hostel Fee is <strong>{state.hostel.single_room_amount}</strong>{" "}
             for a single Room and{" "}
@@ -220,7 +264,7 @@ const HostelDetails = () => {
                             <i className="far fa-star"></i>
                           </div>
                         </div>
-                        <form>
+                        <form onSubmit={submitReview}>
                           <div className="form-group">
                             <label for="message">Your Review *</label>
                             <textarea
@@ -230,6 +274,10 @@ const HostelDetails = () => {
                               rows="5"
                               type="text"
                               className="form-control"
+                              value={data.review}
+                              onChange={(e) =>
+                                setData({ ...data, review: e.target.value })
+                              }
                             ></textarea>
                           </div>
                           <div className="form-group">
@@ -239,6 +287,10 @@ const HostelDetails = () => {
                               className="form-control"
                               id="name"
                               name="name"
+                              value={data.name}
+                              onChange={(e) =>
+                                setData({ ...data, name: e.target.value })
+                              }
                             />
                           </div>
                           <div className="form-group">
@@ -247,6 +299,10 @@ const HostelDetails = () => {
                               className="form-control"
                               id="email"
                               name="email"
+                              value={data.email}
+                              onChange={(e) =>
+                                setData({ ...data, email: e.target.value })
+                              }
                             />
                           </div>
                           <div className="form-group mb-0">

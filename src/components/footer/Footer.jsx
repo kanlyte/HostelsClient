@@ -7,26 +7,27 @@ import FormsApi from "../../api/api";
 function Footer() {
   const { enqueueSnackbar } = useSnackbar();
   const [submit, setSubmit] = useState(false);
+  const [data, setData] = useState({
+    email:"",
+  });
 
   const newsletterHandler = async (e) => {
     e.preventDefault();
     setSubmit(true);
-    const fd = new FormData(e.target);
-    let _fcontent = {};
-    fd.forEach((value, key) => {
-      _fcontent[key] = value;
-    });
-    if (_fcontent.email === "" || _fcontent.email === null) {
+    if (data.email === "" || data.email === null) {
       enqueueSnackbar("email field is empty", {variant: "warning",});
-    }else if(!validateEmail(_fcontent.email)){
+    }else if(!validateEmail(data.email)){
       enqueueSnackbar("Enter correct email format", {variant: "error",});
     }
     else{
       let api = new FormsApi();
-      let res = await api.post("/new/subscriber", _fcontent);
+      let res = await api.post("/new/subscriber", data);
       if (res.status === true) {
         enqueueSnackbar("Your Email has been added successfully", {variant: "success",});
         setSubmit(true);
+        setData({
+          email:"",
+        })
       }
       else if(res.status === false){
         enqueueSnackbar("An error occured", {variant: "warning",});
@@ -46,10 +47,14 @@ function Footer() {
             <h2>Subscribe to Our newsletter</h2>
             <p>This will help us connected with you in case of any query</p>
             <form onSubmit={newsletterHandler}>
-            <div className="input flex">
+            <div className="input flex flex-cl">
               <input
                name="email"
                placeholder="Enter Your Email address"
+               value={data.email}
+               onChange={(e) =>
+                 setData({ ...data, email: e.target.value })
+               }
               />
               <button
                className="flex1 __btn"
