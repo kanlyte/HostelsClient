@@ -171,6 +171,15 @@ function BecomeLandlord() {
 }
 
 const Container = styled.div`
+.__req_img{
+  width:40%;
+  height:40%;
+}
+.register-inputs-ctr-divided {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
 .__req_ctr{
   display: flex;
   justify-content: space-around;

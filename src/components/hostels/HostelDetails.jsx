@@ -45,41 +45,38 @@ const HostelDetails = () => {
       setState({ hostel: {}, landlord: {} });
     };
   }, []);
-  const submitReview = async(e)=>{
+  const submitReview = async (e) => {
     e.preventDefault();
     if (data.review === "" || data.review === null) {
       enqueueSnackbar("Review field is blank", { variant: "error" });
-    }else if (data.name === "" || data.name === null) {
+    } else if (data.name === "" || data.name === null) {
       enqueueSnackbar("Name field is blank", { variant: "error" });
-  }else if (data.email === "" || data.email === null) {
-    enqueueSnackbar("Email field is blank", { variant: "error" });
-  }else if(!validateEmail(data.email)){
-    enqueueSnackbar("Enter correct email format", {variant: "error",});
-  }
-  else{
-    let api = new FormsApi();
-    let res = await api.post("/new/review", data);
-    if (res.status === true) {
-      enqueueSnackbar("Your Review has been added successfully", {variant: "success",});
-      setSubmit(true);
-      setData({
-        review: "",
-        name: "",
-        email: "",
-      });
-      
+    } else if (data.email === "" || data.email === null) {
+      enqueueSnackbar("Email field is blank", { variant: "error" });
+    } else if (!validateEmail(data.email)) {
+      enqueueSnackbar("Enter correct email format", { variant: "error" });
+    } else {
+      let api = new FormsApi();
+      let res = await api.post("/new/review", data);
+      if (res.status === true) {
+        enqueueSnackbar("Your Review has been added successfully", {
+          variant: "success",
+        });
+        setSubmit(true);
+        setData({
+          review: "",
+          name: "",
+          email: "",
+        });
+      } else if (res.status === false) {
+        enqueueSnackbar("An error occured", { variant: "warning" });
+        setSubmit(false);
+      } else {
+        enqueueSnackbar("Some other error occured", { variant: "warning" });
+        setSubmit(false);
+      }
     }
-    else if(res.status === false){
-      enqueueSnackbar("An error occured", {variant: "warning",});
-      setSubmit(false);
-    }else{
-      enqueueSnackbar("Some other error occured", {variant: "warning",});
-      setSubmit(false);
-    }
-
-  }
-  }
-
+  };
 
   return (
     <>
@@ -231,19 +228,32 @@ const HostelDetails = () => {
                           No reviews for {state.hostel.hostel_name}
                         </h4>
                         {/* <div className="media mb-4">
-                                        <img src="img/user.jpg" alt="Image" className="img-fluid mr-3 mt-1" style={{width:"45px"}}/>
-                                        <div className="media-body">
-                                            <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                            <div className="text-primary mb-2">
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star-half-alt"></i>
-                                                <i className="far fa-star"></i>
-                                            </div>
-                                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
-                                        </div>
-                                    </div> */}
+                          <img
+                            src="img/user.jpg"
+                            alt="Image"
+                            className="img-fluid mr-3 mt-1"
+                            style={{ width: "45px" }}
+                          />
+                          <div className="media-body">
+                            <h6>
+                              John Doe
+                              <small>
+                                {" "}
+                                - <i>01 Jan 2045</i>
+                              </small>
+                            </h6>
+                            <div className="text-primary mb-2">
+                              <i className="fas fa-star"></i>
+                              <i className="fas fa-star"></i>
+                              <i className="fas fa-star"></i>
+                              <i className="fas fa-star-half-alt"></i>
+                              <i className="far fa-star"></i>
+                            </div>
+                            <p>
+                              D
+                            </p>
+                          </div>
+                        </div> */}
                       </div>
                       <div className="col-md-6">
                         <h4 className="mb-4">Leave a review</h4>
