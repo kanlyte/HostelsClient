@@ -578,6 +578,16 @@ const EditProfile = () => {
   );
 };
 const AccountClosed = () => {
+  const closeAccount = async (e) => {
+    const res = await new FormsApi().deleteItem(`/user/delete/${user.id}`);
+    if (res.status) {
+      alert("Are you sure you want to delete your account");
+      window.location.reload();
+    } else {
+      alert("Un expected error");
+    }
+  };
+
   return (
     <div className="_close_ctr">
       <div>
@@ -624,6 +634,7 @@ const AccountClosed = () => {
           </FormControl>
           <div>
             <Button
+              onClick={(e) => closeAccount(e)}
               type="submit"
               variant="contained"
               color="primary"
