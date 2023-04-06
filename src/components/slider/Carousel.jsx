@@ -6,10 +6,12 @@ import Caruasel3 from "../../assets/room.jpg";
 
 import image from "../../assets/hse.jpeg";
 import image2 from "../../assets/house.jpeg";
+import styled from "styled-components";
 
 const Carousel = () => {
   return (
     <>
+    <Container>
     <div className="container-fluid mb-3">
       <div className="row px-xl-5">
         <div className="col-lg-8">
@@ -75,7 +77,7 @@ const Carousel = () => {
                       className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       href="#"
                     >
-                      Shop Now
+                      Book Now
                     </a>
                   </div>
                 </div>
@@ -100,7 +102,7 @@ const Carousel = () => {
                       className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       href="#"
                     >
-                      Shop Now
+                      Book Now
                     </a>
                   </div>
                 </div>
@@ -114,7 +116,7 @@ const Carousel = () => {
             <div className="offer-text">
               <h6 className="text-white text-uppercase">Get your self</h6>
               <h3 className="text-white mb-3">Better Hostels</h3>
-              <a href="" className="btn btn-primary">
+              <a href="" className="btn ---btn-1">
                 Book Now
               </a>
             </div>
@@ -124,7 +126,7 @@ const Carousel = () => {
             <div className="offer-text">
               <h6 className="text-white text-uppercase">Get your self</h6>
               <h3 className="text-white mb-3">Better Hostels</h3>
-              <a href="" className="btn btn-primary">
+              <a href="" className="btn ---btn-1">
                 Book Now
               </a>
             </div>
@@ -132,7 +134,36 @@ const Carousel = () => {
         </div>
       </div>
     </div>
+    </Container>
     </>
   );
 };
+const Container = styled.div`
+.---btn-1 {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #1742a6;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container-fluid{
+    display:none;
+  }
+
+}
+
+`;
 export default Carousel;

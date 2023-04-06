@@ -17,6 +17,7 @@ import "..//../Design/finish.scss";
 import user from "..//..//../app.config";
 import Footer from "../../../components/footer/Footer";
 import FormsApi from "../../../api/api";
+import ScrollUp from "../../../utils/ScrollUp";
 const shortid = require("shortid");
 const Finish = () => {
   const [state, setState] = useState({
@@ -364,6 +365,7 @@ const Finish = () => {
       </div>
       {/* </div> */}
       <Footer />
+      <ScrollUp/>
     </>
   );
 };

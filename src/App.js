@@ -8,7 +8,7 @@ import "line-awesome/dist/line-awesome/css/line-awesome.css";
 
 const App = () => {
   return(
-    <SnackbarProvider maxSnack = {2}>
+    <SnackbarProvider maxSnack = {4}>
     <User />
    </SnackbarProvider>
   );

@@ -2,6 +2,7 @@ import Banner from "./Banner";
 import "../Design/All.css";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
+import ScrollUp from "../../utils/ScrollUp";
 
 export default () => {
   return (
@@ -71,6 +72,7 @@ export default () => {
           </div>
         </div>
         <Footer />
+        <ScrollUp/>
       </div>
     </>
   );

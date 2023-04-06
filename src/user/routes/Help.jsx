@@ -5,6 +5,7 @@ import FormsApi from "../../api/api";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { validateEmail } from "../../utils/data/validate";
+import ScrollUp from "../../utils/ScrollUp";
 export default () => {
   const {enqueueSnackbar } = useSnackbar();
   const [sendSuccess, setSendSuccess] = useState(false);
@@ -58,6 +59,10 @@ const onCall = () => {
   window.open("tel:+256778089708");
   };
 
+  const onMail = () => {
+    window.open("email:beaconhostels@gmail.com");
+    };
+
   return (
     <>
       <Header />
@@ -86,7 +91,7 @@ const onCall = () => {
           </div>
 
           <div class="col-lg-3 col-md-6">
-            <div class="info-box  mb-4 contact_hovering">
+            <div class="info-box  mb-4 contact_hovering" onClick={()=>onMail()}>
               <i class="las la-envelope icon-box"></i>
               <h3>Email Us</h3>
               <p>beaconhostels@gmail.com</p>
@@ -172,6 +177,8 @@ const onCall = () => {
       </main>
       </Container>
       <Footer />
+      <ScrollUp/>
+
     </>
   );
 };

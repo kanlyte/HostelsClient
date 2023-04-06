@@ -33,6 +33,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Footer from "../../components/footer/Footer";
 import { useState } from "react";
 import FormsApi from "../../api/api";
+import ScrollUp from "../../utils/ScrollUp";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -175,6 +176,8 @@ export default ({ _user }) => {
         </section>
       </main>
       <Footer />
+      <ScrollUp/>
+
     </>
   );
 };
