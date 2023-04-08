@@ -8,10 +8,10 @@ import FormsApi from "../api/api";
 import { Link } from "react-router-dom";
 import Footer from "../components/footer/Footer";
 import user from "../app.config";
-import Loader from "../components/Loader/Loader";
 import ScrollUp from "../utils/ScrollUp";
 import Pageloader from "../utils/PageLoader";
 import Carousel from "../components/slider/Carousel";
+import LoadingBackdrop from "../components/Loader/Loader";
 const Home = () => {
   const [loader, setLoader] = useState(true);
   const [pageNumber, setPageNumber] = useState(0);
@@ -63,7 +63,7 @@ const Home = () => {
       </div>
       <div className="_container" id="container">
         {state.hostels.length === 0 ? ( 
-        <Loader />
+        <LoadingBackdrop />
         ) :
         (  state.hostels
           .slice(pagesVisited, pagesVisited + cardsPerPage).map((v, i) => (

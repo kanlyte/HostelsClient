@@ -38,20 +38,6 @@ const HostelCard = ({ hostel }) => {
                       Hostel Fee {hostel.single_room_amount}(UGX)
                     </span>
                   </div>
-                  {/* <div className="__hstl_footer">
-                    <ul>
-                      <li>
-                        <span>{hostel.hostel_distance}</span>
-                      </li>
-                      <li>
-                        <img src={""} />
-                        <span>2 bed</span>
-                      </li>
-                      <li>
-                        <span>1 bathrom</span>
-                      </li>
-                    </ul>
-                  </div> */}
                 </div>
               </div>
             </div>

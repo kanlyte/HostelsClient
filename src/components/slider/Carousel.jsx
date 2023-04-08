@@ -2,8 +2,6 @@ import React from "react";
 import Caruasel1 from "../../assets/carousel-1.jpeg";
 import Caruasel2 from "../../assets/halsely.jpeg";
 import Caruasel3 from "../../assets/room.jpg";
-
-
 import image from "../../assets/hse.jpeg";
 import image2 from "../../assets/house.jpeg";
 import styled from "styled-components";
@@ -41,14 +39,14 @@ const Carousel = () => {
                 />
                 <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div className="p-3" style={{maxWidth:"700px"}}>
-                    <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                    <h4 className="display-4 txt-cl mb-3 animate__animated animate__fadeInDown" style={{fontSize:"30px"}}>
                       Best Hostels
-                    </h1>
+                    </h4>
                     <p className="mx-md-5 px-5 animate__animated animate__bounceIn">
                       Get the best a commodation and have a better University Experience
                     </p>
                     <a
-                      className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                      className="---btn-1 py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       href="#"
                     >
                       Book Now
@@ -67,14 +65,14 @@ const Carousel = () => {
                 />
                 <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div className="p-3" style={{maxWidth:"700px"}}>
-                    <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                    <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown" style={{fontSize:"30px"}}>
                       Beacon Hostels
                     </h1>
                     <p className="mx-md-5 px-5 animate__animated animate__bounceIn">
                       Brings you all the hostels a round Lira University Uganda, Feel free to select and book your favourite hostel.
                     </p>
                     <a
-                      className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                      className="---btn-1 py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       href="#"
                     >
                       Book Now
@@ -92,14 +90,14 @@ const Carousel = () => {
                   style={{objectFit:"cover"}}/>
                 <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div className="p-3" style={{maxWidth:"700px"}}>
-                    <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                    <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown" style={{fontSize:"30px"}}>
                      About Beacon hostels
                     </h1>
                     <p className="mx-md-5 px-5 animate__animated animate__bounceIn">
                      We are available 24/7 
                     </p>
                     <a
-                      className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                      className="---btn-1 py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       href="#"
                     >
                       Book Now
@@ -114,9 +112,9 @@ const Carousel = () => {
           <div className="product-offer mb-30" style={{height:"200px"}}>
             <img className="img-fluid" src={image} alt="" />
             <div className="offer-text">
-              <h6 className="text-white text-uppercase">Get your self</h6>
-              <h3 className="text-white mb-3">Better Hostels</h3>
-              <a href="" className="btn ---btn-1">
+              <h6 className="text-white text-uppercase" style={{fontSize:"13px"}}>Get your self</h6>
+              <h3 className="text-white mb-3" style={{fontSize:"25px"}}>Better Hostels</h3>
+              <a href="" className="---btn-1">
                 Book Now
               </a>
             </div>
@@ -124,9 +122,9 @@ const Carousel = () => {
           <div className="product-offer mb-30" style={{height:"200px"}}>
             <img className="img-fluid" src={image2} alt="" />
             <div className="offer-text">
-              <h6 className="text-white text-uppercase">Get your self</h6>
-              <h3 className="text-white mb-3">Better Hostels</h3>
-              <a href="" className="btn ---btn-1">
+              <h6 className="text-white text-uppercase" style={{fontSize:"13px"}}>Get your self</h6>
+              <h3 className="text-white mb-3" style={{fontSize:"25px"}}>Better Hostels</h3>
+              <a href="" className="---btn-1">
                 Book Now
               </a>
             </div>
@@ -148,7 +146,7 @@ const Container = styled.div`
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
-  background-color: #1742a6;
+  background-color: #1a5ba6;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -156,13 +154,20 @@ const Container = styled.div`
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+.txt-cl{
+  color: #fff;
+}
 
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 380px) and (max-width: 500px) {
   .container-fluid{
     display:none;
   }
-
+}
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+  .container-fluid{
+    visibility: visible;
+  }
 }
 
 `;

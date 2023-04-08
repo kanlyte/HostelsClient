@@ -244,7 +244,42 @@ a {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 280px) and (max-width: 500px) {
+  .hdr-search-ctr,
+  .hdr-user {
+    display: none;
+  }
+  .hdr-banner {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hdr-nav-logo > img {
+   display: none;
+  }
+  .menu-toggle {
+    display: block;
+    margin-right: 2%;
+  }
+  .hdr-icons-ctr-sm {
+    display: flex;
+    flex: 4;
+    justify-content: flex-end;
+  }
+  .search-i-sm,
+  .user-i-sm,
+  .cart-i-sm {
+    display: block;
+    margin: 0px 5%;
+  }
+  .search-bar-sm-appr {
+    padding: 10px 0px;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
   .hdr-search-ctr,
   .hdr-user {
     display: none;

@@ -59,19 +59,19 @@
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  border: 1px solid #1a5ba6;
+  color: #1a5ba6;
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
   color: white;
-  background-color: #2b2eff;
+  background-color: #1a5ba6;
 }
 
 .paginationActive a {
   color: white;
-  background-color: #2b2eff;
+  background-color: #1a5ba6;
 }
 
 .paginationDisabled a {
@@ -79,23 +79,34 @@
   background-color: grey;
 }
 
-
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 280px) and (max-width: 500px) {
   ._container {
     grid-template-columns: repeat(1, 1fr);
   }
   .main{
     width: 100%;
     margin: 0px auto;
-    
-  
   }
- 
-  .container {
+  ._container {
     row-gap: 10px;
     column-gap: 5px !important;
     padding: 0px 7px;
 
   }
 }
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  ._container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main{
+    width: 100%;
+    margin: 0px auto;
+  }
+  ._container {
+    row-gap: 5px;
+    column-gap: 5px !important;
+    padding: 0px 3px;
+
+  }
+}
+
