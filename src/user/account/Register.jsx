@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Base64 } from "js-base64";
 import { Link, useNavigate } from "react-router-dom";
-import Home from "../../assets/hostel1.jpg";
+import Home from "../../assets/reg2.jpeg";
 import FormsApi from "../../api/api";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -108,7 +108,7 @@ export default function Register() {
       <Container>
       <div className="register-ctr">
           <div>
-            <div>
+            <div className="reg-img">
               <img src={Home} />
             </div>
             <div>
@@ -244,6 +244,10 @@ const Container = styled.div`
 .register-ctr {
   width: 80%;
   margin: 15px auto;
+}
+.reg-img img{
+  width:150%;
+  height:150%;
 }
 .register-ctr > div:first-child {
   font-size: 30px;

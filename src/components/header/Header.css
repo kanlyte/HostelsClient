@@ -2,22 +2,6 @@ header {
   width: 100vw;
   max-width: 100%;
 }
-.hdr-banner-ctr {
-  width: 100%;
-  height: 50px;
-  background-color:#2b2eff;
-  /* color: white; */
-}
-.hdr-banner {
-  width: 72%;
-  margin: 0px auto;
-  display: flex;
-  justify-content: space-between;
-}
-.hdr-banner p {
-  color: white !important;
-}
-
 .search-bar-sm-appr {
   display: none;
 }
@@ -26,7 +10,7 @@ header {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0px;
-  background-color: #fff;
+  background-color:  #1a5ba6;
   height: 80px;
 }
 .hdr-nav {
@@ -58,19 +42,25 @@ header {
   margin: auto;
   display: flex;
   align-items: center;
-  border: 1px solid rgb(0, 0, 0, 0.1);
+  border: 1px solid #fff;
   box-shadow: 0px 0px 5px #e4e1e1;
+  color:  #fff;
+  border-radius: 1.5rem;
+  background-color: #fff;
+
+
 }
 .hdr-search:hover {
   box-shadow: 0px 0px 15px #e4e1e1;
 }
-.hdr-search > input {
+.hdr-search input {
   width: 80%;
   margin: auto;
   padding: 4px 1px;
   font-size: 17px;
   border: 0;
   outline: none;
+  background-color: #fff;
 }
 .search-icon {
   padding: 4px 1px;
@@ -82,7 +72,7 @@ header {
   font-size: 100px;
   border: none;
   outline: none;
-  background-color: white;
+  background-color: #fff;
 }
 
 /*user actions in the nav*/
@@ -96,18 +86,22 @@ header {
   position: relative;
 }
 .hdr-user > div > span {
-  margin: 0px 8px;
+  margin: 0px 3px;
   font-size: 16px;
 }
 .hdr-user-account,
 .hdr-user-help {
   flex: 1;
+  background-color:  #1a5ba6 !important;
 }
 
 .hdr-user-help:hover,
 .hdr-user-account:hover {
   color: var(--color-primary) !important;
   cursor: pointer;
+}
+.menu-toggle{
+  color: #fff;
 }
 
 /*user actions in the nav*/
@@ -160,8 +154,9 @@ dropdown in the header
   padding: 5px;
   outline: 0;
   border: 0;
-  background-color: #fff;
+  background-color: #1a5ba6;
   cursor: pointer;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -171,7 +166,7 @@ dropdown in the header
   font-size: 17px;
 }
 .-dropdown:hover {
-  color: var(--color-primary);
+  color: #fff;
 }
 
 .user-search-sm {

@@ -68,22 +68,6 @@ const Header = () => {
               </Link>
             </li>
             <li className="sd-item">
-              <Link to="/privacypolicy">
-                <span className="sd-item-name">
-                  <i className="las la-shield-alt ctg-icon"></i>
-                  Privacy Policy
-                </span>
-              </Link>
-            </li>
-            <li className="sd-item">
-              <Link to="/tcs">
-                <span className="sd-item-name">
-                  <i className="las la-file-alt ctg-icon"></i>
-                  Terms &amp; Conditions
-                </span>
-              </Link>
-            </li>
-            <li className="sd-item">
               <Link to="/becomelandlord">
                 <span className="sd-item-name">
                   <i className="las la-user"></i>
@@ -177,13 +161,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <header>
-        <div className="hdr-banner-ctr">
-          <div className="hdr-banner">
-            <p>beaconhostels@gmail.com</p>
-            <p>Call:0778089708/0706533720</p>
-          </div>
-        </div>
+      <header>     
         <nav className="hdr-nav-ctr">
           <div className="hdr-nav">
             <div
@@ -269,68 +247,14 @@ const Header = () => {
                       Become Landlord
                     </li>
                   </Link>
-                  <Link to="/help">
+                  {/* <Link to="/help">
                     <li className="-help">
                       <button className="-a-btn -lg" style={{ width: "100%" }}>
                         <i className="las la-sign-out-alt"></i>
                         Help Center
                       </button>
                     </li>
-                  </Link>
-                </ul>
-              </div>
-              <div className="hdr-user-terms">
-                <button
-                  className="-dropdown"
-                  onFocus={() => {
-                    setState({
-                      ...state,
-                      termsDropDownActive: true,
-                    });
-                  }}
-                  onBlur={() => {
-                    setTimeout(() => {
-                      setState({
-                        ...state,
-                        termsDropDownActive: false,
-                      });
-                    }, 500);
-                  }}
-                >
-                  <Policy fontSize="small" />
-                  <span>Essentials</span>
-                  {state.termsDropDownActive ? (
-                    <ExpandUpIcon />
-                  ) : (
-                    <ExpandDownIcon />
-                  )}
-                </button>
-                <ul
-                  className="-help-list -acc-l"
-                  style={
-                    state.termsDropDownActive
-                      ? { display: "flex" }
-                      : { display: "none" }
-                  }
-                >
-                  <Link to="/tcs">
-                    <li className="-help">
-                      <i className="las la-file-alt"></i>
-                      Terms & Conditions
-                    </li>
-                  </Link>
-                  <Link to="/privacypolicy">
-                    <li className="-help">
-                      <i className="las la-shield-alt"></i>
-                      Privacy Policy
-                    </li>
-                  </Link>
-                  <Link to="/aboutus">
-                    <li className="-help">
-                      <i className="las la-phone"></i>
-                      About Us
-                    </li>
-                  </Link>
+                  </Link> */}
                 </ul>
               </div>
               <div className="hdr-user-account">
@@ -422,11 +346,11 @@ const Header = () => {
                   });
                 }}
               >
-                <SearchIcon fontSize="large" />
+                <SearchIcon fontSize="large" style={{color:"#fff"}} />
               </div>
               <div className="user-i-sm">
                 <Link to="/user/profile">
-                  <User fontSize="large" />
+                  <User fontSize="large" style={{color:"#fff"}}/>
                 </Link>
               </div>
             </div>

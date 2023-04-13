@@ -115,25 +115,25 @@ function Footer() {
                 <li>
                   {" "}
                   <Link
-                    to="/help/request"
+                    to="/privacypolicy"
                     style={{ color: "white" }}
                   >
-                    Describe Hostel
+                    privacypolicy
                   </Link>
                 </li>
                 <li>
                   {" "}
                   <Link
-                    to="/help/request"
+                    to="/tcs"
                     style={{ color: "white" }}
                   >
-                    Make comments
+                    Terms & Conditions
                   </Link>
                 </li>
                 <li>
                   {" "}
                   <Link
-                    to="/aboutus"
+                    to="/help"
                     style={{ color: "white" }}
                   >
                     Contact
