@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Base64 } from "js-base64";
 import { Link, useNavigate } from "react-router-dom";
-import Home from "../../assets/reg2.jpeg";
+import Home from "../../assets/Login.svg";
 import FormsApi from "../../api/api";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -246,8 +246,8 @@ const Container = styled.div`
   margin: 15px auto;
 }
 .reg-img img{
-  width:150%;
-  height:150%;
+  width:200%;
+  height:200%;
 }
 .register-ctr > div:first-child {
   font-size: 30px;
@@ -311,6 +311,10 @@ const Container = styled.div`
   .register-ctr > div:first-child {
     diplay: flex;
     flex-direction:column;
+  }
+  .reg-img img{
+    width:120%;
+    height:120%;
   }
 }
 

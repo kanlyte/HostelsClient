@@ -1,8 +1,8 @@
 import React from "react";
 import Caruasel1 from "../../assets/carousel-1.jpeg";
 import Caruasel2 from "../../assets/halsely.jpeg";
-import Caruasel3 from "../../assets/room.jpg";
-import image from "../../assets/hse.jpeg";
+import Caruasel3 from "../../assets/advert.jpeg";
+import image from "../../assets/flier.png";
 import image2 from "../../assets/house.jpeg";
 import styled from "styled-components";
 
@@ -91,16 +91,16 @@ const Carousel = () => {
                 <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div className="p-3" style={{maxWidth:"700px"}}>
                     <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown" style={{fontSize:"30px"}}>
-                     About Beacon hostels
+                    Download the Lyte app 
                     </h1>
                     <p className="mx-md-5 px-5 animate__animated animate__bounceIn">
-                     We are available 24/7 
+                     its now available on play store
                     </p>
                     <a
                       className="---btn-1 py-2 px-4 mt-3 animate__animated animate__fadeInUp"
-                      href="#"
+                      href="https://play.google.com/store/apps/details?id=com.lyte"
                     >
-                      Book Now
+                      Download Lyte app
                     </a>
                   </div>
                 </div>
@@ -122,10 +122,10 @@ const Carousel = () => {
           <div className="product-offer mb-30" style={{height:"200px"}}>
             <img className="img-fluid" src={image2} alt="" />
             <div className="offer-text">
-              <h6 className="text-white text-uppercase" style={{fontSize:"13px"}}>Get your self</h6>
-              <h3 className="text-white mb-3" style={{fontSize:"25px"}}>Better Hostels</h3>
-              <a href="" className="---btn-1">
-                Book Now
+              <h6 className="text-white text-uppercase" style={{fontSize:"13px"}}>Proudly brought to you by Kanlyte ug</h6>
+              <h3 className="text-white mb-3" style={{fontSize:"25px"}}>Visit Kanlyte site</h3>
+              <a href="https://kanlyte.com/" className="---btn-1">
+                visit site here
               </a>
             </div>
           </div>
