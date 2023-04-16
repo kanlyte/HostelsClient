@@ -4,7 +4,7 @@ import "../design/notfound.scss";
 import NotFnd from "..//../assets/404.svg";
 export default () => (
   <>
-    <div className="_img">
+    <div className="__img">
       <img src={NotFnd} alt="" />
     </div>
     <div
@@ -18,16 +18,13 @@ export default () => (
     >
       <span
         className="error_text"
-        style={{ marginBlock: 10, fontSize: "25px", color: "#444" }}
+        style={{ marginBlock: 10, color: "#444" }}
       >
         This Page Was Not Found On The Server!
       </span>
       <p>
-        We're sorry, but we can't find the page you were looking for. It's
-        probably some thing we've done wrong but now we know about it and we'll
-        try to fix it.
+        We're sorry, but we can't find the page you were looking for
       </p>
-      <p>In the meantime, try one of these options:</p>
       <Link to="/">
         <Button variant="contained" color="primary" style={{ marginBlock: 20 }}>
           <span style={{ fontSize: "17.5px", marginRight: "10px" }}>

@@ -1,6 +1,7 @@
 .p_text404 {
   margin: 0 auto 90px;
   width: 70%;
+  line-height: 1.5;
 }
 p {
   color: #7b7b7b;
@@ -16,21 +17,26 @@ p {
   color: #444;
   font-weight: bolder;
   text-align: center;
+  font-size: 20px;
 }
-._img {
+.__img {
   align-items: center  ;
   justify-content: center;
   text-align: center;
 }
-._img img {
+.__img img {
   height: 30%;
   width: 30%;
   margin: 0px auto;
 
 }
 @media screen and (max-width: 768px) {
-  ._img img {
+  .__img img {
     height: 100%;
     width: 100%;
+  }
+  .error_text {
+    margin: 0 0 15px;
+    font-size: 15px;
   }
 }
