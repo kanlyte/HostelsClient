@@ -83,8 +83,8 @@ const HostelDetails = () => {
         </div>
         <div className="hostel-detail-desc">
           <h2>{state.hostel.hostel_name}</h2>
-          <h4>Hostel Description: </h4>
-          <p>{state.hostel.hostel_description}</p>
+          <h4>Hostel Distance: </h4>
+          <p>{state.hostel.hostel_distance}</p>
           <div className="quantity">
             <h5>
               Single Rooms Available: {state.hostel.single_rooms_available}

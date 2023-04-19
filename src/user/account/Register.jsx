@@ -133,7 +133,7 @@ export default function Register() {
                     helperText="Like 0778089708"
                     variant="outlined"
                     color="primary"
-                    type="number"
+                    type="text"
                     placeholder="07xxxxxxxx"
                     style={{ width: "48%" }}
                    

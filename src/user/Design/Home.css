@@ -75,8 +75,8 @@
 }
 
 .paginationDisabled a {
-  color: grey;
-  background-color: grey;
+  color: #fff;
+  background-color:  #1a5ba6;
 }
 
 @media screen and (min-width: 280px) and (max-width: 500px) {
