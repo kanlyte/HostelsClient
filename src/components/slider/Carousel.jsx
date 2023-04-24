@@ -158,13 +158,12 @@ const Container = styled.div`
   color: #fff;
 }
 
-
-@media screen and (min-width: 380px) and (max-width: 500px) {
+@media screen and (min-width: 280px) and (max-width: 600px) {
   .container-fluid{
     display:none;
   }
 }
-@media screen and (min-width: 500px) and (max-width: 1200px) {
+@media screen and (min-width: 600px) and (max-width: 1200px) {
   .container-fluid{
     visibility: visible;
   }
