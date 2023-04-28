@@ -1,6 +1,10 @@
  //activate WoW
  new WOW().init();
 
+ let numberFormat = new Intl.NumberFormat();
+ document.querySelector(".payment").style.opacity = "1";
+ document.querySelector(".payment").style.pointerEvents = "all";
+
  (function ($) {
     "use strict";
     

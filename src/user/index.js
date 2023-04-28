@@ -6,7 +6,6 @@ import Register from "./account/Register";
 import Home from "./Home";
 import Booking from "../components/hostels/BookingForm";
 import SendEmail from "../components/hostels/SendEmail";
-import Finish from "../user/routes/bookings/finish";
 import NotFound from "../components/NotFound/404";
 import AboutUs from "./routes/Aboutus";
 import PrivacyPolicy from "./routes/Privacypolicy";
@@ -14,6 +13,7 @@ import Help from "./routes/Help";
 import BookManual from "./routes/BookManual";
 import TermsConditions from "./routes/TermsConditions";
 import BecomeLandlord from "./routes/BecomeLandlord";
+import Finish from "../components/hostels/Finish";
 function User() {
   return (
     <BrowserRouter>
@@ -25,7 +25,7 @@ function User() {
         <Route path="user/register" element={<Register />} />
         <Route path="user/login" element={<Login />} />
         <Route path="/bookingform" element={<Booking />} />
-        <Route path="/bookings/finish" element={<Finish />} />
+        <Route path="/booking/finish" element={<Finish />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/help" element={<Help />} />

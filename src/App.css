@@ -103,6 +103,80 @@ a {
   padding: 20px;
   
 }
+.recent-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 50% auto;
+}
+.recent-grid-left {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 60% auto;
+}
+.recent-grid-right {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: auto 60%;
+}
+.fullwidth-ctr {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 100% auto;
+}
+.card {
+  margin-top: 10px;
+  height: fit-content;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 6px 6px 9px #dee1e5, -2px -2px 5px #ffffff;
+}
+.card-header,
+.card-body {
+  padding: 1rem;
+}
+.card-body table tr td {
+  padding: 15px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+.card-header button {
+  background: var(--main-color);
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+table {
+  border-collapse: collapse;
+}
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+thead td {
+  font-weight: 700;
+}
+
+.tr-border > tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+td {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #222;
+  white-space: nowrap;
+}
 
 
 

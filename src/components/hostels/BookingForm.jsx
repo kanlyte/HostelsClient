@@ -10,6 +10,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Menu,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../footer/Footer";
@@ -110,7 +111,7 @@ function BookingForm() {
         submit: true,
       });
       setTimeout(() => {
-        navigate("/bookings/Finish");
+        navigate("/booking/finish");
       }, 2000);
     } else if (res.status === false) {
       setState({
@@ -323,28 +324,33 @@ function BookingForm() {
                             </div>
                           </form>
                         </div>
-                        <div className="inputs_right_np c_card">
-                          <h4 style={{ margin: "20px" }}>See Room Details</h4>
-                          <div className="tbl_ctr_np">
-                            <table width="100%">
-                              <thead>
-                                <tr>
-                                  <td>Room type</td>
-                                  <td>Booking fee</td>
-                                  <td>Room description</td>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>{s_r_arr ? s_r_arr.room_type : ""}</td>
-                                  <td>{s_r_arr ? s_r_arr.room_fee : ""}</td>
-                                  <td>
-                                    {s_r_arr ? s_r_arr.room_description : ""}
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
+                        <div className="inputs_right_np">   
+                  <div className="projects">
+                <div className="card">
+                  <div className="card-header">
+                    <h4>See Room Details</h4>
+                  </div>
+                  <div className="card-body">
+                    <table width="100%">
+                      <thead>
+                        <tr>
+                          <td>Room type</td>
+                          <td>Booking fee</td>
+                          <td>Room Description</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                            <td>{s_r_arr ? s_r_arr.room_type : ""}</td>
+                            <td>{s_r_arr ? s_r_arr.room_fee : ""}</td>
+                            <td>{s_r_arr ? s_r_arr.room_description : ""}
+                            </td>
+                            </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
                         </div>
                       </div>
                     </div>
