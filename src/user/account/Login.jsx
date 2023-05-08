@@ -123,6 +123,7 @@ function Login() {
               type="text"
               name="email"
               fullWidth
+              required
               style={{ margin: "20px 0px" }}
             />
             <TextField
@@ -135,6 +136,7 @@ function Login() {
               type="password"
               name="password"
               fullWidth
+              required
               style={{ margin: "20px 0px" }}
             />
             <FormGroup>
