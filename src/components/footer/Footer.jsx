@@ -62,31 +62,61 @@ function Footer() {
               <div className="ftr-app">
                 <h3>Get Our App On . . . .</h3>
                 <div className="ftr-app-stores" style={{ marginTop: "15px" }}>
-                  <img
-                    src={PlayStore}
-                    alt=""
-                    height="45"
-                    width="150"
-                    style={{ marginRight: "5px" }}
-                  />
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.lyte"
+                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                  >
+                    <img
+                      src={PlayStore}
+                      alt=""
+                      height="45"
+                      width="150"
+                      style={{ marginRight: "5px" }}
+                    />
+                  </a>
                 </div>
               </div>
               <div className="ftr-social">
                 <div>Follow Us On our Social Media handles</div>
                 <span>
-                  <LinkedInIcon />
+                  <a
+                    href="https://www.youtube.com/@kanlyteugtutorials2525"
+                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                  >
+                    <LinkedInIcon />
+                  </a>
                 </span>
                 <span>
-                  <TwitterIcon />
+                  <a
+                    href="https://twitter.com/Kanlyte_"
+                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                  >
+                    <TwitterIcon />
+                  </a>
                 </span>
                 <span>
-                  <YouTubeIcon />
+                  <a
+                    href="https://www.youtube.com/@kanlyteugtutorials2525"
+                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                  >
+                    <YouTubeIcon />
+                  </a>
                 </span>
                 <span>
-                  <FacebookIcon />
+                  <a
+                    href="https://www.youtube.com/@kanlyteugtutorials2525"
+                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                  >
+                    <FacebookIcon />
+                  </a>
                 </span>
                 <span>
-                  <InstagramIcon />
+                  <a
+                    href="https://www.youtube.com/@kanlyteugtutorials2525"
+                    style={{ color: "rgba(255, 255, 255, 0.5)" }}
+                  >
+                    <InstagramIcon />
+                  </a>
                 </span>
               </div>
             </div>
@@ -114,7 +144,7 @@ function Footer() {
                   <input
                     type="email"
                     name="email"
-                    className="contact"
+                    className="--contact"
                     placeholder="Enter your Email"
                     value={data.email}
                     onChange={(e) =>

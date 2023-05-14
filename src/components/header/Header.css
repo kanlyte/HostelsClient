@@ -10,7 +10,7 @@ header {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0px;
-  background-color:  #1a5ba6;
+  background-color: #1a5ba6;
   height: 80px;
 }
 .hdr-nav {
@@ -44,11 +44,9 @@ header {
   align-items: center;
   border: 1px solid #fff;
   box-shadow: 0px 0px 5px #e4e1e1;
-  color:  #fff;
+  color: #fff;
   border-radius: 1.5rem;
   background-color: #fff;
-
-
 }
 .hdr-search:hover {
   box-shadow: 0px 0px 15px #e4e1e1;
@@ -77,7 +75,7 @@ header {
 
 /*user actions in the nav*/
 .hdr-user {
-  flex: 1.5;
+  flex: 0.9;
   display: flex;
   justify-content: space-between;
   font-size: 15px;
@@ -92,7 +90,7 @@ header {
 .hdr-user-account,
 .hdr-user-help {
   flex: 1;
-  background-color:  #1a5ba6 !important;
+  background-color: #1a5ba6 !important;
 }
 
 .hdr-user-help:hover,
@@ -100,7 +98,7 @@ header {
   color: var(--color-primary) !important;
   cursor: pointer;
 }
-.menu-toggle{
+.menu-toggle {
   color: #fff;
 }
 
@@ -239,7 +237,7 @@ a {
   }
 }
 
-@media screen and (min-width: 280px) and (max-width: 500px) {
+@media screen and (min-width: 280px) and (max-width: 380px) {
   .hdr-search-ctr,
   .hdr-user {
     display: none;
@@ -251,7 +249,42 @@ a {
     align-items: center;
   }
   .hdr-nav-logo > img {
-   display: none;
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+    margin-right: 2%;
+  }
+  .hdr-icons-ctr-sm {
+    display: flex;
+    flex: 4;
+    justify-content: flex-end;
+  }
+  .search-i-sm,
+  .user-i-sm,
+  .cart-i-sm {
+    display: block;
+    margin: 0px 5%;
+  }
+  .search-bar-sm-appr {
+    padding: 10px 0px;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 500px) {
+  .hdr-search-ctr,
+  .hdr-user {
+    display: none;
+  }
+  .hdr-banner {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hdr-nav-logo > img {
+    display: none;
   }
   .menu-toggle {
     display: block;
@@ -286,7 +319,7 @@ a {
     align-items: center;
   }
   .hdr-nav-logo > img {
-   display: none;
+    display: none;
   }
   .menu-toggle {
     display: block;

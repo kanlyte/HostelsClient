@@ -247,14 +247,6 @@ const Header = () => {
                       Become Landlord
                     </li>
                   </Link>
-                  {/* <Link to="/help">
-                    <li className="-help">
-                      <button className="-a-btn -lg" style={{ width: "100%" }}>
-                        <i className="las la-sign-out-alt"></i>
-                        Help Center
-                      </button>
-                    </li>
-                  </Link> */}
                 </ul>
               </div>
               <div className="hdr-user-account">

@@ -22,7 +22,7 @@ const Home = () => {
   setTimeout(() => {
     setLoader(false);
   }, 1500);
-// console.log(user);
+  // console.log(user);
   useEffect(() => {
     (async () => {
       const res = await new FormsApi().get("/allhostels");
@@ -52,41 +52,42 @@ const Home = () => {
   };
   return (
     <>
-    {loader && <Pageloader />}
+      {loader && <Pageloader />}
       <Header />
       <div className="__main">
-      <div className='slider-wrapper'>
-        <Carousel />
+        <div className="slider-wrapper">
+          <Carousel />
+        </div>
+        <div className="__title-md">
+          <h3>See our Featured Hostels</h3>
+        </div>
+        <div className="_container" id="container">
+          {state.hostels.length === 0 ? (
+            <LoadingBackdrop />
+          ) : (
+            state.hostels
+              .slice(pagesVisited, pagesVisited + cardsPerPage)
+              .map((v, i) => (
+                <Link to={`/hostel/${v.id}`} key={i}>
+                  <HostelCard hostel={v} />
+                </Link>
+              ))
+          )}
+        </div>
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        />
       </div>
-      <div className='__title-md'>
-      <h3>See our Featured Hostels</h3>
-      </div>
-      <div className="_container" id="container">
-        {state.hostels.length === 0 ? ( 
-        <LoadingBackdrop />
-        ) :
-        (  state.hostels
-          .slice(pagesVisited, pagesVisited + cardsPerPage).map((v, i) => (
-          <Link to={`/hostel/${v.id}`} key={i}>
-          <HostelCard  hostel={v}  />
-          </Link>
-        )))}
-      
-      </div>
-      <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
-        pageCount={pageCount}
-        onPageChange={changePage}
-        containerClassName={"paginationBttns"}
-        previousLinkClassName={"previousBttn"}
-        nextLinkClassName={"nextBttn"}
-        disabledClassName={"paginationDisabled"}
-        activeClassName={"paginationActive"}
-      />
-      </div>
-    <Footer />
-    <ScrollUp />
+      <Footer />
+      <ScrollUp />
     </>
   );
 };
