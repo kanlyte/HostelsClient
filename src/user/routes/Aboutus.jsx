@@ -17,6 +17,7 @@ import Pageloader from "../../utils/PageLoader";
 import { useState } from "react";
 import PageStarter from "../../utils/PageStarter";
 import styled from "styled-components";
+import BTeam from "./BTeam";
 export default () => {
   const [loader, setLoader] = useState(true);
   setTimeout(() => {
@@ -65,201 +66,49 @@ export default () => {
             working with beacon hostels.
           </p>
         </div>
-        <div className="m-v-c">
-          <div className="vision c_card">
-            <h2>Our Vision</h2>
-            <p>
-              To build a reliable, efficient, secure, robust and reusable
-              locally available software providing all online booking and
-              payment preferences to the community.
-            </p>
+      </div>
+
+      <div className="wrapper-ctr">
+        <div className="cards_wrap">
+          <div className="card_item">
+            <div className="card_inner">
+              <i className="las la-eye"></i>
+              <div className="role_name">Our Vission</div>
+              <div className="film">
+                To build a reliable, efficient, secure, robust and reusable
+                locally available software providing all online booking and
+                payment preferences to the community.
+              </div>
+            </div>
           </div>
-          <div className="mission c_card">
-            <h2>Our Mission</h2>
-            <p>
-              Desire to avail all places of residence to the community for easy
-              choice, selection, booking and decision making of the places of
-              best suit, providing of a secure mobile wallet for saving and
-              accumulation of fares and payments with timely notifications,
-              messages and emails about the transactions made.
-            </p>
+          <div className="card_item">
+            <div className="card_inner">
+              <i className="las la-angle-double-right"></i>
+              <div className="role_name">Our Mission</div>
+              <div className="film">
+                Desire to avail all places of residence to the community for
+                easy choice, selection, booking and decision making of the
+                places of best suit, providing of a secure mobile wallet for
+                saving and accumulation of fares and payments with timely
+                notifications, messages and emails about the transactions made.
+              </div>
+            </div>
+          </div>
+          <div className="card_item">
+            <div className="card_inner">
+              <i className="las la-history"></i>
+              <div className="role_name">Our Core-Values</div>
+              <div className="film">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <BTeam />
       <Footer />
       <ScrollUp />
     </>
   );
 };
-const Container = styled.div`
-  .team-landing {
-    background: #6c757d;
-  }
-
-  .grid-alignment {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-    align-items: end;
-  }
-
-  .w3l-team-main .team {
-    position: relative;
-  }
-
-  .w3l-team-main .our-team .team-row {
-    margin-left: -40px;
-    margin-right: -40px;
-  }
-
-  .w3l-team-main .our-team .team-wrap {
-    padding: 0 40px;
-  }
-
-  .w3l-team-main .our-team .container-fluid,
-  .w3l-team-main .our-team .container-sm,
-  .w3l-team-main .our-team .container-md,
-  .w3l-team-main .our-team .container-lg,
-  .w3l-team-main .our-team .container-xl,
-  .w3l-team-main .our-team .container-sm,
-  .w3l-team-main .our-team .container-md,
-  .w3l-team-main .our-team .container-lg,
-  .w3l-team-main .our-team .container-xl,
-  .w3l-team-main .our-team .container-sm,
-  .w3l-team-main .our-team .container-md,
-  .w3l-team-main .our-team .container-lg,
-  .w3l-team-main .our-team .container-xl {
-    padding: 0 50px;
-  }
-
-  .w3l-team-main .team-img img {
-    transition: all 0.2s ease-in-out;
-    overflow: hidden;
-    width: 80%;
-  }
-
-  .w3l-team-main .team-member,
-  .w3l-team-main .team-img {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .w3l-team-main .team-title {
-    margin: 25px 0 0px;
-    font-size: 20px;
-    color: var(--heading-color);
-    font-weight: 600;
-    display: block;
-  }
-
-  .w3l-team-main .team-member p {
-    text-transform: capitalize;
-  }
-
-  .w3l-team-main .team-details {
-    opacity: 0;
-    position: absolute;
-    bottom: 12%;
-    left: 0;
-    overflow: hidden;
-    width: 100%;
-    z-index: 2;
-    transition: all 0.4s ease-in-out;
-  }
-
-  .w3l-team-main .team-img:hover .team-details {
-    opacity: 1;
-  }
-
-  .w3l-team-main .team-img:hover .overlay-team {
-    opacity: 1;
-  }
-
-  .w3l-team-main .team-member:hover a {
-    color: var(--primary-color);
-  }
-
-  .w3l-team-main .socials a {
-    display: inline-block;
-    margin-right: 5px;
-  }
-
-  .w3l-team-main .socials a span {
-    color: var(--heading-color);
-    font-size: 16px;
-    display: block;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    line-height: 42px;
-    text-align: center;
-    transition: all 0.3s ease 0s;
-    background: var(--bg-color);
-  }
-
-  .w3l-team-main .team-details .socials span {
-    color: var(--heading-color);
-  }
-
-  .w3l-team-main .socials a:hover span {
-    background: #fff;
-    color: var(--primary-color);
-  }
-
-  @media all and (max-width: 991px) {
-    .w3l-team-main .team-title {
-      margin: 18px 0 0px;
-      font-size: 20px;
-    }
-  }
-
-  @media all and (max-width: 667px) {
-    .grid-alignment {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 20px;
-      align-items: end;
-    }
-
-    .call-grids-w3 .grids-1 {
-      padding: 30px 10px;
-    }
-
-    .call-grids-w3 .grids-1 h4 a {
-      margin: 25px 0 0px;
-      font-size: 18px;
-    }
-  }
-
-  @media all and (max-width: 568px) {
-    .team-row {
-      padding: 0 10px;
-    }
-
-    .team-row .col-6 {
-      padding: 0 10px;
-    }
-  }
-
-  @media all and (max-width: 415px) {
-    .team-row {
-      padding: 0 5px;
-    }
-  }
-
-  @media all and (max-width: 384px) {
-    .w3l-team-main .team-title {
-      font-size: 18px;
-    }
-
-    .w3l-team-main .socials a span {
-      width: 38px;
-      height: 38px;
-      line-height: 38px;
-    }
-
-    .w3l-team-main .socials a {
-      margin-right: 2px;
-    }
-  }
-`;

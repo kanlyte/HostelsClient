@@ -7,7 +7,7 @@
 }
 
 .login_ctr > div {
-  // border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
 .login_ctr > div > div:first-child {
@@ -40,7 +40,7 @@
   display: flex;
   justify-content: flex-start;
 }
-._img_l{
+._img_l {
   width: 50%;
   height: 50%;
 }
@@ -54,7 +54,7 @@
   .lgin_btn_ctr {
     width: 100%;
   }
-  ._img_l{
-  display: none;
+  ._img_l {
+    display: none;
   }
 }

@@ -16,7 +16,7 @@ import FormsApi from "../../api/api";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import user from "..//../app.config";
-import "../Design/login.scss";
+import "../Design/login.css";
 import LogIn from "..//../assets/Mobile login-amico.svg";
 import ScrollUp from "../../utils/ScrollUp";
 const Alert = React.forwardRef(function Alert(props, ref) {
