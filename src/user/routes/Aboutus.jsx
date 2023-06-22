@@ -1,21 +1,10 @@
 import "../Design/All.css";
-import Passport from "../../assets/passport.jpeg";
-import aggi from "../../assets/aggi.jpeg";
-import obua from "../../assets/obua.jpg";
-import gaston from "../../assets/gaston.jpeg";
-import OurTeam from "..//../assets/ourteam.jpeg";
-import Banner from "./Banner";
-import q1 from "../../assets/q1.png";
-import q2 from "../../assets/q2.png";
-import message from "../../assets/message.JPG";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
 import ScrollUp from "../../utils/ScrollUp";
 import Pageloader from "../../utils/PageLoader";
+import About from "../../assets/about.jpg";
 import { useState } from "react";
-import PageStarter from "../../utils/PageStarter";
 import styled from "styled-components";
 import BTeam from "./BTeam";
 export default () => {
@@ -28,15 +17,10 @@ export default () => {
       {loader && <Pageloader />}
       <div className="aboutuscontainer">
         <Header />
-        <div className="aboutus">
-          <div
-            className="aboutusdescription wow fadeInLeft"
-            data-wow-delay=".5s"
-          >
-            <h2 style={{ marginTop: "15px" }}>Beacon Hostels App</h2>
+        <div className="container-ctr">
+          <div className="hero-content">
+            <h2>Beacon Hostels App a product under Kanlyte technlogies</h2>
             <p>
-              This is a product under Kanlyte technlogies.
-              <br />
               Kanlyte Technologies is a technology based company that aims to
               digitalize Uganda through providing science and technological
               services to communities in an efficient way.We offer enhanced IT
@@ -48,8 +32,8 @@ export default () => {
               conduct internship trainings at all levels.
             </p>
           </div>
-          <div className="aboutusimage">
-            <img className="aboutus-image" src={OurTeam} alt="" />
+          <div className="hero-image">
+            <img src={About} />
           </div>
         </div>
         <div className="aboutbeacon">

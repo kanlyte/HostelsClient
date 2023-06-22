@@ -62,8 +62,16 @@ const Header = () => {
             <li className="sd-item">
               <Link to="/aboutus">
                 <span className="sd-item-name">
-                  <i className="las la-phone ctg-icon"></i>
+                  <i className="lar la-address-card"></i>
                   About Us
+                </span>
+              </Link>
+            </li>
+            <li className="sd-item">
+              <Link to="/privacypolicy">
+                <span className="sd-item-name">
+                  <i className="lar la-file-alt"></i>
+                  Privacy policy
                 </span>
               </Link>
             </li>
@@ -161,7 +169,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <header>     
+      <header>
         <nav className="hdr-nav-ctr">
           <div className="hdr-nav">
             <div
@@ -338,11 +346,11 @@ const Header = () => {
                   });
                 }}
               >
-                <SearchIcon fontSize="large" style={{color:"#fff"}} />
+                <SearchIcon fontSize="large" style={{ color: "#fff" }} />
               </div>
               <div className="user-i-sm">
                 <Link to="/user/profile">
-                  <User fontSize="large" style={{color:"#fff"}}/>
+                  <User fontSize="large" style={{ color: "#fff" }} />
                 </Link>
               </div>
             </div>

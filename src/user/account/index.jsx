@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "../Design/user.css";
+import moment from "moment";
 import Avarta from "..//../assets/user.svg";
 import Paper from "@mui/material/Paper";
 import {
@@ -176,8 +177,7 @@ export default ({ _user }) => {
         </section>
       </main>
       <Footer />
-      <ScrollUp/>
-
+      <ScrollUp />
     </>
   );
 };
@@ -339,7 +339,11 @@ const Bookings = () => {
                         </TableCell>
                         <TableCell align="right">{v.name_of_hostel}</TableCell>
                         <TableCell align="right">{v.room_number}</TableCell>
-                        <TableCell align="right">{v.booking_date}</TableCell>
+                        <TableCell align="right">
+                          {moment(new Date(v.booking_date))
+                            .startOf("day")
+                            .fromNow()}
+                        </TableCell>
                         <TableCell align="right">{v.payment_code}</TableCell>
                         <TableCell align="right">
                           <Button

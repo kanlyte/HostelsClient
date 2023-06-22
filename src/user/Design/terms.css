@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Permanent+Marker&display=swap);
+body {
+  background-color: #fff;
+}
+.ctr-main {
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+.hp-ctr {
+  width: 75vw;
+  margin: 25px auto;
+}
+.m-hdr {
+  color: #081828;
+  font-size: 25px;
+}
+
+.release-date {
+  font-size: 15px;
+  padding: 15px;
+}
+.nav-h {
+  /* background-color: #1a5ba6; */
+  color: #081828;
+  letter-spacing: 1px;
+  font-size: 25px;
+  padding: 5px 10px;
+}
+
+.hp-nav {
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  border-radius: 5px;
+}
+
+.hp-nav-li > li {
+  margin: 10px;
+  font-size: 16px;
+}
+
+.hp-nav-li > li > a:hover {
+  color: #1a5ba6;
+}
+
+.hp-nav-li {
+  margin: 15px 40px;
+  color: #1a5ba6;
+}
+
+.hp-content-h {
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  color: #081828;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
+
+.hp-content {
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  border-radius: 5px;
+  margin: 35px 0px;
+  color: #888888;
+  font-size: 15px;
+}
+
+@media (max-width: 767px) {
+  .hp-content-h {
+    font-size: 16px;
+  }
+  .m-hdr {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .release-date {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .hp-nav-li {
+    margin: 7px 10px;
+  }
+  .hp-nav-li > li {
+    margin: 5px;
+  }
+  .hp-ctr {
+    width: 95vw;
+    margin: 0px auto;
+  }
+  .nav-h {
+    letter-spacing: 0.5px;
+    font-size: 18px;
+    padding: 2px 5px;
+  }
+}
