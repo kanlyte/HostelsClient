@@ -1,10 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import "../Design/team.css";
 import SingleTeamMember from "./SingleTeamMember";
 import { BeaconHostelsTeam } from "../store/otherData/otherData";
-// import { kawuTeam } from "../../store/otherData";
-// import SingleTeamMember from "./SingleTeamMember";
+
 
 const BTeam = () => {
   return (

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import placeHolder from "../store/images/profile-picture-placeholder.jpeg";
 import styled from "styled-components";
 import "../Design/team.css";
-import { Link } from "react-router-dom";
 
 const MyProgressiveImage = ({ placeholder, src, ...props }) => {
   const [imgSrc, setImgSrc] = useState(placeholder);
