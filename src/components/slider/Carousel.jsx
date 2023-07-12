@@ -151,9 +151,9 @@ const Carousel = () => {
                   <h3 className="text-white mb-3" style={{ fontSize: "25px" }}>
                     Visit Kanlyte site
                   </h3>
-                  <a href="https://kanlyte.com/" className="---btn-1">
+                  {/* <a href="https://kanlyte.com/" className="---btn-1">
                     visit site here
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
